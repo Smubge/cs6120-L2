@@ -29,7 +29,7 @@ with open(sys.argv[1], 'r') as file:
 
 blocks = []
 block = []
-lbl2block = {}
+lbl2block = []
 selfIdx = 0
 
 # creating basic blocks implementation
@@ -81,12 +81,16 @@ for b in blocks:
 '''
 for b in blocks:
 	last = b.last() # last instr in block, doesn't work if blocks empty
-	if b.last() is not None:
-		if b.last()["op"] == "jmp":
-			cfg[b.idx] = [b.last()["dest"]]
-		elif b.last()["op"] == "br":
-			cfg[b.idx] = [b.last()["labels"][0], b.last()["labels"][1]]
-		elif "dest" not in b.last() and "labels" not in b.last():
+	if last is not None:
+		if "op" in last:
+			if last["op"] == "jmp":
+				if "labels" in last: 
+					cfg[b.idx] = last["labels"]
+				else:
+					cfg[b.idx] = [last["dest"]]
+			elif last["op"] == "br":
+				cfg[b.idx] = [last["labels"][0], last["labels"][1]]
+		elif "dest" not in last and "labels" not in last:
 			cfg[b.idx] = []
 		else:
 			text = b.idx[0]
