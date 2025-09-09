@@ -1,9 +1,15 @@
 use std::fs;
 use serde_json::{Value, json, to_string_pretty};
 use std::fs::write;
-
+use std::env;
 fn main() {
-    let data = fs::read_to_string("data/add.json").expect("Unable to read file");
+    let args: Vec<String> = env::args().collect();
+    if args.len() < 2 {
+        println!("Please input something like: cargo run <filename.json>");
+        std::process::exit(1);
+    }
+    let filepath = &args[1];
+    let data = fs::read_to_string(filepath).expect("Unable to read file");
     let mut json_data: Value = serde_json::from_str(&data).expect("JSON was not well-formatted");
     
     let mut replace_count = 0;
@@ -23,5 +29,5 @@ fn main() {
     }
     
     println!("Replaced {} occurrences of '{}' with '{}'", replace_count, replace, replaced);
-    write("data/add.json", to_string_pretty(&json_data).expect("Failed to serialize JSON")).expect("Unable to write file"); 
+    write(filepath.clone() + ".out", to_string_pretty(&json_data).expect("Failed to serialize JSON")).expect("Unable to write file"); 
 }
