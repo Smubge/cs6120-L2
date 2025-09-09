@@ -17,16 +17,22 @@ fn main() {
     let replace = "add";
     let replaced = "mul";
     
-    let instr = json_data["functions"][0]["instrs"].as_array_mut().expect("Instructions should be an array");
-
-    for instruction in instr.iter_mut() {
-        if let Some(op) = instruction["op"].as_str() {
-            if op == replace {
-                instruction["op"] = json!(replaced);
-                replace_count += 1;
+    // let instr = json_data["functions"].as_array_mut().expect("Instructions should be an array");
+   if let Some(funcs) = json_data["functions"].as_array_mut() {
+        for (i, func) in funcs.iter_mut().enumerate() {
+            if let Some(instrs) = func["instrs"].as_array_mut() {
+                for instruction in instrs.iter_mut() {
+                    if let Some(op) = instruction["op"].as_str() {
+                        if op == replace {
+                            instruction["op"] = json!(replaced);
+                            replace_count += 1;
+                        }
+                    }
+                }
             }
         }
     }
+   
     
     println!("Replaced {} occurrences of '{}' with '{}'", replace_count, replace, replaced);
     write(filepath.clone() + ".out", to_string_pretty(&json_data).expect("Failed to serialize JSON")).expect("Unable to write file"); 
