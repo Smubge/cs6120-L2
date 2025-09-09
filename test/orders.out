@@ -1,0 +1,1 @@
+{'v3': ['mul_neg_one', 'abs_res'], 'v17': ['while.finish', 'while.body'], 'v21': ['while.cond'], 'v26': ['check_b', 'is_good'], 'v29': ['special_case', 'is_good'], 'v40': ['for.finish', 'for.body'], 'v41': [], 'v42': ['lcm', 'gcd'], 'v46': ['for.body.print'], 'v54': ['for.cond']}
