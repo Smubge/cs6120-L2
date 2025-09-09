@@ -29,7 +29,6 @@ with open(sys.argv[1], 'r') as file:
 
 blocks = []
 block = []
-lbl2block = []
 selfIdx = 0
 
 # creating basic blocks implementation
@@ -42,7 +41,6 @@ for func in instrs["functions"]:
                 blocks.append(b0)
                 block = []
                 block.append(instr)
-                lbl2block.append(instr["label"])
             elif "op" in instr:
                 if instr["op"] == "br" or instr["op"] == "jmp":
                     b1 = Block("v" + str(selfIdx), block)

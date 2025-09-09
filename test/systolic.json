@@ -1,0 +1,1791 @@
+{
+  "functions": [
+    {
+      "args": [
+        {
+          "name": "seq",
+          "type": {
+            "ptr": "int"
+          }
+        },
+        {
+          "name": "max",
+          "type": "int"
+        }
+      ],
+      "instrs": [
+        {
+          "dest": "a",
+          "op": "const",
+          "type": "int",
+          "value": 25214903917
+        },
+        {
+          "dest": "c",
+          "op": "const",
+          "type": "int",
+          "value": 11
+        },
+        {
+          "dest": "m",
+          "op": "const",
+          "type": "int",
+          "value": 281474976710656
+        },
+        {
+          "args": [
+            "seq"
+          ],
+          "dest": "x",
+          "op": "load",
+          "type": "int"
+        },
+        {
+          "args": [
+            "a",
+            "x"
+          ],
+          "dest": "ax",
+          "op": "mul",
+          "type": "int"
+        },
+        {
+          "args": [
+            "ax",
+            "c"
+          ],
+          "dest": "axpc",
+          "op": "add",
+          "type": "int"
+        },
+        {
+          "args": [
+            "axpc",
+            "m"
+          ],
+          "dest": "next",
+          "op": "div",
+          "type": "int"
+        },
+        {
+          "args": [
+            "next",
+            "m"
+          ],
+          "dest": "next",
+          "op": "mul",
+          "type": "int"
+        },
+        {
+          "args": [
+            "axpc",
+            "next"
+          ],
+          "dest": "next",
+          "op": "sub",
+          "type": "int"
+        },
+        {
+          "args": [
+            "seq",
+            "next"
+          ],
+          "op": "store"
+        },
+        {
+          "args": [
+            "next",
+            "max"
+          ],
+          "dest": "val",
+          "op": "div",
+          "type": "int"
+        },
+        {
+          "args": [
+            "val",
+            "max"
+          ],
+          "dest": "val",
+          "op": "mul",
+          "type": "int"
+        },
+        {
+          "args": [
+            "next",
+            "val"
+          ],
+          "dest": "val",
+          "op": "sub",
+          "type": "int"
+        },
+        {
+          "args": [
+            "val"
+          ],
+          "op": "ret"
+        }
+      ],
+      "name": "rand",
+      "type": "int"
+    },
+    {
+      "args": [
+        {
+          "name": "rows",
+          "type": "int"
+        },
+        {
+          "name": "cols",
+          "type": "int"
+        },
+        {
+          "name": "rng",
+          "type": {
+            "ptr": "int"
+          }
+        }
+      ],
+      "instrs": [
+        {
+          "args": [
+            "rows",
+            "cols"
+          ],
+          "dest": "size",
+          "op": "mul",
+          "type": "int"
+        },
+        {
+          "args": [
+            "size"
+          ],
+          "dest": "arr",
+          "op": "alloc",
+          "type": {
+            "ptr": "int"
+          }
+        },
+        {
+          "dest": "i",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "dest": "max",
+          "op": "const",
+          "type": "int",
+          "value": 10
+        },
+        {
+          "dest": "one",
+          "op": "const",
+          "type": "int",
+          "value": 1
+        },
+        {
+          "label": "loop"
+        },
+        {
+          "args": [
+            "i",
+            "size"
+          ],
+          "dest": "cond",
+          "op": "lt",
+          "type": "bool"
+        },
+        {
+          "args": [
+            "cond"
+          ],
+          "labels": [
+            "body",
+            "done"
+          ],
+          "op": "br"
+        },
+        {
+          "label": "body"
+        },
+        {
+          "args": [
+            "rng",
+            "max"
+          ],
+          "dest": "val",
+          "funcs": [
+            "rand"
+          ],
+          "op": "call",
+          "type": "int"
+        },
+        {
+          "args": [
+            "arr",
+            "i"
+          ],
+          "dest": "loc",
+          "op": "ptradd",
+          "type": {
+            "ptr": "int"
+          }
+        },
+        {
+          "args": [
+            "loc",
+            "val"
+          ],
+          "op": "store"
+        },
+        {
+          "args": [
+            "i",
+            "one"
+          ],
+          "dest": "i",
+          "op": "add",
+          "type": "int"
+        },
+        {
+          "labels": [
+            "loop"
+          ],
+          "op": "jmp"
+        },
+        {
+          "label": "done"
+        },
+        {
+          "args": [
+            "arr"
+          ],
+          "op": "ret"
+        }
+      ],
+      "name": "init_matrix",
+      "type": {
+        "ptr": "int"
+      }
+    },
+    {
+      "args": [
+        {
+          "name": "rows",
+          "type": "int"
+        },
+        {
+          "name": "cols",
+          "type": "int"
+        },
+        {
+          "name": "arr",
+          "type": {
+            "ptr": "int"
+          }
+        }
+      ],
+      "instrs": [
+        {
+          "dest": "i",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "dest": "zero",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "dest": "one",
+          "op": "const",
+          "type": "int",
+          "value": 1
+        },
+        {
+          "label": "row_loop"
+        },
+        {
+          "args": [
+            "i",
+            "rows"
+          ],
+          "dest": "cond",
+          "op": "lt",
+          "type": "bool"
+        },
+        {
+          "args": [
+            "cond"
+          ],
+          "labels": [
+            "row_body",
+            "done"
+          ],
+          "op": "br"
+        },
+        {
+          "label": "row_body"
+        },
+        {
+          "dest": "j",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "label": "col_loop"
+        },
+        {
+          "args": [
+            "j",
+            "cols"
+          ],
+          "dest": "cond",
+          "op": "lt",
+          "type": "bool"
+        },
+        {
+          "args": [
+            "cond"
+          ],
+          "labels": [
+            "col_body",
+            "row_end"
+          ],
+          "op": "br"
+        },
+        {
+          "label": "col_body"
+        },
+        {
+          "args": [
+            "i",
+            "cols"
+          ],
+          "dest": "idx",
+          "op": "mul",
+          "type": "int"
+        },
+        {
+          "args": [
+            "idx",
+            "j"
+          ],
+          "dest": "idx",
+          "op": "add",
+          "type": "int"
+        },
+        {
+          "args": [
+            "arr",
+            "idx"
+          ],
+          "dest": "loc",
+          "op": "ptradd",
+          "type": {
+            "ptr": "int"
+          }
+        },
+        {
+          "args": [
+            "loc"
+          ],
+          "dest": "val",
+          "op": "load",
+          "type": "int"
+        },
+        {
+          "args": [
+            "val"
+          ],
+          "op": "print"
+        },
+        {
+          "args": [
+            "j",
+            "one"
+          ],
+          "dest": "j",
+          "op": "add",
+          "type": "int"
+        },
+        {
+          "labels": [
+            "col_loop"
+          ],
+          "op": "jmp"
+        },
+        {
+          "label": "row_end"
+        },
+        {
+          "args": [
+            "i",
+            "one"
+          ],
+          "dest": "i",
+          "op": "add",
+          "type": "int"
+        },
+        {
+          "labels": [
+            "row_loop"
+          ],
+          "op": "jmp"
+        },
+        {
+          "label": "done"
+        },
+        {
+          "op": "ret"
+        }
+      ],
+      "name": "print_matrix"
+    },
+    {
+      "args": [
+        {
+          "name": "matrix",
+          "type": {
+            "ptr": "int"
+          }
+        },
+        {
+          "name": "rows",
+          "type": "int"
+        },
+        {
+          "name": "cols",
+          "type": "int"
+        },
+        {
+          "name": "row",
+          "type": "int"
+        },
+        {
+          "name": "col",
+          "type": "int"
+        }
+      ],
+      "instrs": [
+        {
+          "args": [
+            "row",
+            "cols"
+          ],
+          "dest": "idx",
+          "op": "mul",
+          "type": "int"
+        },
+        {
+          "args": [
+            "idx",
+            "col"
+          ],
+          "dest": "idx",
+          "op": "add",
+          "type": "int"
+        },
+        {
+          "args": [
+            "matrix",
+            "idx"
+          ],
+          "dest": "loc",
+          "op": "ptradd",
+          "type": {
+            "ptr": "int"
+          }
+        },
+        {
+          "args": [
+            "loc"
+          ],
+          "dest": "val",
+          "op": "load",
+          "type": "int"
+        },
+        {
+          "args": [
+            "val"
+          ],
+          "op": "ret"
+        }
+      ],
+      "name": "get_element",
+      "type": "int"
+    },
+    {
+      "args": [
+        {
+          "name": "matrix",
+          "type": {
+            "ptr": "int"
+          }
+        },
+        {
+          "name": "rows",
+          "type": "int"
+        },
+        {
+          "name": "cols",
+          "type": "int"
+        },
+        {
+          "name": "row",
+          "type": "int"
+        },
+        {
+          "name": "col",
+          "type": "int"
+        },
+        {
+          "name": "val",
+          "type": "int"
+        }
+      ],
+      "instrs": [
+        {
+          "args": [
+            "row",
+            "cols"
+          ],
+          "dest": "idx",
+          "op": "mul",
+          "type": "int"
+        },
+        {
+          "args": [
+            "idx",
+            "col"
+          ],
+          "dest": "idx",
+          "op": "add",
+          "type": "int"
+        },
+        {
+          "args": [
+            "matrix",
+            "idx"
+          ],
+          "dest": "loc",
+          "op": "ptradd",
+          "type": {
+            "ptr": "int"
+          }
+        },
+        {
+          "args": [
+            "loc",
+            "val"
+          ],
+          "op": "store"
+        },
+        {
+          "op": "ret"
+        }
+      ],
+      "name": "set_element"
+    },
+    {
+      "args": [
+        {
+          "name": "A",
+          "type": {
+            "ptr": "int"
+          }
+        },
+        {
+          "name": "B",
+          "type": {
+            "ptr": "int"
+          }
+        },
+        {
+          "name": "C",
+          "type": {
+            "ptr": "int"
+          }
+        }
+      ],
+      "instrs": [
+        {
+          "dest": "M",
+          "op": "const",
+          "type": "int",
+          "value": 2
+        },
+        {
+          "dest": "N",
+          "op": "const",
+          "type": "int",
+          "value": 2
+        },
+        {
+          "dest": "K",
+          "op": "const",
+          "type": "int",
+          "value": 2
+        },
+        {
+          "dest": "P0",
+          "op": "const",
+          "type": "int",
+          "value": 4
+        },
+        {
+          "dest": "P1",
+          "op": "const",
+          "type": "int",
+          "value": 4
+        },
+        {
+          "dest": "zero",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "dest": "one",
+          "op": "const",
+          "type": "int",
+          "value": 1
+        },
+        {
+          "dest": "two",
+          "op": "const",
+          "type": "int",
+          "value": 2
+        },
+        {
+          "dest": "three",
+          "op": "const",
+          "type": "int",
+          "value": 3
+        },
+        {
+          "args": [
+            "C",
+            "two",
+            "two",
+            "zero",
+            "zero",
+            "zero"
+          ],
+          "funcs": [
+            "set_element"
+          ],
+          "op": "call"
+        },
+        {
+          "args": [
+            "C",
+            "two",
+            "two",
+            "zero",
+            "one",
+            "zero"
+          ],
+          "funcs": [
+            "set_element"
+          ],
+          "op": "call"
+        },
+        {
+          "args": [
+            "C",
+            "two",
+            "two",
+            "one",
+            "zero",
+            "zero"
+          ],
+          "funcs": [
+            "set_element"
+          ],
+          "op": "call"
+        },
+        {
+          "args": [
+            "C",
+            "two",
+            "two",
+            "one",
+            "one",
+            "zero"
+          ],
+          "funcs": [
+            "set_element"
+          ],
+          "op": "call"
+        },
+        {
+          "dest": "i",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "dest": "j",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "dest": "result",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "dest": "k",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "label": "compute_00"
+        },
+        {
+          "args": [
+            "k",
+            "K"
+          ],
+          "dest": "cond",
+          "op": "lt",
+          "type": "bool"
+        },
+        {
+          "args": [
+            "cond"
+          ],
+          "labels": [
+            "body_00",
+            "done_00"
+          ],
+          "op": "br"
+        },
+        {
+          "label": "body_00"
+        },
+        {
+          "args": [
+            "A",
+            "M",
+            "K",
+            "i",
+            "k"
+          ],
+          "dest": "a_val",
+          "funcs": [
+            "get_element"
+          ],
+          "op": "call",
+          "type": "int"
+        },
+        {
+          "args": [
+            "B",
+            "K",
+            "N",
+            "k",
+            "j"
+          ],
+          "dest": "b_val",
+          "funcs": [
+            "get_element"
+          ],
+          "op": "call",
+          "type": "int"
+        },
+        {
+          "args": [
+            "a_val",
+            "b_val"
+          ],
+          "dest": "prod",
+          "op": "mul",
+          "type": "int"
+        },
+        {
+          "args": [
+            "result",
+            "prod"
+          ],
+          "dest": "result",
+          "op": "add",
+          "type": "int"
+        },
+        {
+          "args": [
+            "k",
+            "one"
+          ],
+          "dest": "k",
+          "op": "add",
+          "type": "int"
+        },
+        {
+          "labels": [
+            "compute_00"
+          ],
+          "op": "jmp"
+        },
+        {
+          "label": "done_00"
+        },
+        {
+          "args": [
+            "C",
+            "M",
+            "N",
+            "i",
+            "j",
+            "result"
+          ],
+          "funcs": [
+            "set_element"
+          ],
+          "op": "call"
+        },
+        {
+          "dest": "i",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "dest": "j",
+          "op": "const",
+          "type": "int",
+          "value": 1
+        },
+        {
+          "dest": "result",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "dest": "k",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "label": "compute_01"
+        },
+        {
+          "args": [
+            "k",
+            "K"
+          ],
+          "dest": "cond",
+          "op": "lt",
+          "type": "bool"
+        },
+        {
+          "args": [
+            "cond"
+          ],
+          "labels": [
+            "body_01",
+            "done_01"
+          ],
+          "op": "br"
+        },
+        {
+          "label": "body_01"
+        },
+        {
+          "args": [
+            "A",
+            "M",
+            "K",
+            "i",
+            "k"
+          ],
+          "dest": "a_val",
+          "funcs": [
+            "get_element"
+          ],
+          "op": "call",
+          "type": "int"
+        },
+        {
+          "args": [
+            "B",
+            "K",
+            "N",
+            "k",
+            "j"
+          ],
+          "dest": "b_val",
+          "funcs": [
+            "get_element"
+          ],
+          "op": "call",
+          "type": "int"
+        },
+        {
+          "args": [
+            "a_val",
+            "b_val"
+          ],
+          "dest": "prod",
+          "op": "mul",
+          "type": "int"
+        },
+        {
+          "args": [
+            "result",
+            "prod"
+          ],
+          "dest": "result",
+          "op": "add",
+          "type": "int"
+        },
+        {
+          "args": [
+            "k",
+            "one"
+          ],
+          "dest": "k",
+          "op": "add",
+          "type": "int"
+        },
+        {
+          "labels": [
+            "compute_01"
+          ],
+          "op": "jmp"
+        },
+        {
+          "label": "done_01"
+        },
+        {
+          "args": [
+            "C",
+            "M",
+            "N",
+            "i",
+            "j",
+            "result"
+          ],
+          "funcs": [
+            "set_element"
+          ],
+          "op": "call"
+        },
+        {
+          "dest": "i",
+          "op": "const",
+          "type": "int",
+          "value": 1
+        },
+        {
+          "dest": "j",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "dest": "result",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "dest": "k",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "label": "compute_10"
+        },
+        {
+          "args": [
+            "k",
+            "K"
+          ],
+          "dest": "cond",
+          "op": "lt",
+          "type": "bool"
+        },
+        {
+          "args": [
+            "cond"
+          ],
+          "labels": [
+            "body_10",
+            "done_10"
+          ],
+          "op": "br"
+        },
+        {
+          "label": "body_10"
+        },
+        {
+          "args": [
+            "A",
+            "M",
+            "K",
+            "i",
+            "k"
+          ],
+          "dest": "a_val",
+          "funcs": [
+            "get_element"
+          ],
+          "op": "call",
+          "type": "int"
+        },
+        {
+          "args": [
+            "B",
+            "K",
+            "N",
+            "k",
+            "j"
+          ],
+          "dest": "b_val",
+          "funcs": [
+            "get_element"
+          ],
+          "op": "call",
+          "type": "int"
+        },
+        {
+          "args": [
+            "a_val",
+            "b_val"
+          ],
+          "dest": "prod",
+          "op": "mul",
+          "type": "int"
+        },
+        {
+          "args": [
+            "result",
+            "prod"
+          ],
+          "dest": "result",
+          "op": "add",
+          "type": "int"
+        },
+        {
+          "args": [
+            "k",
+            "one"
+          ],
+          "dest": "k",
+          "op": "add",
+          "type": "int"
+        },
+        {
+          "labels": [
+            "compute_10"
+          ],
+          "op": "jmp"
+        },
+        {
+          "label": "done_10"
+        },
+        {
+          "args": [
+            "C",
+            "M",
+            "N",
+            "i",
+            "j",
+            "result"
+          ],
+          "funcs": [
+            "set_element"
+          ],
+          "op": "call"
+        },
+        {
+          "dest": "i",
+          "op": "const",
+          "type": "int",
+          "value": 1
+        },
+        {
+          "dest": "j",
+          "op": "const",
+          "type": "int",
+          "value": 1
+        },
+        {
+          "dest": "result",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "dest": "k",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "label": "compute_11"
+        },
+        {
+          "args": [
+            "k",
+            "K"
+          ],
+          "dest": "cond",
+          "op": "lt",
+          "type": "bool"
+        },
+        {
+          "args": [
+            "cond"
+          ],
+          "labels": [
+            "body_11",
+            "done_11"
+          ],
+          "op": "br"
+        },
+        {
+          "label": "body_11"
+        },
+        {
+          "args": [
+            "A",
+            "M",
+            "K",
+            "i",
+            "k"
+          ],
+          "dest": "a_val",
+          "funcs": [
+            "get_element"
+          ],
+          "op": "call",
+          "type": "int"
+        },
+        {
+          "args": [
+            "B",
+            "K",
+            "N",
+            "k",
+            "j"
+          ],
+          "dest": "b_val",
+          "funcs": [
+            "get_element"
+          ],
+          "op": "call",
+          "type": "int"
+        },
+        {
+          "args": [
+            "a_val",
+            "b_val"
+          ],
+          "dest": "prod",
+          "op": "mul",
+          "type": "int"
+        },
+        {
+          "args": [
+            "result",
+            "prod"
+          ],
+          "dest": "result",
+          "op": "add",
+          "type": "int"
+        },
+        {
+          "args": [
+            "k",
+            "one"
+          ],
+          "dest": "k",
+          "op": "add",
+          "type": "int"
+        },
+        {
+          "labels": [
+            "compute_11"
+          ],
+          "op": "jmp"
+        },
+        {
+          "label": "done_11"
+        },
+        {
+          "args": [
+            "C",
+            "M",
+            "N",
+            "i",
+            "j",
+            "result"
+          ],
+          "funcs": [
+            "set_element"
+          ],
+          "op": "call"
+        },
+        {
+          "op": "ret"
+        }
+      ],
+      "name": "systolic_gemm"
+    },
+    {
+      "args": [
+        {
+          "name": "A",
+          "type": {
+            "ptr": "int"
+          }
+        },
+        {
+          "name": "B",
+          "type": {
+            "ptr": "int"
+          }
+        },
+        {
+          "name": "C",
+          "type": {
+            "ptr": "int"
+          }
+        }
+      ],
+      "instrs": [
+        {
+          "dest": "M",
+          "op": "const",
+          "type": "int",
+          "value": 2
+        },
+        {
+          "dest": "N",
+          "op": "const",
+          "type": "int",
+          "value": 2
+        },
+        {
+          "dest": "K",
+          "op": "const",
+          "type": "int",
+          "value": 2
+        },
+        {
+          "dest": "zero",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "dest": "one",
+          "op": "const",
+          "type": "int",
+          "value": 1
+        },
+        {
+          "dest": "two",
+          "op": "const",
+          "type": "int",
+          "value": 2
+        },
+        {
+          "dest": "pe_00",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "dest": "pe_01",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "dest": "pe_10",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "dest": "pe_11",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "dest": "cycle",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "label": "cycle_loop"
+        },
+        {
+          "args": [
+            "cycle",
+            "K"
+          ],
+          "dest": "cond",
+          "op": "lt",
+          "type": "bool"
+        },
+        {
+          "args": [
+            "cond"
+          ],
+          "labels": [
+            "cycle_body",
+            "cycles_done"
+          ],
+          "op": "br"
+        },
+        {
+          "label": "cycle_body"
+        },
+        {
+          "args": [
+            "A",
+            "M",
+            "K",
+            "zero",
+            "cycle"
+          ],
+          "dest": "a_val",
+          "funcs": [
+            "get_element"
+          ],
+          "op": "call",
+          "type": "int"
+        },
+        {
+          "args": [
+            "B",
+            "K",
+            "N",
+            "cycle",
+            "zero"
+          ],
+          "dest": "b_val",
+          "funcs": [
+            "get_element"
+          ],
+          "op": "call",
+          "type": "int"
+        },
+        {
+          "args": [
+            "a_val",
+            "b_val"
+          ],
+          "dest": "prod",
+          "op": "mul",
+          "type": "int"
+        },
+        {
+          "args": [
+            "pe_00",
+            "prod"
+          ],
+          "dest": "pe_00",
+          "op": "add",
+          "type": "int"
+        },
+        {
+          "args": [
+            "A",
+            "M",
+            "K",
+            "zero",
+            "cycle"
+          ],
+          "dest": "a_val",
+          "funcs": [
+            "get_element"
+          ],
+          "op": "call",
+          "type": "int"
+        },
+        {
+          "args": [
+            "B",
+            "K",
+            "N",
+            "cycle",
+            "one"
+          ],
+          "dest": "b_val",
+          "funcs": [
+            "get_element"
+          ],
+          "op": "call",
+          "type": "int"
+        },
+        {
+          "args": [
+            "a_val",
+            "b_val"
+          ],
+          "dest": "prod",
+          "op": "mul",
+          "type": "int"
+        },
+        {
+          "args": [
+            "pe_01",
+            "prod"
+          ],
+          "dest": "pe_01",
+          "op": "add",
+          "type": "int"
+        },
+        {
+          "args": [
+            "A",
+            "M",
+            "K",
+            "one",
+            "cycle"
+          ],
+          "dest": "a_val",
+          "funcs": [
+            "get_element"
+          ],
+          "op": "call",
+          "type": "int"
+        },
+        {
+          "args": [
+            "B",
+            "K",
+            "N",
+            "cycle",
+            "zero"
+          ],
+          "dest": "b_val",
+          "funcs": [
+            "get_element"
+          ],
+          "op": "call",
+          "type": "int"
+        },
+        {
+          "args": [
+            "a_val",
+            "b_val"
+          ],
+          "dest": "prod",
+          "op": "mul",
+          "type": "int"
+        },
+        {
+          "args": [
+            "pe_10",
+            "prod"
+          ],
+          "dest": "pe_10",
+          "op": "add",
+          "type": "int"
+        },
+        {
+          "args": [
+            "A",
+            "M",
+            "K",
+            "one",
+            "cycle"
+          ],
+          "dest": "a_val",
+          "funcs": [
+            "get_element"
+          ],
+          "op": "call",
+          "type": "int"
+        },
+        {
+          "args": [
+            "B",
+            "K",
+            "N",
+            "cycle",
+            "one"
+          ],
+          "dest": "b_val",
+          "funcs": [
+            "get_element"
+          ],
+          "op": "call",
+          "type": "int"
+        },
+        {
+          "args": [
+            "a_val",
+            "b_val"
+          ],
+          "dest": "prod",
+          "op": "mul",
+          "type": "int"
+        },
+        {
+          "args": [
+            "pe_11",
+            "prod"
+          ],
+          "dest": "pe_11",
+          "op": "add",
+          "type": "int"
+        },
+        {
+          "args": [
+            "cycle",
+            "one"
+          ],
+          "dest": "cycle",
+          "op": "add",
+          "type": "int"
+        },
+        {
+          "labels": [
+            "cycle_loop"
+          ],
+          "op": "jmp"
+        },
+        {
+          "label": "cycles_done"
+        },
+        {
+          "args": [
+            "C",
+            "M",
+            "N",
+            "zero",
+            "zero",
+            "pe_00"
+          ],
+          "funcs": [
+            "set_element"
+          ],
+          "op": "call"
+        },
+        {
+          "args": [
+            "C",
+            "M",
+            "N",
+            "zero",
+            "one",
+            "pe_01"
+          ],
+          "funcs": [
+            "set_element"
+          ],
+          "op": "call"
+        },
+        {
+          "args": [
+            "C",
+            "M",
+            "N",
+            "one",
+            "zero",
+            "pe_10"
+          ],
+          "funcs": [
+            "set_element"
+          ],
+          "op": "call"
+        },
+        {
+          "args": [
+            "C",
+            "M",
+            "N",
+            "one",
+            "one",
+            "pe_11"
+          ],
+          "funcs": [
+            "set_element"
+          ],
+          "op": "call"
+        },
+        {
+          "op": "ret"
+        }
+      ],
+      "name": "systolic_timed_gemm"
+    },
+    {
+      "args": [
+        {
+          "name": "seed",
+          "type": "int"
+        }
+      ],
+      "instrs": [
+        {
+          "dest": "one",
+          "op": "const",
+          "type": "int",
+          "value": 1
+        },
+        {
+          "dest": "two",
+          "op": "const",
+          "type": "int",
+          "value": 2
+        },
+        {
+          "dest": "four",
+          "op": "const",
+          "type": "int",
+          "value": 4
+        },
+        {
+          "args": [
+            "one"
+          ],
+          "dest": "rng",
+          "op": "alloc",
+          "type": {
+            "ptr": "int"
+          }
+        },
+        {
+          "args": [
+            "rng",
+            "seed"
+          ],
+          "op": "store"
+        },
+        {
+          "args": [
+            "two",
+            "two",
+            "rng"
+          ],
+          "dest": "A",
+          "funcs": [
+            "init_matrix"
+          ],
+          "op": "call",
+          "type": {
+            "ptr": "int"
+          }
+        },
+        {
+          "args": [
+            "two",
+            "two",
+            "rng"
+          ],
+          "dest": "B",
+          "funcs": [
+            "init_matrix"
+          ],
+          "op": "call",
+          "type": {
+            "ptr": "int"
+          }
+        },
+        {
+          "args": [
+            "four"
+          ],
+          "dest": "C",
+          "op": "alloc",
+          "type": {
+            "ptr": "int"
+          }
+        },
+        {
+          "args": [
+            "two",
+            "two",
+            "A"
+          ],
+          "funcs": [
+            "print_matrix"
+          ],
+          "op": "call"
+        },
+        {
+          "args": [
+            "two",
+            "two",
+            "B"
+          ],
+          "funcs": [
+            "print_matrix"
+          ],
+          "op": "call"
+        },
+        {
+          "args": [
+            "A",
+            "B",
+            "C"
+          ],
+          "funcs": [
+            "systolic_timed_gemm"
+          ],
+          "op": "call"
+        },
+        {
+          "args": [
+            "two",
+            "two",
+            "C"
+          ],
+          "funcs": [
+            "print_matrix"
+          ],
+          "op": "call"
+        },
+        {
+          "args": [
+            "A"
+          ],
+          "op": "free"
+        },
+        {
+          "args": [
+            "B"
+          ],
+          "op": "free"
+        },
+        {
+          "args": [
+            "C"
+          ],
+          "op": "free"
+        },
+        {
+          "args": [
+            "rng"
+          ],
+          "op": "free"
+        },
+        {
+          "op": "ret"
+        }
+      ],
+      "name": "main"
+    }
+  ]
+}
