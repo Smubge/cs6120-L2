@@ -1,3 +1,11 @@
+"""
+Control Flow Graph!
+Jonathan Brown and Cynthia Shao
+
+This script takes in a Bril json file and outputs the 
+corresponding control flow graph in a edge list format.
+"""
+
 import json
 import sys
 
@@ -54,6 +62,7 @@ def get_block_name(self,lbl):
             return first["op"]
     else:
         return lbl
+
 # creating basic blocks implementation
 for func in instrs["functions"]:
     if "instrs" in func:
@@ -88,28 +97,9 @@ def probe_next(block):
                 return b.idx
         if (b.idx) == block:
             found = True
-            
-            
-cfg = {}
-# cfg implementation
-"""
-basic blocks:
-* ends with a terminator
-* starts with a label
-* has neither
-* has both
-"""
 
-'''
-for b in blocks:
-	last = b[-1] // last instr in block, doesn't work if blocks empty
-	if last is "jmp":
-		cfg[b.name] = [last.dest] // assume each block has label/id
-	else if last is "br":
-		cfg[b.name] = [last.true_label, last.false_label]
-	else:
-		cfg[b.name] = [(b + 1).name] // next block in the list
-'''
+# building the control flow graph edge list!
+cfg = {}
 for b in blocks:
 	last = b.last() # last instr in block, doesn't work if blocks empty
 	if last is not None:
