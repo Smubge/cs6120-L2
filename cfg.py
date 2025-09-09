@@ -1,4 +1,5 @@
 import json
+import sys
 
 class Block:
 	def __init__(self, idx, instrs):
@@ -23,7 +24,7 @@ class Block:
 	def __str__(self):
 		return f"Block(idx={self.idx}, label={self.label}, edges = {self.edges} )"          
 
-with open('add.json', 'r') as file:
+with open(sys.argv[1], 'r') as file:
 	instrs = json.load(file)
 
 blocks = []
