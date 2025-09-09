@@ -1,0 +1,1972 @@
+{
+  "functions": [
+    {
+      "args": [
+        {
+          "name": "year",
+          "type": "int"
+        },
+        {
+          "name": "month",
+          "type": "int"
+        },
+        {
+          "name": "day",
+          "type": "int"
+        }
+      ],
+      "instrs": [
+        {
+          "dest": "v11",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "args": [
+            "v11"
+          ],
+          "dest": "leap",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "args": [
+            "year"
+          ],
+          "dest": "v12",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v13",
+          "op": "const",
+          "type": "int",
+          "value": 400
+        },
+        {
+          "args": [
+            "v12",
+            "v13"
+          ],
+          "dest": "m400",
+          "funcs": [
+            "modulo"
+          ],
+          "op": "call",
+          "type": "int"
+        },
+        {
+          "args": [
+            "m400"
+          ],
+          "dest": "m400",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "args": [
+            "year"
+          ],
+          "dest": "v14",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v15",
+          "op": "const",
+          "type": "int",
+          "value": 100
+        },
+        {
+          "args": [
+            "v14",
+            "v15"
+          ],
+          "dest": "m100",
+          "funcs": [
+            "modulo"
+          ],
+          "op": "call",
+          "type": "int"
+        },
+        {
+          "args": [
+            "m100"
+          ],
+          "dest": "m100",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "args": [
+            "year"
+          ],
+          "dest": "v16",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v17",
+          "op": "const",
+          "type": "int",
+          "value": 4
+        },
+        {
+          "args": [
+            "v16",
+            "v17"
+          ],
+          "dest": "m4",
+          "funcs": [
+            "modulo"
+          ],
+          "op": "call",
+          "type": "int"
+        },
+        {
+          "args": [
+            "m4"
+          ],
+          "dest": "m4",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "args": [
+            "m400"
+          ],
+          "dest": "v19",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v20",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "args": [
+            "v19",
+            "v20"
+          ],
+          "dest": "v21",
+          "op": "eq",
+          "type": "bool"
+        },
+        {
+          "args": [
+            "v21"
+          ],
+          "labels": [
+            "then.18",
+            "else.18"
+          ],
+          "op": "br"
+        },
+        {
+          "label": "then.18"
+        },
+        {
+          "dest": "v22",
+          "op": "const",
+          "type": "int",
+          "value": 1
+        },
+        {
+          "args": [
+            "v22"
+          ],
+          "dest": "leap",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "labels": [
+            "endif.18"
+          ],
+          "op": "jmp"
+        },
+        {
+          "label": "else.18"
+        },
+        {
+          "args": [
+            "m100"
+          ],
+          "dest": "v24",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v25",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "args": [
+            "v24",
+            "v25"
+          ],
+          "dest": "v26",
+          "op": "eq",
+          "type": "bool"
+        },
+        {
+          "args": [
+            "v26"
+          ],
+          "labels": [
+            "then.23",
+            "else.23"
+          ],
+          "op": "br"
+        },
+        {
+          "label": "then.23"
+        },
+        {
+          "dest": "v27",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "args": [
+            "v27"
+          ],
+          "dest": "leap",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "labels": [
+            "endif.23"
+          ],
+          "op": "jmp"
+        },
+        {
+          "label": "else.23"
+        },
+        {
+          "args": [
+            "m4"
+          ],
+          "dest": "v29",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v30",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "args": [
+            "v29",
+            "v30"
+          ],
+          "dest": "v31",
+          "op": "eq",
+          "type": "bool"
+        },
+        {
+          "args": [
+            "v31"
+          ],
+          "labels": [
+            "then.28",
+            "else.28"
+          ],
+          "op": "br"
+        },
+        {
+          "label": "then.28"
+        },
+        {
+          "dest": "v32",
+          "op": "const",
+          "type": "int",
+          "value": 1
+        },
+        {
+          "args": [
+            "v32"
+          ],
+          "dest": "leap",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "labels": [
+            "endif.28"
+          ],
+          "op": "jmp"
+        },
+        {
+          "label": "else.28"
+        },
+        {
+          "label": "endif.28"
+        },
+        {
+          "label": "endif.23"
+        },
+        {
+          "label": "endif.18"
+        },
+        {
+          "args": [
+            "year"
+          ],
+          "dest": "v33",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v34",
+          "op": "const",
+          "type": "int",
+          "value": 100
+        },
+        {
+          "args": [
+            "v33",
+            "v34"
+          ],
+          "dest": "v35",
+          "op": "div",
+          "type": "int"
+        },
+        {
+          "args": [
+            "v35"
+          ],
+          "dest": "century",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v36",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "args": [
+            "v36"
+          ],
+          "dest": "centuryCode",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v38",
+          "op": "const",
+          "type": "int",
+          "value": 4
+        },
+        {
+          "args": [
+            "v38"
+          ],
+          "dest": "c",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "label": "for.cond.37"
+        },
+        {
+          "args": [
+            "c"
+          ],
+          "dest": "v39",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v40",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "args": [
+            "v39",
+            "v40"
+          ],
+          "dest": "v41",
+          "op": "gt",
+          "type": "bool"
+        },
+        {
+          "args": [
+            "v41"
+          ],
+          "labels": [
+            "for.body.37",
+            "for.end.37"
+          ],
+          "op": "br"
+        },
+        {
+          "label": "for.body.37"
+        },
+        {
+          "args": [
+            "century"
+          ],
+          "dest": "v42",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "args": [
+            "c"
+          ],
+          "dest": "v43",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "args": [
+            "v42",
+            "v43"
+          ],
+          "dest": "v44",
+          "op": "add",
+          "type": "int"
+        },
+        {
+          "dest": "v45",
+          "op": "const",
+          "type": "int",
+          "value": 4
+        },
+        {
+          "args": [
+            "v44",
+            "v45"
+          ],
+          "dest": "mcc",
+          "funcs": [
+            "modulo"
+          ],
+          "op": "call",
+          "type": "int"
+        },
+        {
+          "args": [
+            "mcc"
+          ],
+          "dest": "mcc",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "args": [
+            "mcc"
+          ],
+          "dest": "v47",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v48",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "args": [
+            "v47",
+            "v48"
+          ],
+          "dest": "v49",
+          "op": "eq",
+          "type": "bool"
+        },
+        {
+          "args": [
+            "v49"
+          ],
+          "labels": [
+            "then.46",
+            "else.46"
+          ],
+          "op": "br"
+        },
+        {
+          "label": "then.46"
+        },
+        {
+          "args": [
+            "c"
+          ],
+          "dest": "v50",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v51",
+          "op": "const",
+          "type": "int",
+          "value": 2
+        },
+        {
+          "args": [
+            "v50",
+            "v51"
+          ],
+          "dest": "v52",
+          "op": "mul",
+          "type": "int"
+        },
+        {
+          "dest": "v53",
+          "op": "const",
+          "type": "int",
+          "value": 2
+        },
+        {
+          "args": [
+            "v52",
+            "v53"
+          ],
+          "dest": "v54",
+          "op": "sub",
+          "type": "int"
+        },
+        {
+          "args": [
+            "v54"
+          ],
+          "dest": "centuryCode",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "labels": [
+            "endif.46"
+          ],
+          "op": "jmp"
+        },
+        {
+          "label": "else.46"
+        },
+        {
+          "label": "endif.46"
+        },
+        {
+          "args": [
+            "c"
+          ],
+          "dest": "v55",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v56",
+          "op": "const",
+          "type": "int",
+          "value": 1
+        },
+        {
+          "args": [
+            "v55",
+            "v56"
+          ],
+          "dest": "v57",
+          "op": "sub",
+          "type": "int"
+        },
+        {
+          "args": [
+            "v57"
+          ],
+          "dest": "c",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "labels": [
+            "for.cond.37"
+          ],
+          "op": "jmp"
+        },
+        {
+          "label": "for.end.37"
+        },
+        {
+          "args": [
+            "year"
+          ],
+          "dest": "v58",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v59",
+          "op": "const",
+          "type": "int",
+          "value": 100
+        },
+        {
+          "args": [
+            "v58",
+            "v59"
+          ],
+          "dest": "rYear",
+          "funcs": [
+            "modulo"
+          ],
+          "op": "call",
+          "type": "int"
+        },
+        {
+          "args": [
+            "rYear"
+          ],
+          "dest": "rYear",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "args": [
+            "centuryCode"
+          ],
+          "dest": "v60",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "args": [
+            "rYear"
+          ],
+          "dest": "v61",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "args": [
+            "v60",
+            "v61"
+          ],
+          "dest": "v62",
+          "op": "add",
+          "type": "int"
+        },
+        {
+          "args": [
+            "rYear"
+          ],
+          "dest": "v63",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v64",
+          "op": "const",
+          "type": "int",
+          "value": 4
+        },
+        {
+          "args": [
+            "v63",
+            "v64"
+          ],
+          "dest": "v65",
+          "op": "div",
+          "type": "int"
+        },
+        {
+          "args": [
+            "v62",
+            "v65"
+          ],
+          "dest": "v66",
+          "op": "add",
+          "type": "int"
+        },
+        {
+          "args": [
+            "v66"
+          ],
+          "dest": "yearCode",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v67",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "args": [
+            "v67"
+          ],
+          "dest": "monthCode",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "args": [
+            "month"
+          ],
+          "dest": "v69",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v70",
+          "op": "const",
+          "type": "int",
+          "value": 1
+        },
+        {
+          "args": [
+            "v69",
+            "v70"
+          ],
+          "dest": "v71",
+          "op": "eq",
+          "type": "bool"
+        },
+        {
+          "args": [
+            "v71"
+          ],
+          "labels": [
+            "then.68",
+            "else.68"
+          ],
+          "op": "br"
+        },
+        {
+          "label": "then.68"
+        },
+        {
+          "dest": "v72",
+          "op": "const",
+          "type": "int",
+          "value": 1
+        },
+        {
+          "args": [
+            "v72"
+          ],
+          "dest": "monthCode",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "labels": [
+            "endif.68"
+          ],
+          "op": "jmp"
+        },
+        {
+          "label": "else.68"
+        },
+        {
+          "args": [
+            "month"
+          ],
+          "dest": "v74",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v75",
+          "op": "const",
+          "type": "int",
+          "value": 2
+        },
+        {
+          "args": [
+            "v74",
+            "v75"
+          ],
+          "dest": "v76",
+          "op": "eq",
+          "type": "bool"
+        },
+        {
+          "args": [
+            "v76"
+          ],
+          "labels": [
+            "then.73",
+            "else.73"
+          ],
+          "op": "br"
+        },
+        {
+          "label": "then.73"
+        },
+        {
+          "dest": "v77",
+          "op": "const",
+          "type": "int",
+          "value": 4
+        },
+        {
+          "args": [
+            "v77"
+          ],
+          "dest": "monthCode",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "labels": [
+            "endif.73"
+          ],
+          "op": "jmp"
+        },
+        {
+          "label": "else.73"
+        },
+        {
+          "args": [
+            "month"
+          ],
+          "dest": "v79",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v80",
+          "op": "const",
+          "type": "int",
+          "value": 3
+        },
+        {
+          "args": [
+            "v79",
+            "v80"
+          ],
+          "dest": "v81",
+          "op": "eq",
+          "type": "bool"
+        },
+        {
+          "args": [
+            "v81"
+          ],
+          "labels": [
+            "then.78",
+            "else.78"
+          ],
+          "op": "br"
+        },
+        {
+          "label": "then.78"
+        },
+        {
+          "dest": "v82",
+          "op": "const",
+          "type": "int",
+          "value": 4
+        },
+        {
+          "args": [
+            "v82"
+          ],
+          "dest": "monthCode",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "labels": [
+            "endif.78"
+          ],
+          "op": "jmp"
+        },
+        {
+          "label": "else.78"
+        },
+        {
+          "args": [
+            "month"
+          ],
+          "dest": "v84",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v85",
+          "op": "const",
+          "type": "int",
+          "value": 4
+        },
+        {
+          "args": [
+            "v84",
+            "v85"
+          ],
+          "dest": "v86",
+          "op": "eq",
+          "type": "bool"
+        },
+        {
+          "args": [
+            "v86"
+          ],
+          "labels": [
+            "then.83",
+            "else.83"
+          ],
+          "op": "br"
+        },
+        {
+          "label": "then.83"
+        },
+        {
+          "dest": "v87",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "args": [
+            "v87"
+          ],
+          "dest": "monthCode",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "labels": [
+            "endif.83"
+          ],
+          "op": "jmp"
+        },
+        {
+          "label": "else.83"
+        },
+        {
+          "args": [
+            "month"
+          ],
+          "dest": "v89",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v90",
+          "op": "const",
+          "type": "int",
+          "value": 5
+        },
+        {
+          "args": [
+            "v89",
+            "v90"
+          ],
+          "dest": "v91",
+          "op": "eq",
+          "type": "bool"
+        },
+        {
+          "args": [
+            "v91"
+          ],
+          "labels": [
+            "then.88",
+            "else.88"
+          ],
+          "op": "br"
+        },
+        {
+          "label": "then.88"
+        },
+        {
+          "dest": "v92",
+          "op": "const",
+          "type": "int",
+          "value": 2
+        },
+        {
+          "args": [
+            "v92"
+          ],
+          "dest": "monthCode",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "labels": [
+            "endif.88"
+          ],
+          "op": "jmp"
+        },
+        {
+          "label": "else.88"
+        },
+        {
+          "args": [
+            "month"
+          ],
+          "dest": "v94",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v95",
+          "op": "const",
+          "type": "int",
+          "value": 6
+        },
+        {
+          "args": [
+            "v94",
+            "v95"
+          ],
+          "dest": "v96",
+          "op": "eq",
+          "type": "bool"
+        },
+        {
+          "args": [
+            "v96"
+          ],
+          "labels": [
+            "then.93",
+            "else.93"
+          ],
+          "op": "br"
+        },
+        {
+          "label": "then.93"
+        },
+        {
+          "dest": "v97",
+          "op": "const",
+          "type": "int",
+          "value": 5
+        },
+        {
+          "args": [
+            "v97"
+          ],
+          "dest": "monthCode",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "labels": [
+            "endif.93"
+          ],
+          "op": "jmp"
+        },
+        {
+          "label": "else.93"
+        },
+        {
+          "args": [
+            "month"
+          ],
+          "dest": "v99",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v100",
+          "op": "const",
+          "type": "int",
+          "value": 7
+        },
+        {
+          "args": [
+            "v99",
+            "v100"
+          ],
+          "dest": "v101",
+          "op": "eq",
+          "type": "bool"
+        },
+        {
+          "args": [
+            "v101"
+          ],
+          "labels": [
+            "then.98",
+            "else.98"
+          ],
+          "op": "br"
+        },
+        {
+          "label": "then.98"
+        },
+        {
+          "dest": "v102",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "args": [
+            "v102"
+          ],
+          "dest": "monthCode",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "labels": [
+            "endif.98"
+          ],
+          "op": "jmp"
+        },
+        {
+          "label": "else.98"
+        },
+        {
+          "args": [
+            "month"
+          ],
+          "dest": "v104",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v105",
+          "op": "const",
+          "type": "int",
+          "value": 8
+        },
+        {
+          "args": [
+            "v104",
+            "v105"
+          ],
+          "dest": "v106",
+          "op": "eq",
+          "type": "bool"
+        },
+        {
+          "args": [
+            "v106"
+          ],
+          "labels": [
+            "then.103",
+            "else.103"
+          ],
+          "op": "br"
+        },
+        {
+          "label": "then.103"
+        },
+        {
+          "dest": "v107",
+          "op": "const",
+          "type": "int",
+          "value": 3
+        },
+        {
+          "args": [
+            "v107"
+          ],
+          "dest": "monthCode",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "labels": [
+            "endif.103"
+          ],
+          "op": "jmp"
+        },
+        {
+          "label": "else.103"
+        },
+        {
+          "args": [
+            "month"
+          ],
+          "dest": "v109",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v110",
+          "op": "const",
+          "type": "int",
+          "value": 9
+        },
+        {
+          "args": [
+            "v109",
+            "v110"
+          ],
+          "dest": "v111",
+          "op": "eq",
+          "type": "bool"
+        },
+        {
+          "args": [
+            "v111"
+          ],
+          "labels": [
+            "then.108",
+            "else.108"
+          ],
+          "op": "br"
+        },
+        {
+          "label": "then.108"
+        },
+        {
+          "dest": "v112",
+          "op": "const",
+          "type": "int",
+          "value": 6
+        },
+        {
+          "args": [
+            "v112"
+          ],
+          "dest": "monthCode",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "labels": [
+            "endif.108"
+          ],
+          "op": "jmp"
+        },
+        {
+          "label": "else.108"
+        },
+        {
+          "args": [
+            "month"
+          ],
+          "dest": "v114",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v115",
+          "op": "const",
+          "type": "int",
+          "value": 10
+        },
+        {
+          "args": [
+            "v114",
+            "v115"
+          ],
+          "dest": "v116",
+          "op": "eq",
+          "type": "bool"
+        },
+        {
+          "args": [
+            "v116"
+          ],
+          "labels": [
+            "then.113",
+            "else.113"
+          ],
+          "op": "br"
+        },
+        {
+          "label": "then.113"
+        },
+        {
+          "dest": "v117",
+          "op": "const",
+          "type": "int",
+          "value": 1
+        },
+        {
+          "args": [
+            "v117"
+          ],
+          "dest": "monthCode",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "labels": [
+            "endif.113"
+          ],
+          "op": "jmp"
+        },
+        {
+          "label": "else.113"
+        },
+        {
+          "args": [
+            "month"
+          ],
+          "dest": "v119",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v120",
+          "op": "const",
+          "type": "int",
+          "value": 11
+        },
+        {
+          "args": [
+            "v119",
+            "v120"
+          ],
+          "dest": "v121",
+          "op": "eq",
+          "type": "bool"
+        },
+        {
+          "args": [
+            "v121"
+          ],
+          "labels": [
+            "then.118",
+            "else.118"
+          ],
+          "op": "br"
+        },
+        {
+          "label": "then.118"
+        },
+        {
+          "dest": "v122",
+          "op": "const",
+          "type": "int",
+          "value": 4
+        },
+        {
+          "args": [
+            "v122"
+          ],
+          "dest": "monthCode",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "labels": [
+            "endif.118"
+          ],
+          "op": "jmp"
+        },
+        {
+          "label": "else.118"
+        },
+        {
+          "dest": "v123",
+          "op": "const",
+          "type": "int",
+          "value": 6
+        },
+        {
+          "args": [
+            "v123"
+          ],
+          "dest": "monthCode",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "label": "endif.118"
+        },
+        {
+          "label": "endif.113"
+        },
+        {
+          "label": "endif.108"
+        },
+        {
+          "label": "endif.103"
+        },
+        {
+          "label": "endif.98"
+        },
+        {
+          "label": "endif.93"
+        },
+        {
+          "label": "endif.88"
+        },
+        {
+          "label": "endif.83"
+        },
+        {
+          "label": "endif.78"
+        },
+        {
+          "label": "endif.73"
+        },
+        {
+          "label": "endif.68"
+        },
+        {
+          "args": [
+            "yearCode"
+          ],
+          "dest": "v124",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "args": [
+            "monthCode"
+          ],
+          "dest": "v125",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "args": [
+            "v124",
+            "v125"
+          ],
+          "dest": "v126",
+          "op": "add",
+          "type": "int"
+        },
+        {
+          "args": [
+            "day"
+          ],
+          "dest": "v127",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "args": [
+            "v126",
+            "v127"
+          ],
+          "dest": "v128",
+          "op": "add",
+          "type": "int"
+        },
+        {
+          "args": [
+            "v128"
+          ],
+          "dest": "sum",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v129",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "args": [
+            "v129"
+          ],
+          "dest": "dayCode",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "args": [
+            "leap"
+          ],
+          "dest": "v131",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v132",
+          "op": "const",
+          "type": "int",
+          "value": 1
+        },
+        {
+          "args": [
+            "v131",
+            "v132"
+          ],
+          "dest": "v133",
+          "op": "eq",
+          "type": "bool"
+        },
+        {
+          "args": [
+            "v133"
+          ],
+          "labels": [
+            "then.130",
+            "else.130"
+          ],
+          "op": "br"
+        },
+        {
+          "label": "then.130"
+        },
+        {
+          "args": [
+            "month"
+          ],
+          "dest": "v135",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v136",
+          "op": "const",
+          "type": "int",
+          "value": 1
+        },
+        {
+          "args": [
+            "v135",
+            "v136"
+          ],
+          "dest": "v137",
+          "op": "eq",
+          "type": "bool"
+        },
+        {
+          "args": [
+            "v137"
+          ],
+          "labels": [
+            "then.134",
+            "else.134"
+          ],
+          "op": "br"
+        },
+        {
+          "label": "then.134"
+        },
+        {
+          "args": [
+            "sum"
+          ],
+          "dest": "v138",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v139",
+          "op": "const",
+          "type": "int",
+          "value": 1
+        },
+        {
+          "args": [
+            "v138",
+            "v139"
+          ],
+          "dest": "v140",
+          "op": "sub",
+          "type": "int"
+        },
+        {
+          "dest": "v141",
+          "op": "const",
+          "type": "int",
+          "value": 7
+        },
+        {
+          "args": [
+            "v140",
+            "v141"
+          ],
+          "dest": "v142",
+          "funcs": [
+            "modulo"
+          ],
+          "op": "call",
+          "type": "int"
+        },
+        {
+          "args": [
+            "v142"
+          ],
+          "dest": "dayCode",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "labels": [
+            "endif.134"
+          ],
+          "op": "jmp"
+        },
+        {
+          "label": "else.134"
+        },
+        {
+          "args": [
+            "month"
+          ],
+          "dest": "v144",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v145",
+          "op": "const",
+          "type": "int",
+          "value": 2
+        },
+        {
+          "args": [
+            "v144",
+            "v145"
+          ],
+          "dest": "v146",
+          "op": "eq",
+          "type": "bool"
+        },
+        {
+          "args": [
+            "v146"
+          ],
+          "labels": [
+            "then.143",
+            "else.143"
+          ],
+          "op": "br"
+        },
+        {
+          "label": "then.143"
+        },
+        {
+          "args": [
+            "sum"
+          ],
+          "dest": "v147",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v148",
+          "op": "const",
+          "type": "int",
+          "value": 1
+        },
+        {
+          "args": [
+            "v147",
+            "v148"
+          ],
+          "dest": "v149",
+          "op": "sub",
+          "type": "int"
+        },
+        {
+          "dest": "v150",
+          "op": "const",
+          "type": "int",
+          "value": 7
+        },
+        {
+          "args": [
+            "v149",
+            "v150"
+          ],
+          "dest": "v151",
+          "funcs": [
+            "modulo"
+          ],
+          "op": "call",
+          "type": "int"
+        },
+        {
+          "args": [
+            "v151"
+          ],
+          "dest": "dayCode",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "labels": [
+            "endif.143"
+          ],
+          "op": "jmp"
+        },
+        {
+          "label": "else.143"
+        },
+        {
+          "args": [
+            "sum"
+          ],
+          "dest": "v152",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v153",
+          "op": "const",
+          "type": "int",
+          "value": 7
+        },
+        {
+          "args": [
+            "v152",
+            "v153"
+          ],
+          "dest": "v154",
+          "funcs": [
+            "modulo"
+          ],
+          "op": "call",
+          "type": "int"
+        },
+        {
+          "args": [
+            "v154"
+          ],
+          "dest": "dayCode",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "label": "endif.143"
+        },
+        {
+          "label": "endif.134"
+        },
+        {
+          "labels": [
+            "endif.130"
+          ],
+          "op": "jmp"
+        },
+        {
+          "label": "else.130"
+        },
+        {
+          "args": [
+            "sum"
+          ],
+          "dest": "v155",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v156",
+          "op": "const",
+          "type": "int",
+          "value": 7
+        },
+        {
+          "args": [
+            "v155",
+            "v156"
+          ],
+          "dest": "v157",
+          "funcs": [
+            "modulo"
+          ],
+          "op": "call",
+          "type": "int"
+        },
+        {
+          "args": [
+            "v157"
+          ],
+          "dest": "dayCode",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "label": "endif.130"
+        },
+        {
+          "args": [
+            "dayCode"
+          ],
+          "dest": "v158",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "dest": "v159",
+          "op": "const",
+          "type": "int",
+          "value": 5
+        },
+        {
+          "args": [
+            "v158",
+            "v159"
+          ],
+          "dest": "v160",
+          "op": "add",
+          "type": "int"
+        },
+        {
+          "dest": "v161",
+          "op": "const",
+          "type": "int",
+          "value": 7
+        },
+        {
+          "args": [
+            "v160",
+            "v161"
+          ],
+          "dest": "v162",
+          "funcs": [
+            "modulo"
+          ],
+          "op": "call",
+          "type": "int"
+        },
+        {
+          "dest": "v163",
+          "op": "const",
+          "type": "int",
+          "value": 1
+        },
+        {
+          "args": [
+            "v162",
+            "v163"
+          ],
+          "dest": "v164",
+          "op": "add",
+          "type": "int"
+        },
+        {
+          "args": [
+            "v164"
+          ],
+          "dest": "dayOfWeek",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "args": [
+            "dayOfWeek"
+          ],
+          "dest": "v165",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "args": [
+            "v165"
+          ],
+          "op": "print"
+        },
+        {
+          "dest": "v166",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        }
+      ],
+      "name": "main"
+    },
+    {
+      "args": [
+        {
+          "name": "a",
+          "type": "int"
+        },
+        {
+          "name": "b",
+          "type": "int"
+        }
+      ],
+      "instrs": [
+        {
+          "args": [
+            "a"
+          ],
+          "dest": "v0",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "args": [
+            "b"
+          ],
+          "dest": "v1",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "args": [
+            "v0",
+            "v1"
+          ],
+          "dest": "v2",
+          "op": "div",
+          "type": "int"
+        },
+        {
+          "args": [
+            "v2"
+          ],
+          "dest": "q",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "args": [
+            "a"
+          ],
+          "dest": "v3",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "args": [
+            "b"
+          ],
+          "dest": "v4",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "args": [
+            "q"
+          ],
+          "dest": "v5",
+          "op": "id",
+          "type": "int"
+        },
+        {
+          "args": [
+            "v4",
+            "v5"
+          ],
+          "dest": "v6",
+          "op": "mul",
+          "type": "int"
+        },
+        {
+          "args": [
+            "v3",
+            "v6"
+          ],
+          "dest": "v7",
+          "op": "sub",
+          "type": "int"
+        },
+        {
+          "args": [
+            "v7"
+          ],
+          "op": "ret"
+        }
+      ],
+      "name": "modulo",
+      "type": "int"
+    }
+  ]
+}

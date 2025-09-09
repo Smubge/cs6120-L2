@@ -1,2 +1,2 @@
-command = "python ../cfg.py {filename}"
-output.result = "-"
+command = "bril2json < {filename} > {filename}.json ; python ../cfg.py {filename}.json"
+output.out = "-"
