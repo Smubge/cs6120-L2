@@ -1,1 +1,1 @@
-{'v7': ['neg', 'begin'], 'v14': ['end', 'check'], 'v18': ['body', 'begin'], 'v24': ['begin', 'then'], 'v28': ['begin']}
+{'i': ['neg', 'begin'], 'neg': ['begin'], 'begin': ['end', 'check'], 'check': ['body', 'begin'], 'body': ['begin', 'then'], 'then': ['begin'], 'end': []}

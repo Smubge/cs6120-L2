@@ -1,1 +1,1 @@
-{'v11': ['then', 'else'], 'v14': ['end'], 'v36': ['end'], 'v46': ['while.finish', 'while.body'], 'v50': ['while.cond'], 'v54': ['then', 'else'], 'v73': ['for.body.1', 'for.end.1'], 'v83': ['for.cond.1']}
+{'result': ['then', 'else'], 'then': [], 'else': [], 'end': [], 'one': ['while.cond'], 'while.cond': ['while.finish', 'while.body'], 'while.body': ['while.cond'], 'while.finish': [], 'cond': ['then', 'else'], 'c': [], 'v0': ['for.cond.1'], 'for.cond.1': ['for.body.1', 'for.end.1'], 'for.body.1': ['for.cond.1'], 'for.end.1': []}

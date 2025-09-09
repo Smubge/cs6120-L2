@@ -1,1 +1,1 @@
-{'v6': ['if.1', 'else.1'], 'v9': ['loop.bound'], 'v12': ['loop.bound'], 'v15': ['program.end', 'update.val'], 'v16': [], 'v17': ['if.2', 'else.2'], 'v20': ['cmp.val'], 'v23': ['cmp.val']}
+{'vc0': ['cmp.val'], 'cmp.val': ['if.1', 'else.1'], 'if.1': ['loop.bound'], 'else.1': ['loop.bound'], 'loop.bound': ['program.end', 'update.val'], 'update.val': ['if.2', 'else.2'], 'if.2': ['cmp.val'], 'else.2': ['cmp.val'], 'program.end': []}

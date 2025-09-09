@@ -1,1 +1,2 @@
-{'v10': ['for.body.0', 'for.end.0'], 'v17': ['then.7', 'else.7'], 'v21': [], 'v27': ['for.cond.0']}
+quadratic
+{'quadratic': ['for.cond.0'], 'for.cond.0': ['for.body.0', 'for.end.0'], 'for.body.0': ['then.7', 'else.7'], 'then.7': [], 'else.7': [], 'endif.7': ['for.cond.0'], 'for.end.0': [], 'v0': [None]}

@@ -31,32 +31,65 @@ blocks = []
 block = []
 selfIdx = 0
 
+def split_func_calls(funcs): #get funcy
+    res = ""
+    for (i,func) in enumerate(funcs):
+        if i < (len(funcs) - 1):
+            res += func + ", "
+        else:
+            res += func
+    print(res)
+    return res
+
+def get_block_name(self,lbl):
+    if self: 
+        first = self[0]
+        if "label" in first:
+            return first["label"]
+        elif "dest" in first:
+            return first["dest"]
+        elif "funcs" in first:
+            return split_func_calls(first["funcs"])
+        else:
+            return first["op"]
+    else:
+        return lbl
 # creating basic blocks implementation
 for func in instrs["functions"]:
     if "instrs" in func:
         for instr in func["instrs"]:  # loop over instructions in the function
             if "label" in instr:
-                b0 = Block("v" + str(selfIdx), block)
+                b0 = Block(get_block_name(block, instr["label"]), block)
                 selfIdx += 1
                 blocks.append(b0)
                 block = []
                 block.append(instr)
             elif "op" in instr:
-                if instr["op"] == "br" or instr["op"] == "jmp":
-                    b1 = Block("v" + str(selfIdx), block)
+                if instr["op"] == "br" or instr["op"] == "jmp" or instr["op"] == "ret":
+                    b1 = Block(get_block_name(block, ""), block)
                     selfIdx += 1
+                    block.append(instr)
                     blocks.append(b1)
                     block = []
-                    block.append(instr)
                 else:
                     selfIdx += 1
                     block.append(instr)
 if block:
-    b2 = Block("v" + str(selfIdx), block)
+    b2 = Block(get_block_name(block, ""), block)
     selfIdx += 1
     blocks.append(b2)
     block = []
-
+    
+def probe_next(block):
+    found = False
+    for (i,b) in enumerate(blocks):
+        if found: 
+            if b.idx != block:
+                return b.idx
+        if (b.idx) == block:
+            found = True
+            
+            
 cfg = {}
 # cfg implementation
 """
@@ -87,15 +120,17 @@ for b in blocks:
 				else:
 					cfg[b.idx] = [last["dest"]]
 			elif last["op"] == "br":
-				cfg[b.idx] = [last["labels"][0], last["labels"][1]]
+				cfg[b.idx] = [last["labels"][0], last["labels"][1]]    
+			elif last["op"] == "ret":
+				cfg[b.idx] = []
+			elif "dest" not in last and "labels" not in last:
+				cfg[b.idx] = []
+			else:
+				cfg[b.idx] = [probe_next(b.idx)]
 		elif "dest" not in last and "labels" not in last:
 			cfg[b.idx] = []
 		else:
-			text = b.idx[0]
-			num = b.idx[1]
-			new_num = str(int(num) + 1)
-			new_idx = text + new_num
-			cfg[b.idx] = [new_idx]
+			cfg[b.idx] = [probe_next(b.idx)]
 
 print(cfg)
 		

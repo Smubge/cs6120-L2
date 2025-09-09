@@ -1,1 +1,1 @@
-{'v15': ['loop.body', 'loop.end'], 'v23': ['loop.branch'], 'v24': []}
+{'result': [], 'two': [], 'modulus': ['loop.branch'], 'loop.branch': ['loop.body', 'loop.end'], 'loop.body': ['loop.branch'], 'loop.end': []}

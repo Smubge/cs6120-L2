@@ -1,1 +1,1 @@
-{'v11': ['found', 'inner_continue'], 'v17': ['outer_continue', 'inner_loop'], 'v21': ['finish', 'outer_loop'], 'v22': []}
+{'one': ['outer_loop'], 'outer_loop': ['inner_loop'], 'inner_loop': ['found', 'inner_continue'], 'found': [], 'inner_continue': ['outer_continue', 'inner_loop'], 'outer_continue': ['finish', 'outer_loop'], 'finish': []}

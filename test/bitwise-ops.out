@@ -1,1 +1,1 @@
-{'v16': ['here', 'end'], 'v21': ['doOr', 'stay'], 'v24': [], 'v25': ['add', 'end_loop'], 'v33': ['loop'], 'v53': ['and_op', 'useless_lbl'], 'v54': [], 'v55': ['or_op', 'xor_op'], 'v58': ['end'], 'v61': ['end']}
+{'two': [], 'i': ['loop'], 'loop': ['here', 'end'], 'here': ['doOr', 'stay'], 'doOr': ['stay'], 'stay': ['add', 'end_loop'], 'add': ['end_loop'], 'end_loop': ['loop'], 'end': [], 'oper': [], 'and_val': [], 'one': ['and_op', 'useless_lbl'], 'useless_lbl': ['or_op', 'xor_op'], 'and_op': ['end'], 'or_op': ['end'], 'xor_op': ['end']}
