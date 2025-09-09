@@ -1,1 +1,2 @@
-command = "cargo run {filename}"
+command = "cargo run {filename}; cat {filename}.out"
+output.result = "-"
