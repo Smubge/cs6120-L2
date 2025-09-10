@@ -17,7 +17,6 @@ fn main() {
     let replace = "add";
     let replaced = "mul";
     
-    // let instr = json_data["functions"].as_array_mut().expect("Instructions should be an array");
    if let Some(funcs) = json_data["functions"].as_array_mut() {
         for (i, func) in funcs.iter_mut().enumerate() {
             if let Some(instrs) = func["instrs"].as_array_mut() {
