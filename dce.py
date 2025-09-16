@@ -108,6 +108,11 @@ def probe_next(block):
         if (b.idx) == block:
             found = True	
 
+def print_basic_blocks():
+    for b in blocks:
+        print(b)
+
+print_basic_blocks()
 print ("Testing dce here")
 def local_dce(self, block):
     alive = {}
