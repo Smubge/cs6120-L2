@@ -51,10 +51,6 @@ class Block:
 with open(sys.argv[1], 'r') as file:
 	instrs = json.load(file)
 
-blocks = []
-block = []
-selfIdx = 0
-
 def split_func_calls(funcs): #get funcy
     res = ""
     for (i,func) in enumerate(funcs):
@@ -62,6 +58,7 @@ def split_func_calls(funcs): #get funcy
             res += func + ", "
         else:
             res += func
+    print("Here")
     print(res)
     return res
 
@@ -79,18 +76,19 @@ def get_block_name(self,lbl):
     else:
         return lbl
 
-used_labels = defaultdict(int)
+used_names = defaultdict(int)
 
 def get_unique_block_name(self,lbl):
     if self: 
         first = self[0]
         if "label" in first:
-            l = first["label"]
-            if l in used_labels:
-                used_labels[l] += 1
-                return l + "_" + used_labels[l]
             return first["label"]
         elif "dest" in first:
+            d = first["dest"]
+            print(d)
+            if d in used_names:
+                used_names[d] += 1
+                return d + "_" + used_names[d]
             return first["dest"]
         elif "funcs" in first:
             return split_func_calls(first["funcs"])
@@ -98,6 +96,10 @@ def get_unique_block_name(self,lbl):
             return first["op"]
     else:
         return lbl
+
+blocks = []
+block = []
+selfIdx = 0
 
 # creating basic blocks implementation
 for func in instrs["functions"]:
@@ -138,17 +140,32 @@ def print_basic_blocks():
     for b in blocks:
         print(b)
 
+def print_instructions():
+    for b in blocks:
+        for instr in b.instrs:
+            print(instr)
+
 print_basic_blocks()
+
 print ("Testing dce here")
-def local_dce(self, block):
-    alive = {}
+def local_dce(block):
+    alive = set()
     for instr in block.instrs:
-        args = instr.get_args
+        args = None
+        if "args" in instr:
+            args = instr["args"]
+        
         if args is not None:
             for arg in args:
-                alive.insert(arg)
-        
+                alive.add(arg) 
+
     for instr in block.instrs:
         if "dest" in instr:
             if instr["dest"] not in alive:
                 block.instrs.remove(instr)
+
+for b in blocks:
+    local_dce(b)
+
+print_basic_blocks()
+print_instructions()
