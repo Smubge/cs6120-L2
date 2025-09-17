@@ -78,19 +78,39 @@ def get_block_name(self,lbl):
     else:
         return lbl
 
+used_labels = {}
+
+def get_unique_block_name(self,lbl):
+    if self: 
+        first = self[0]
+        if "label" in first:
+            l = first["label"]
+            if l in used_labels:
+                used_labels[l] += 1
+                return l + "_" + used_labels[l]
+            return first["label"]
+        elif "dest" in first:
+            return first["dest"]
+        elif "funcs" in first:
+            return split_func_calls(first["funcs"])
+        else:
+            return first["op"]
+    else:
+        return lbl
+
 # creating basic blocks implementation
 for func in instrs["functions"]:
     if "instrs" in func:
         for instr in func["instrs"]:  # loop over instructions in the function
             if "label" in instr:
-                b0 = Block(get_block_name(block, instr["label"]), block)
+                b0 = Block(get_unique_block_name(block, instr["label"]), block)
                 selfIdx += 1
                 blocks.append(b0)
                 block = []
                 block.append(instr)
             elif "op" in instr:
                 if instr["op"] == "br" or instr["op"] == "jmp" or instr["op"] == "ret":
-                    b1 = Block(get_block_name(block, ""), block)
+                    b1 = Block(get_unique_block_name(block, ""), block)
                     selfIdx += 1
                     block.append(instr)
                     blocks.append(b1)
@@ -99,7 +119,7 @@ for func in instrs["functions"]:
                     selfIdx += 1
                     block.append(instr)
 if block:
-    b2 = Block(get_block_name(block, ""), block)
+    b2 = Block(get_unique_block_name(block, ""), block)
     selfIdx += 1
     blocks.append(b2)
     block = []
