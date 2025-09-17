@@ -13,6 +13,7 @@ corresponding control flow graph in a edge list format.
 
 import json
 import sys
+from collections import defaultdict
 
 class Block:
 	def __init__(self, idx, instrs):
@@ -78,7 +79,7 @@ def get_block_name(self,lbl):
     else:
         return lbl
 
-used_labels = {}
+used_labels = defaultdict(int)
 
 def get_unique_block_name(self,lbl):
     if self: 
