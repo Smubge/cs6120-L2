@@ -20,11 +20,16 @@ class Block:
 		self.instrs = instrs
 		self.edges = []
 
-	def label(self):
+	def labels(self):
 		if self.instrs and "labels" in self.instrs[0]:
 			return self.instrs[0]["labels"]
 		return None
-	
+
+	def label(self):
+		if self.instrs and "label" in self.instrs[0]:
+			return self.instrs[0]["label"]
+		return None
+
 	def last(self):
 		if self.instrs:
 			return self.instrs[-1]
@@ -40,7 +45,7 @@ class Block:
 			self.edges.append(target)
 	
 	def __str__(self):
-		return f"Block(idx={self.idx}, label={self.label}, edges = {self.edges} )"          
+		return f"Block(idx={self.idx}, label={self.label()}, edges = {self.edges} )"          
 
 with open(sys.argv[1], 'r') as file:
 	instrs = json.load(file)
