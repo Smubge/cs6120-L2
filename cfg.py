@@ -5,9 +5,53 @@ Jonathan Brown and Cynthia Shao
 This script takes in a Bril json file and outputs the 
 corresponding control flow graph in a edge list format.
 """
-
+from enum import Enum
 import json
 import sys
+
+class Table_Occ(Enum):
+     IN_TABLE = 1
+     NOT_IN_TABLE = 2
+     REPLACE = 3
+     PRINT_RET = 4
+     DONT_USE = 5
+     
+
+commutative_instr = ["call", "add", "mul", "and", "or", "eq", "neq"]
+#Make var a sort of enum, make var a str, and make idx a num
+class LVN_Value:
+    def __init__(self, instr, vars): #Instr = string, var1 is the variable index, var2 is the var index
+        self.instr = instr 
+        if instr in commutative_instr:
+            sorted_vars = tuple(sorted(vars))
+            self.vars = sorted_vars
+        else:
+            self.vars = vars
+    #TODO: Watch out, subtraction needs the order kept, only for commutative properties, do some sort of checking for add, mul, etc, otherwise do nothing
+        
+    #TODO: Watch out, const values can be confused for actual vals
+    def __eq__(self, other):
+        if self.instr == other.instr:
+            for (i, var) in enumerate(self.vars):
+                for (j, var2) in enumerate(other.vars):
+                    if i == j and var != var2:
+                        return False 
+            return True
+        else:
+            return False
+    def __str__(self):
+        return f"(Instr = {self.instr}, Value = ({self.vars}))"
+    __repr__ = __str__
+
+class LVN_Table:
+    def __init__(self, idx, value, var):
+        self.idx = idx
+        self.value = value
+        self.var = var 
+    def __str__(self):
+        return f"(Idx = {self.idx}, Value = {self.value}, Var = {self.var})"
+    __repr__ = __str__
+
 
 class Block:
 	def __init__(self, idx, instrs):
@@ -30,8 +74,8 @@ class Block:
 			self.edges.append(target)
 	
 	def __str__(self):
-		return f"Block(idx={self.idx}, label={self.label}, edges = {self.edges} )"          
-
+		return f"Block(idx={self.idx}, label={Block.label(self)}, edges = {self.edges} )"          
+	__repr__ = __str__
 with open(sys.argv[1], 'r') as file:
 	instrs = json.load(file)
 
@@ -46,7 +90,6 @@ def split_func_calls(funcs): #get funcy
             res += func + ", "
         else:
             res += func
-    print(res)
     return res
 
 def get_block_name(self,lbl):
@@ -122,5 +165,226 @@ for b in blocks:
 		else:
 			cfg[b.idx] = [probe_next(b.idx)]
 
-print(cfg)
-		
+         
+
+
+
+var2num = {}
+lvn_list = []
+full_lvn_list = []
+accepted_ops = ["const", "add", "print", "call", "mul", "id"]
+one_arg_ops = ["print", "ret"]
+ignore_ops = ["br", "jmp"]
+current_idx = 0
+offset = 0
+
+def replace_args(args, arg_repl):
+     new_list = []
+     for arg in args:
+          if arg in arg_repl:
+               new_list.append(arg_repl[arg])
+          else:
+               new_list.append(arg)
+     return new_list
+     
+
+def createVar2Num(varName):
+    global current_idx
+    var2num[varName] = current_idx
+    #  print(varName)
+    current_idx += 1
+
+def getVar2Num(val):
+    if len(val) == 2:
+        val1 = val[0]
+        val2 = val[1]
+        if val1 in var2num:
+            val1 = lvn_list[var2num[val1]]
+        if val2 in var2num:
+            val2 = lvn_list[var2num[val2]]
+        return (val1, val2)
+    else:
+        val = val[0]
+        if val in var2num:
+            val = lvn_list[var2num[val]]
+        return (val, None)
+
+def checkValInTable(val):
+    for lvn in lvn_list:
+        if val == lvn.value:
+            return (True, lvn) 
+    return (False, None)
+
+
+def create_lvn_for_arg(instr, arg):
+    global current_idx
+    var2num[arg] = current_idx
+    val = LVN_Value(instr["op"], (None,))
+    lvn_comp = LVN_Table(current_idx, val, arg)
+    lvn_list.append(lvn_comp)
+    current_idx += 1
+
+def argument_checking(instr):
+    arg_idx = []
+    arg_repl = {}
+    for arg in instr["args"]:
+        if arg in var2num:
+            arg_idx.append(var2num[arg])
+            if var2num[arg] < len(lvn_list): 
+                arg_repl[arg] = lvn_list[var2num[arg]].var
+                # print(f"repl: {arg_repl}")
+        else:
+            create_lvn_for_arg(instr, arg)
+            arg_idx.append(var2num[arg])
+    res = replace_args(instr["args"], arg_repl)
+    return res, arg_idx
+
+     
+#TODO: remove all print(comps) before current_idx +=1 
+
+#Returns (inTable, component)
+def createVal(instr, is_const): #TODO: Optimize this lol
+    #TODO: Maybe make the subroutines a function
+    #TODO: Get rid of code duplication (aka merge const and other instr's inTable route)
+    global current_idx
+    if is_const: #Deal with consts 
+        comp_val = LVN_Value('const', (instr["value"],))
+        inTable, lvn_comp = checkValInTable(comp_val)
+        if inTable:
+            var2num[instr["dest"]] = lvn_comp.idx
+            return Table_Occ.IN_TABLE, lvn_comp
+        else:
+            comp = LVN_Table(current_idx, comp_val, instr["dest"])
+            # print(comp)
+            current_idx += 1
+            var2num[instr["dest"]] = comp.idx
+            return Table_Occ.NOT_IN_TABLE, comp 
+    else: #Any functions with arguments
+        if instr["op"] not in one_arg_ops: #TODO: clean up code, both cases are very similar
+            if instr["op"] == "id": #Deal with id cases as they should j be replaced (mostly)
+                # print(instr)
+                arg = instr["args"][0]
+                lvn_comp = None
+                if arg in var2num:
+                    var2num[instr["dest"]] = var2num[arg] 
+                    lvn_comp = lvn_list[var2num[arg]]
+                else:
+                    createVar2Num(arg)
+                    var2num[instr["dest"]] = var2num[arg]
+                    lvn_val = LVN_Value(instr["op"], (instr["args"][0],))
+                    lvn_comp = LVN_Table(current_idx, lvn_val, "id")
+                    return Table_Occ.NOT_IN_TABLE,lvn_comp
+                # print(lvn_comp)
+                return Table_Occ.REPLACE, lvn_comp
+            elif instr["op"] == "store": #TODO: just make some of these functions becuase wowza so much code
+                new_args, arg_idx = argument_checking(instr)
+                instr["args"] = new_args
+                comp_val = LVN_Value(instr["op"], (*arg_idx,))
+                comp = LVN_Table(current_idx, comp_val, instr["op"])
+                current_idx += 1
+                var2num[instr["op"]] = comp.idx
+                return Table_Occ.NOT_IN_TABLE, comp
+            else:
+                new_args, arg_idx = argument_checking(instr)
+                instr["args"] = new_args
+                comp_val = LVN_Value(instr["op"], (*arg_idx,))
+                # print(comp_val)
+                inTable, lvn_comp = checkValInTable(comp_val)
+                if inTable:
+                    if "dest" in instr:
+                        var2num[instr["dest"]] = lvn_comp.idx
+                    elif instr["op"] == "free":
+                         # Need to free it more than once
+                        print(instr)
+                    else:
+                        # print(instr)
+                        var2num[instr["funcs"][0]] = lvn_comp.idx
+                    return Table_Occ.IN_TABLE, lvn_comp
+                else:
+                    new_args, arg_idx = argument_checking(instr)
+                    instr["args"] = new_args
+                    comp_val = LVN_Value(instr["op"], (*arg_idx,))
+                    comp = None
+                    if "dest" in instr:
+                        comp = LVN_Table(current_idx, comp_val, instr["dest"])
+                        var2num[instr["dest"]] = comp.idx
+                    elif "funcs" in instr:
+                        comp = LVN_Table(current_idx, comp_val, instr["funcs"][0])
+                        var2num[instr["funcs"][0]] = comp.idx
+                    elif instr["op"] == "br":
+                        comp = LVN_Table(current_idx, comp_val, instr["op"]) 
+                    elif instr["op"] == "free":
+                        comp = LVN_Table(current_idx, comp_val, instr["op"])
+                    else: #This is branch ig
+                        print(instr)
+                        Warning("HAHAHAHAHA")
+                        print("MAYDAY SHIP IS SINKING")
+                    current_idx += 1
+                    return Table_Occ.NOT_IN_TABLE, comp
+        else:
+            if instr["op"] == "ret":
+                if "args" not in instr:
+                    return Table_Occ.DONT_USE, None
+            new_args, arg_idx = argument_checking(instr)
+            instr["args"] = new_args
+            comp_val = LVN_Value(instr["op"], (*arg_idx,))
+            comp = LVN_Table(current_idx, comp_val, instr["op"])
+            # print(comp)
+            current_idx += 1
+            var2num[instr["op"]] = comp.idx
+            return Table_Occ.NOT_IN_TABLE, comp
+
+for b in blocks:
+    for (i, instr) in enumerate(b.instrs):
+        lvn_val = None
+        lvn_component = None
+        if "op" in instr and instr["op"] not in ignore_ops:
+            if instr["op"] == 'const':
+                    inTable, lvn_comp = createVal(instr, True)
+                    #TODO: Do something with instr if inTable
+                    if inTable == Table_Occ.IN_TABLE:
+                            instr["op"] = "id"
+                            instr["args"] = [lvn_comp.var]
+                            instr["type"] = "int"
+                            del instr["value"]
+                    else:
+                            lvn_list.append(lvn_comp)
+            else: 
+                inTable, lvn_comp = createVal(instr, False)
+                if inTable == Table_Occ.IN_TABLE or inTable == Table_Occ.REPLACE:
+                    instr["op"] = "id"
+                    instr["args"] = [lvn_comp.var]
+                elif inTable == Table_Occ.PRINT_RET:
+                    instr["args"] = [lvn_comp.var]
+                elif inTable == Table_Occ.DONT_USE:
+                     print(f"{instr["op"]} has been thrown in the trash")
+                else:
+                    lvn_list.append(lvn_comp)
+
+
+# for l in lvn_list:
+#      print(l)
+# print(var2num)
+# for b in blocks:
+#      for instr in b.instrs:
+#           print(instr)
+
+# def replace_instrs(instr, ):
+print(instrs)
+     
+with open(f"{sys.argv[1]}.out","w") as f: #For some reason works although I didn't edit the instrs directly? YIPEEEEEEE
+    # for func in instrs["functions"]:
+    #     if "instrs" in func:
+    #         for (i,instr1) in enumerate(func["instrs"]):
+    #             print(i,instr1)
+    #             for b in blocks:
+    #                 for (j,instr2) in enumerate(b.instrs):
+    #                     print(instr2 != instr1)
+    #                     if i == j and instr2 != instr1:
+    #                          print("pass")
+    #                          func["instrs"][i] = instr2
+    json.dump(instrs, f, indent=4)
+             
+    #  for b in blocks:
+    #     for instr in b.instrs:
+    #         json.dump(instr, f, indent=4)
