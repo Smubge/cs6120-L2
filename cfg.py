@@ -266,6 +266,8 @@ def createVal(instr, is_const): #TODO: Optimize this lol
                 arg = instr["args"][0]
                 lvn_comp = None
                 if arg in var2num:
+                    print(var2num[arg])
+                    print(lvn_list)
                     var2num[instr["dest"]] = var2num[arg] 
                     lvn_comp = lvn_list[var2num[arg]]
                 else:
@@ -360,6 +362,10 @@ for b in blocks:
                      print(f"{instr["op"]} has been thrown in the trash")
                 else:
                     lvn_list.append(lvn_comp)
+    current_idx = 0
+    var2num = {}
+    lvn_list = []
+    full_lvn_list = []
 
 
 # for l in lvn_list:
@@ -373,18 +379,4 @@ for b in blocks:
 print(instrs)
      
 with open(f"{sys.argv[1]}.out","w") as f: #For some reason works although I didn't edit the instrs directly? YIPEEEEEEE
-    # for func in instrs["functions"]:
-    #     if "instrs" in func:
-    #         for (i,instr1) in enumerate(func["instrs"]):
-    #             print(i,instr1)
-    #             for b in blocks:
-    #                 for (j,instr2) in enumerate(b.instrs):
-    #                     print(instr2 != instr1)
-    #                     if i == j and instr2 != instr1:
-    #                          print("pass")
-    #                          func["instrs"][i] = instr2
     json.dump(instrs, f, indent=4)
-             
-    #  for b in blocks:
-    #     for instr in b.instrs:
-    #         json.dump(instr, f, indent=4)

@@ -1,1 +1,13 @@
-{'v0': ['for.cond.2'], 'for.cond.2': ['for.body.2', 'for.end.2'], 'for.body.2': ['for.cond.2'], 'for.end.2': [None]}
+0
+[(Idx = 0, Value = (Instr = const, Value = ((10,))), Var = v0)]
+1
+[(Idx = 0, Value = (Instr = const, Value = ((10,))), Var = v0), (Idx = 1, Value = (Instr = const, Value = ((0,))), Var = v1)]
+2
+[(Idx = 0, Value = (Instr = const, Value = ((10,))), Var = v0), (Idx = 1, Value = (Instr = const, Value = ((0,))), Var = v1), (Idx = 2, Value = (Instr = const, Value = ((1,))), Var = v3)]
+3
+[(Idx = 1, Value = (Instr = id, Value = (('sum',))), Var = id), (Idx = 2, Value = (Instr = id, Value = (('i',))), Var = id), (Idx = 2, Value = (Instr = fadd, Value = ((None,))), Var = id), (Idx = 3, Value = (Instr = fadd, Value = ((2, 2))), Var = v9)]
+1
+[(Idx = 1, Value = (Instr = id, Value = (('sum',))), Var = id), (Idx = 2, Value = (Instr = id, Value = (('i',))), Var = id), (Idx = 2, Value = (Instr = fadd, Value = ((None,))), Var = id), (Idx = 3, Value = (Instr = fadd, Value = ((2, 2))), Var = v9)]
+5
+[(Idx = 1, Value = (Instr = id, Value = (('sum',))), Var = id), (Idx = 2, Value = (Instr = id, Value = (('i',))), Var = id), (Idx = 2, Value = (Instr = fadd, Value = ((None,))), Var = id), (Idx = 3, Value = (Instr = fadd, Value = ((2, 2))), Var = v9), (Idx = 4, Value = (Instr = const, Value = ((1,))), Var = v11), (Idx = 5, Value = (Instr = fadd, Value = ((2, 4))), Var = v12)]
+{'functions': [{'instrs': [{'dest': 'v0', 'op': 'const', 'type': 'float', 'value': 10}, {'args': ['v0'], 'dest': 'n', 'op': 'id', 'type': 'float'}, {'dest': 'v1', 'op': 'const', 'type': 'float', 'value': 0}, {'args': ['v1'], 'dest': 'sum', 'op': 'id', 'type': 'float'}, {'dest': 'v3', 'op': 'const', 'type': 'float', 'value': 1}, {'args': ['v3'], 'dest': 'i', 'op': 'id', 'type': 'float'}, {'label': 'for.cond.2'}, {'args': ['i'], 'dest': 'v4', 'op': 'id', 'type': 'float'}, {'args': ['n'], 'dest': 'v5', 'op': 'id', 'type': 'float'}, {'args': ['id', 'id'], 'dest': 'v6', 'op': 'fle', 'type': 'bool'}, {'args': ['v6'], 'labels': ['for.body.2', 'for.end.2'], 'op': 'br'}, {'label': 'for.body.2'}, {'args': ['sum'], 'dest': 'v7', 'op': 'id', 'type': 'float'}, {'args': ['i'], 'dest': 'v8', 'op': 'id', 'type': 'float'}, {'args': ['id', 'id'], 'dest': 'v9', 'op': 'fadd', 'type': 'float'}, {'args': ['v9'], 'dest': 'sum', 'op': 'id', 'type': 'float'}, {'args': ['id'], 'dest': 'v10', 'op': 'id', 'type': 'float'}, {'dest': 'v11', 'op': 'const', 'type': 'float', 'value': 1}, {'args': ['id', 'v11'], 'dest': 'v12', 'op': 'fadd', 'type': 'float'}, {'args': ['v12'], 'dest': 'i', 'op': 'id', 'type': 'float'}, {'labels': ['for.cond.2'], 'op': 'jmp'}, {'label': 'for.end.2'}, {'args': ['sum'], 'dest': 'v13', 'op': 'id', 'type': 'float'}, {'args': ['id'], 'op': 'print'}, {'dest': 'v14', 'op': 'const', 'type': 'int', 'value': 0}], 'name': 'main'}]}

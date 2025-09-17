@@ -1,1 +1,49 @@
-{'v0': ['for.cond.1'], 'for.cond.1': ['for.body.1', 'for.end.1'], 'for.body.1': ['for.cond.1'], 'for.end.1': []}
+0
+[(Idx = 0, Value = (Instr = const, Value = ((0,))), Var = v0)]
+1
+[(Idx = 0, Value = (Instr = const, Value = ((0,))), Var = v0), (Idx = 1, Value = (Instr = const, Value = ((1,))), Var = v2)]
+0
+[(Idx = 1, Value = (Instr = id, Value = (('i',))), Var = id)]
+2
+[(Idx = 1, Value = (Instr = id, Value = (('i',))), Var = id), (Idx = 1, Value = (Instr = mul, Value = ((None,))), Var = id), (Idx = 2, Value = (Instr = mul, Value = ((1, 1))), Var = v8)]
+2
+[(Idx = 1, Value = (Instr = id, Value = (('i',))), Var = id), (Idx = 1, Value = (Instr = mul, Value = ((None,))), Var = id), (Idx = 2, Value = (Instr = mul, Value = ((1, 1))), Var = v8), (Idx = 4, Value = (Instr = id, Value = (('res',))), Var = id)]
+4
+[(Idx = 1, Value = (Instr = id, Value = (('i',))), Var = id), (Idx = 1, Value = (Instr = mul, Value = ((None,))), Var = id), (Idx = 2, Value = (Instr = mul, Value = ((1, 1))), Var = v8), (Idx = 4, Value = (Instr = id, Value = (('res',))), Var = id), (Idx = 4, Value = (Instr = add, Value = ((1, 2))), Var = v11)]
+0
+[(Idx = 1, Value = (Instr = id, Value = (('i',))), Var = id), (Idx = 1, Value = (Instr = mul, Value = ((None,))), Var = id), (Idx = 2, Value = (Instr = mul, Value = ((1, 1))), Var = v8), (Idx = 4, Value = (Instr = id, Value = (('res',))), Var = id), (Idx = 4, Value = (Instr = add, Value = ((1, 2))), Var = v11)]
+6
+[(Idx = 1, Value = (Instr = id, Value = (('i',))), Var = id), (Idx = 1, Value = (Instr = mul, Value = ((None,))), Var = id), (Idx = 2, Value = (Instr = mul, Value = ((1, 1))), Var = v8), (Idx = 4, Value = (Instr = id, Value = (('res',))), Var = id), (Idx = 4, Value = (Instr = add, Value = ((1, 2))), Var = v11), (Idx = 5, Value = (Instr = const, Value = ((1,))), Var = v13), (Idx = 6, Value = (Instr = add, Value = ((1, 5))), Var = v14)]
+0
+[(Idx = 0, Value = (Instr = const, Value = ((0,))), Var = v0)]
+1
+[(Idx = 0, Value = (Instr = const, Value = ((0,))), Var = v0), (Idx = 1, Value = (Instr = const, Value = ((1,))), Var = v2)]
+3
+[(Idx = 1, Value = (Instr = id, Value = (('res',))), Var = id), (Idx = 2, Value = (Instr = id, Value = (('i',))), Var = id), (Idx = 2, Value = (Instr = add, Value = ((None,))), Var = id), (Idx = 3, Value = (Instr = add, Value = ((2, 2))), Var = v8)]
+1
+[(Idx = 1, Value = (Instr = id, Value = (('res',))), Var = id), (Idx = 2, Value = (Instr = id, Value = (('i',))), Var = id), (Idx = 2, Value = (Instr = add, Value = ((None,))), Var = id), (Idx = 3, Value = (Instr = add, Value = ((2, 2))), Var = v8)]
+5
+[(Idx = 1, Value = (Instr = id, Value = (('res',))), Var = id), (Idx = 2, Value = (Instr = id, Value = (('i',))), Var = id), (Idx = 2, Value = (Instr = add, Value = ((None,))), Var = id), (Idx = 3, Value = (Instr = add, Value = ((2, 2))), Var = v8), (Idx = 4, Value = (Instr = const, Value = ((1,))), Var = v10), (Idx = 5, Value = (Instr = add, Value = ((2, 4))), Var = v11)]
+0
+[(Idx = 1, Value = (Instr = id, Value = (('res',))), Var = id)]
+2
+[(Idx = 1, Value = (Instr = id, Value = (('res',))), Var = id), (Idx = 1, Value = (Instr = mul, Value = ((None,))), Var = id), (Idx = 2, Value = (Instr = mul, Value = ((1, 1))), Var = v14)]
+2
+[(Idx = 1, Value = (Instr = id, Value = (('res',))), Var = id), (Idx = 1, Value = (Instr = mul, Value = ((None,))), Var = id), (Idx = 2, Value = (Instr = mul, Value = ((1, 1))), Var = v14)]
+2
+[(Idx = 1, Value = (Instr = id, Value = (('n',))), Var = id), (Idx = 1, Value = (Instr = call, Value = ((None,))), Var = id), (Idx = 2, Value = (Instr = call, Value = ((1,))), Var = sum)]
+0
+[(Idx = 1, Value = (Instr = id, Value = (('n',))), Var = id), (Idx = 1, Value = (Instr = call, Value = ((None,))), Var = id), (Idx = 2, Value = (Instr = call, Value = ((1,))), Var = sum)]
+3
+[(Idx = 1, Value = (Instr = id, Value = (('n',))), Var = id), (Idx = 1, Value = (Instr = call, Value = ((None,))), Var = id), (Idx = 2, Value = (Instr = call, Value = ((1,))), Var = sum), (Idx = 3, Value = (Instr = call, Value = ((1,))), Var = square)]
+3
+[(Idx = 1, Value = (Instr = id, Value = (('n',))), Var = id), (Idx = 1, Value = (Instr = call, Value = ((None,))), Var = id), (Idx = 2, Value = (Instr = call, Value = ((1,))), Var = sum), (Idx = 3, Value = (Instr = call, Value = ((1,))), Var = square)]
+2
+[(Idx = 1, Value = (Instr = id, Value = (('n',))), Var = id), (Idx = 1, Value = (Instr = call, Value = ((None,))), Var = id), (Idx = 2, Value = (Instr = call, Value = ((1,))), Var = sum), (Idx = 3, Value = (Instr = call, Value = ((1,))), Var = square)]
+4
+[(Idx = 1, Value = (Instr = id, Value = (('n',))), Var = id), (Idx = 1, Value = (Instr = call, Value = ((None,))), Var = id), (Idx = 2, Value = (Instr = call, Value = ((1,))), Var = sum), (Idx = 3, Value = (Instr = call, Value = ((1,))), Var = square), (Idx = 4, Value = (Instr = sub, Value = ((3, 2))), Var = v4)]
+4
+[(Idx = 1, Value = (Instr = id, Value = (('n',))), Var = id), (Idx = 1, Value = (Instr = call, Value = ((None,))), Var = id), (Idx = 2, Value = (Instr = call, Value = ((1,))), Var = sum), (Idx = 3, Value = (Instr = call, Value = ((1,))), Var = square), (Idx = 4, Value = (Instr = sub, Value = ((3, 2))), Var = v4)]
+4
+[(Idx = 1, Value = (Instr = id, Value = (('n',))), Var = id), (Idx = 1, Value = (Instr = call, Value = ((None,))), Var = id), (Idx = 2, Value = (Instr = call, Value = ((1,))), Var = sum), (Idx = 3, Value = (Instr = call, Value = ((1,))), Var = square), (Idx = 4, Value = (Instr = sub, Value = ((3, 2))), Var = v4), (Idx = 5, Value = (Instr = print, Value = ((4,))), Var = print), (Idx = 6, Value = (Instr = const, Value = ((0,))), Var = v6)]
+{'functions': [{'args': [{'name': 'n', 'type': 'int'}], 'instrs': [{'dest': 'v0', 'op': 'const', 'type': 'int', 'value': 0}, {'args': ['v0'], 'dest': 'res', 'op': 'id', 'type': 'int'}, {'dest': 'v2', 'op': 'const', 'type': 'int', 'value': 1}, {'args': ['v2'], 'dest': 'i', 'op': 'id', 'type': 'int'}, {'label': 'for.cond.1'}, {'args': ['i'], 'dest': 'v3', 'op': 'id', 'type': 'int'}, {'args': ['n'], 'dest': 'v4', 'op': 'id', 'type': 'int'}, {'args': ['id', 'id'], 'dest': 'v5', 'op': 'le', 'type': 'bool'}, {'args': ['v5'], 'labels': ['for.body.1', 'for.end.1'], 'op': 'br'}, {'label': 'for.body.1'}, {'args': ['i'], 'dest': 'v6', 'op': 'id', 'type': 'int'}, {'args': ['id'], 'dest': 'v7', 'op': 'id', 'type': 'int'}, {'args': ['id', 'id'], 'dest': 'v8', 'op': 'mul', 'type': 'int'}, {'args': ['v8'], 'dest': 'sq', 'op': 'id', 'type': 'int'}, {'args': ['res'], 'dest': 'v9', 'op': 'id', 'type': 'int'}, {'args': ['v8'], 'dest': 'v10', 'op': 'id', 'type': 'int'}, {'args': ['id', 'v8'], 'dest': 'v11', 'op': 'add', 'type': 'int'}, {'args': ['v11'], 'dest': 'res', 'op': 'id', 'type': 'int'}, {'args': ['id'], 'dest': 'v12', 'op': 'id', 'type': 'int'}, {'dest': 'v13', 'op': 'const', 'type': 'int', 'value': 1}, {'args': ['id', 'v13'], 'dest': 'v14', 'op': 'add', 'type': 'int'}, {'args': ['v14'], 'dest': 'i', 'op': 'id', 'type': 'int'}, {'labels': ['for.cond.1'], 'op': 'jmp'}, {'label': 'for.end.1'}, {'args': ['res'], 'dest': 'v15', 'op': 'id', 'type': 'int'}, {'args': ['id'], 'op': 'ret'}], 'name': 'sumOfSquares', 'type': 'int'}, {'args': [{'name': 'n', 'type': 'int'}], 'instrs': [{'dest': 'v0', 'op': 'const', 'type': 'int', 'value': 0}, {'args': ['v0'], 'dest': 'res', 'op': 'id', 'type': 'int'}, {'dest': 'v2', 'op': 'const', 'type': 'int', 'value': 1}, {'args': ['v2'], 'dest': 'i', 'op': 'id', 'type': 'int'}, {'label': 'for.cond.1'}, {'args': ['i'], 'dest': 'v3', 'op': 'id', 'type': 'int'}, {'args': ['n'], 'dest': 'v4', 'op': 'id', 'type': 'int'}, {'args': ['id', 'id'], 'dest': 'v5', 'op': 'le', 'type': 'bool'}, {'args': ['v5'], 'labels': ['for.body.1', 'for.end.1'], 'op': 'br'}, {'label': 'for.body.1'}, {'args': ['res'], 'dest': 'v6', 'op': 'id', 'type': 'int'}, {'args': ['i'], 'dest': 'v7', 'op': 'id', 'type': 'int'}, {'args': ['id', 'id'], 'dest': 'v8', 'op': 'add', 'type': 'int'}, {'args': ['v8'], 'dest': 'res', 'op': 'id', 'type': 'int'}, {'args': ['id'], 'dest': 'v9', 'op': 'id', 'type': 'int'}, {'dest': 'v10', 'op': 'const', 'type': 'int', 'value': 1}, {'args': ['id', 'v10'], 'dest': 'v11', 'op': 'add', 'type': 'int'}, {'args': ['v11'], 'dest': 'i', 'op': 'id', 'type': 'int'}, {'labels': ['for.cond.1'], 'op': 'jmp'}, {'label': 'for.end.1'}, {'args': ['res'], 'dest': 'v12', 'op': 'id', 'type': 'int'}, {'args': ['id'], 'dest': 'v13', 'op': 'id', 'type': 'int'}, {'args': ['id', 'id'], 'dest': 'v14', 'op': 'mul', 'type': 'int'}, {'args': ['v14'], 'dest': 'square', 'op': 'id', 'type': 'int'}, {'args': ['v14'], 'dest': 'v15', 'op': 'id', 'type': 'int'}, {'args': ['v14'], 'op': 'ret'}], 'name': 'squareOfSum', 'type': 'int'}, {'args': [{'name': 'n', 'type': 'int'}], 'instrs': [{'args': ['n'], 'dest': 'v0', 'op': 'id', 'type': 'int'}, {'args': ['id'], 'dest': 'sum', 'funcs': ['sumOfSquares'], 'op': 'call', 'type': 'int'}, {'args': ['sum'], 'dest': 'sum', 'op': 'id', 'type': 'int'}, {'args': ['id'], 'dest': 'v1', 'op': 'id', 'type': 'int'}, {'args': ['id'], 'dest': 'square', 'funcs': ['squareOfSum'], 'op': 'call', 'type': 'int'}, {'args': ['square'], 'dest': 'square', 'op': 'id', 'type': 'int'}, {'args': ['square'], 'dest': 'v2', 'op': 'id', 'type': 'int'}, {'args': ['sum'], 'dest': 'v3', 'op': 'id', 'type': 'int'}, {'args': ['square', 'sum'], 'dest': 'v4', 'op': 'sub', 'type': 'int'}, {'args': ['v4'], 'dest': 'diff', 'op': 'id', 'type': 'int'}, {'args': ['v4'], 'dest': 'v5', 'op': 'id', 'type': 'int'}, {'args': ['v4'], 'op': 'print'}, {'dest': 'v6', 'op': 'const', 'type': 'int', 'value': 0}, {'args': ['v4'], 'dest': 'v7', 'op': 'id', 'type': 'int'}], 'name': 'main'}]}
