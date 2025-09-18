@@ -4,7 +4,7 @@ Dead Code Elimination
 Cynthia Shao and Jonathan Brown
 
 This script takes in a Bril JSON file and outputs a new Bril program 
-with dead code eliminated within every basic block.
+to stdout with dead code eliminated within every basic block.
 """
 
 import json
@@ -186,5 +186,4 @@ for f in func_to_blocks.keys():
 
 new_json = create_json_from_blocks(func_to_blocks)
 
-with open(f"{sys.argv[1]}.out","w") as f:
-    json.dump(new_json, f, indent=4)
+json.dump(new_json, sys.stdout, indent=4)
