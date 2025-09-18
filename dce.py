@@ -155,16 +155,8 @@ def create_json_from_blocks(func_to_blocks):
         funcs_json.append(func_dict)
     return {"functions": funcs_json}
 
-def local_dce(block, alive):
+def global_dce(blocks):
     changed = False
-    for instr in block.instrs:
-        if "dest" in instr:
-            if instr["dest"] not in alive:
-                block.instrs.remove(instr)
-                changed = True        
-    return changed
-
-def repeat_dce(blocks):
     alive = set()
     for b in blocks:
         for instr in b.instrs:
@@ -176,14 +168,18 @@ def repeat_dce(blocks):
                 for arg in args:
                     alive.add(arg) 
     
-    local_changed = True
-    while(local_changed):
-        local_changed = False
-        for b in blocks:
-            local_changed = local_changed or local_dce(b, alive)
+    for b in blocks:
+        for instr in b.instrs:
+            if "dest" in instr:
+                if instr["dest"] not in alive:
+                    b.instrs.remove(instr)
+                    changed = True        
+    return changed
+        
     
 
-def delete_dupes(blocks):
+def local_dce(blocks):
+    changed = False
     for b in blocks:
         seen = set()
         for instr in reversed(b.instrs):
@@ -194,15 +190,18 @@ def delete_dupes(blocks):
                     else:
                         b.instrs.remove(instr)
                         changed = True
+    return changed
 
 
 for f in func_to_blocks.keys():
-    repeat_dce(func_to_blocks[f])
-    repeat_dce(func_to_blocks[f])
     changed = True
     while(changed):
         changed = False
-        changed = changed or delete_dupes(func_to_blocks[f])
+        changed = changed or global_dce(func_to_blocks[f])
+    changed = True
+    while(changed):
+        changed = False
+        changed = changed or local_dce(func_to_blocks[f])
         
 
 new_json = create_json_from_blocks(func_to_blocks)
