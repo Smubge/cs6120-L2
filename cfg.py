@@ -27,8 +27,6 @@ class LVN_Value:
             self.vars = sorted_vars
         else:
             self.vars = vars
-    #TODO: Watch out, subtraction needs the order kept, only for commutative properties, do some sort of checking for add, mul, etc, otherwise do nothing
-        
     #TODO: Watch out, const values can be confused for actual vals
     def __eq__(self, other):
         if self.instr == other.instr:
@@ -318,10 +316,6 @@ def createVal(instr, is_const): #TODO: Optimize this lol
                         comp = LVN_Table(current_idx, comp_val, instr["op"]) 
                     elif instr["op"] == "free":
                         comp = LVN_Table(current_idx, comp_val, instr["op"])
-                    # else: #This is branch ig
-                        # print(instr)
-                        # Warning("HAHAHAHAHA")
-                        # print("MAYDAY SHIP IS SINKING")
                     current_idx += 1
                     return Table_Occ.NOT_IN_TABLE, comp
         else:
@@ -349,7 +343,7 @@ for b in blocks:
                             instr["op"] = "id"
                             instr["args"] = [lvn_comp.var]
                             instr["type"] = "int"
-                            del instr["value"]
+
                     else:
                             lvn_list.append(lvn_comp)
             else: 
