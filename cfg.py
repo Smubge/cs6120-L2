@@ -76,8 +76,9 @@ class Block:
 	def __str__(self):
 		return f"Block(idx={self.idx}, label={Block.label(self)}, edges = {self.edges} )"          
 	__repr__ = __str__
-with open(sys.argv[1], 'r') as file:
-	instrs = json.load(file)
+# with open(sys.argv[1], 'r') as file:
+# 	instrs = json.load(file)
+instrs = json.load(sys.stdin)
 
 blocks = []
 block = []
@@ -266,8 +267,8 @@ def createVal(instr, is_const): #TODO: Optimize this lol
                 arg = instr["args"][0]
                 lvn_comp = None
                 if arg in var2num:
-                    print(var2num[arg])
-                    print(lvn_list)
+                    # print(var2num[arg])
+                    # print(lvn_list)
                     var2num[instr["dest"]] = var2num[arg] 
                     lvn_comp = lvn_list[var2num[arg]]
                 else:
@@ -295,9 +296,9 @@ def createVal(instr, is_const): #TODO: Optimize this lol
                 if inTable:
                     if "dest" in instr:
                         var2num[instr["dest"]] = lvn_comp.idx
-                    elif instr["op"] == "free":
+                    # elif instr["op"] == "free":
                          # Need to free it more than once
-                        print(instr)
+                        # print(instr)
                     else:
                         # print(instr)
                         var2num[instr["funcs"][0]] = lvn_comp.idx
@@ -317,10 +318,10 @@ def createVal(instr, is_const): #TODO: Optimize this lol
                         comp = LVN_Table(current_idx, comp_val, instr["op"]) 
                     elif instr["op"] == "free":
                         comp = LVN_Table(current_idx, comp_val, instr["op"])
-                    else: #This is branch ig
-                        print(instr)
-                        Warning("HAHAHAHAHA")
-                        print("MAYDAY SHIP IS SINKING")
+                    # else: #This is branch ig
+                        # print(instr)
+                        # Warning("HAHAHAHAHA")
+                        # print("MAYDAY SHIP IS SINKING")
                     current_idx += 1
                     return Table_Occ.NOT_IN_TABLE, comp
         else:
@@ -376,7 +377,9 @@ for b in blocks:
 #           print(instr)
 
 # def replace_instrs(instr, ):
-print(instrs)
+# print(instrs)
      
-with open(f"{sys.argv[1]}.out","w") as f: #For some reason works although I didn't edit the instrs directly? YIPEEEEEEE
-    json.dump(instrs, f, indent=4)
+# with open(f"{sys.argv[1]}.out","w") as f: #For some reason works although I didn't edit the instrs directly? YIPEEEEEEE
+#     json.dump(instrs, f, indent=4)
+
+json.dump(instrs, sys.stdout, indent=4)

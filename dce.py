@@ -58,8 +58,7 @@ def print_instructions():
             for (j, instr) in enumerate(func["instrs"]):
                 print(j, instr)
 
-with open(sys.argv[1], 'r') as file:
-	bril = json.load(file)
+bril = json.load(sys.stdin)
 
 def split_func_calls(funcs): #get funcy
     res = ""
