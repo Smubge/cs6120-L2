@@ -1,18 +1,15 @@
 """
+Dead Code Elimination
+
+Cynthia Shao and Jonathan Brown
+
 This script takes in a Bril JSON file and outputs a new Bril program 
-with dead code eliminated
-"""
-
-"""
-Control Flow Graph!
-Jonathan Brown and Cynthia Shao
-
-This script takes in a Bril json file and outputs the 
-corresponding control flow graph in a edge list format.
+with dead code eliminated within every basic block.
 """
 
 import json
 import sys
+import copy
 from collections import defaultdict
 
 class Block:
@@ -48,8 +45,21 @@ class Block:
 	def __str__(self):
 		return f"Block(idx={self.idx}, label={self.label()}, edges = {self.edges} )"          
 
+
+def print_block_instrs(blks):
+    for (i, instr) in enumerate(blks.instrs):
+        print(i, instr)
+
+def print_instructions():
+    print("INSTRS")
+    for (i, func) in enumerate(bril["functions"]):
+        print(i, func)
+        if "instrs" in func:
+            for (j, instr) in enumerate(func["instrs"]):
+                print(j, instr)
+
 with open(sys.argv[1], 'r') as file:
-	instrs = json.load(file)
+	bril = json.load(file)
 
 def split_func_calls(funcs): #get funcy
     res = ""
@@ -58,8 +68,6 @@ def split_func_calls(funcs): #get funcy
             res += func + ", "
         else:
             res += func
-    print("Here")
-    print(res)
     return res
 
 def get_block_name(self,lbl):
@@ -85,7 +93,6 @@ def get_unique_block_name(self,lbl):
             return first["label"]
         elif "dest" in first:
             d = first["dest"]
-            print(d)
             if d in used_names:
                 used_names[d] += 1
                 return d + "_" + used_names[d]
@@ -100,9 +107,14 @@ def get_unique_block_name(self,lbl):
 blocks = []
 block = []
 selfIdx = 0
+func_counter = 0
 
-# creating basic blocks implementation
-for func in instrs["functions"]:
+func_to_blocks = {}
+for func in bril["functions"]:
+    blocks = []
+    block = []
+    selfIdx = 0
+    key = func["name"]
     if "instrs" in func:
         for instr in func["instrs"]:  # loop over instructions in the function
             if "label" in instr:
@@ -121,34 +133,30 @@ for func in instrs["functions"]:
                 else:
                     selfIdx += 1
                     block.append(instr)
-if block:
-    b2 = Block(get_unique_block_name(block, ""), block)
-    selfIdx += 1
-    blocks.append(b2)
-    block = []
-    
-def probe_next(block):
-    found = False
-    for (i,b) in enumerate(blocks):
-        if found: 
-            if b.idx != block:
-                return b.idx
-        if (b.idx) == block:
-            found = True	
+    if block:
+        b2 = Block(get_block_name(block, ""), block)
+        selfIdx += 1
+        blocks.append(b2)
+        block = []
+    func_to_blocks[key] = blocks
 
-def print_basic_blocks():
-    for b in blocks:
-        print(b)
+def print_func_block():
+    for k in func_to_blocks.keys():
+        print(k)
+        for b in func_to_blocks[k]:
+            print_block_instrs(b)
 
-def print_instructions():
-    for b in blocks:
-        for instr in b.instrs:
-            print(instr)
+def create_json_from_blocks(func_to_blocks):
+    funcs_json = []
+    for func_name, blocks in func_to_blocks.items():
+        func_dict = {"instrs": [], "name": func_name}
+        for block in blocks:
+            func_dict["instrs"].extend(block.instrs)
+        funcs_json.append(func_dict)
+    return {"functions": funcs_json}
 
-print_basic_blocks()
-
-print ("Testing dce here")
 def local_dce(block):
+    changed = False
     alive = set()
     for instr in block.instrs:
         args = None
@@ -163,9 +171,20 @@ def local_dce(block):
         if "dest" in instr:
             if instr["dest"] not in alive:
                 block.instrs.remove(instr)
+                changed = True
+    return changed
 
-for b in blocks:
-    local_dce(b)
+def repeat_dce(blocks):
+    changed = True
+    while(changed):
+        changed = False
+        for b in blocks:
+            changed = changed or local_dce(b)
 
-print_basic_blocks()
-print_instructions()
+for f in func_to_blocks.keys():
+    repeat_dce(func_to_blocks[f])
+
+new_json = create_json_from_blocks(func_to_blocks)
+
+with open(f"{sys.argv[1]}.out","w") as f:
+    json.dump(new_json, f, indent=4)
