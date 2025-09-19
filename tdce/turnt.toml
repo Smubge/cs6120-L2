@@ -1,2 +1,2 @@
-command = "bril2json < {filename} > {base}.json; python ../dce.py {base}.json | bril2txt"
+command = "bril2json < {filename} | python ../dce.py | bril2txt"
 output.out = "-"

@@ -152,6 +152,8 @@ def create_json_from_blocks(func_to_blocks, og_func):
         func_dict = {"instrs": [], "name": func_name}
         if "args" in orig_func:
             func_dict["args"] = orig_func["args"]
+        if "type" in orig_func:
+            func_dict["type"] = orig_func["type"]
         for block in blocks:
             func_dict["instrs"].extend(block.instrs)
         funcs_json.append(func_dict)
@@ -190,8 +192,10 @@ def local_dce(blocks):
                     if instr["dest"] not in seen:
                         seen.add(instr["dest"])
                     else:
-                        b.instrs.remove(instr)
-                        changed = True
+                        if instr["op"] is not None:
+                            if instr["op"] == "const":
+                                b.instrs.remove(instr)
+                                changed = True
     return changed
 
 
