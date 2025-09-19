@@ -16,31 +16,33 @@
                 },
                 {
                     "dest": "zero",
-                    "op": "const",
+                    "op": "id",
                     "type": "int",
-                    "value": 0
+                    "args": [
+                        "ten"
+                    ]
                 },
                 {
                     "dest": "one",
-                    "op": "const",
+                    "op": "id",
                     "type": "int",
-                    "value": 1
+                    "args": [
+                        "ten"
+                    ]
                 },
                 {
                     "dest": "index",
                     "op": "id",
                     "type": "int",
                     "args": [
-                        "one"
+                        "ten"
                     ]
                 },
                 {
                     "dest": "not_finished",
-                    "op": "id",
-                    "type": "int",
-                    "args": [
-                        "one"
-                    ]
+                    "op": "const",
+                    "type": "bool",
+                    "value": true
                 },
                 {
                     "label": "for.cond"
@@ -184,9 +186,11 @@
                 },
                 {
                     "dest": "zero",
-                    "op": "const",
+                    "op": "id",
                     "type": "int",
-                    "value": 0
+                    "args": [
+                        "res"
+                    ]
                 },
                 {
                     "dest": "one",
@@ -328,9 +332,11 @@
                 },
                 {
                     "dest": "ten",
-                    "op": "const",
+                    "op": "id",
                     "type": "int",
-                    "value": 10
+                    "args": [
+                        "two"
+                    ]
                 },
                 {
                     "args": [
@@ -392,16 +398,15 @@
                 },
                 {
                     "args": [
-                        "in",
-                        "ten"
+                        "left"
                     ],
                     "dest": "v1",
-                    "op": "div",
+                    "op": "id",
                     "type": "int"
                 },
                 {
                     "args": [
-                        "v1",
+                        "left",
                         "ten"
                     ],
                     "dest": "v2",
@@ -459,11 +464,10 @@
                 },
                 {
                     "args": [
-                        "temp",
-                        "right"
+                        "temp"
                     ],
                     "dest": "temp",
-                    "op": "sub",
+                    "op": "id",
                     "type": "int"
                 },
                 {
@@ -477,17 +481,16 @@
                 },
                 {
                     "args": [
-                        "len",
-                        "two"
+                        "temp"
                     ],
                     "dest": "next_len",
-                    "op": "sub",
+                    "op": "id",
                     "type": "int"
                 },
                 {
                     "args": [
                         "next_in",
-                        "next_len"
+                        "temp"
                     ],
                     "dest": "is_palindrome",
                     "funcs": [

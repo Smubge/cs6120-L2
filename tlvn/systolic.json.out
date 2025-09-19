@@ -638,683 +638,6 @@
                     ]
                 },
                 {
-                    "dest": "P0",
-                    "op": "const",
-                    "type": "int",
-                    "value": 4
-                },
-                {
-                    "dest": "P1",
-                    "op": "id",
-                    "type": "int",
-                    "args": [
-                        "P0"
-                    ]
-                },
-                {
-                    "dest": "zero",
-                    "op": "const",
-                    "type": "int",
-                    "value": 0
-                },
-                {
-                    "dest": "one",
-                    "op": "const",
-                    "type": "int",
-                    "value": 1
-                },
-                {
-                    "dest": "two",
-                    "op": "id",
-                    "type": "int",
-                    "args": [
-                        "M"
-                    ]
-                },
-                {
-                    "dest": "three",
-                    "op": "const",
-                    "type": "int",
-                    "value": 3
-                },
-                {
-                    "args": [
-                        "C",
-                        "M",
-                        "M",
-                        "zero",
-                        "zero",
-                        "zero"
-                    ],
-                    "funcs": [
-                        "set_element"
-                    ],
-                    "op": "call"
-                },
-                {
-                    "args": [
-                        "C",
-                        "M",
-                        "M",
-                        "zero",
-                        "one",
-                        "zero"
-                    ],
-                    "funcs": [
-                        "set_element"
-                    ],
-                    "op": "call"
-                },
-                {
-                    "args": [
-                        "set_element"
-                    ],
-                    "funcs": [
-                        "set_element"
-                    ],
-                    "op": "id"
-                },
-                {
-                    "args": [
-                        "C",
-                        "M",
-                        "M",
-                        "one",
-                        "one",
-                        "zero"
-                    ],
-                    "funcs": [
-                        "set_element"
-                    ],
-                    "op": "call"
-                },
-                {
-                    "dest": "i",
-                    "op": "id",
-                    "type": "int",
-                    "args": [
-                        "zero"
-                    ]
-                },
-                {
-                    "dest": "j",
-                    "op": "id",
-                    "type": "int",
-                    "args": [
-                        "zero"
-                    ]
-                },
-                {
-                    "dest": "result",
-                    "op": "id",
-                    "type": "int",
-                    "args": [
-                        "zero"
-                    ]
-                },
-                {
-                    "dest": "k",
-                    "op": "id",
-                    "type": "int",
-                    "args": [
-                        "zero"
-                    ]
-                },
-                {
-                    "label": "compute_00"
-                },
-                {
-                    "args": [
-                        "k",
-                        "K"
-                    ],
-                    "dest": "cond",
-                    "op": "lt",
-                    "type": "bool"
-                },
-                {
-                    "args": [
-                        "cond"
-                    ],
-                    "labels": [
-                        "body_00",
-                        "done_00"
-                    ],
-                    "op": "br"
-                },
-                {
-                    "label": "body_00"
-                },
-                {
-                    "args": [
-                        "A",
-                        "M",
-                        "K",
-                        "i",
-                        "k"
-                    ],
-                    "dest": "a_val",
-                    "funcs": [
-                        "get_element"
-                    ],
-                    "op": "call",
-                    "type": "int"
-                },
-                {
-                    "args": [
-                        "B",
-                        "K",
-                        "N",
-                        "k",
-                        "j"
-                    ],
-                    "dest": "b_val",
-                    "funcs": [
-                        "get_element"
-                    ],
-                    "op": "call",
-                    "type": "int"
-                },
-                {
-                    "args": [
-                        "a_val",
-                        "b_val"
-                    ],
-                    "dest": "prod",
-                    "op": "mul",
-                    "type": "int"
-                },
-                {
-                    "args": [
-                        "result",
-                        "prod"
-                    ],
-                    "dest": "result",
-                    "op": "add",
-                    "type": "int"
-                },
-                {
-                    "args": [
-                        "k",
-                        "one"
-                    ],
-                    "dest": "k",
-                    "op": "add",
-                    "type": "int"
-                },
-                {
-                    "labels": [
-                        "compute_00"
-                    ],
-                    "op": "jmp"
-                },
-                {
-                    "label": "done_00"
-                },
-                {
-                    "args": [
-                        "C",
-                        "M",
-                        "N",
-                        "i",
-                        "j",
-                        "result"
-                    ],
-                    "funcs": [
-                        "set_element"
-                    ],
-                    "op": "call"
-                },
-                {
-                    "dest": "i",
-                    "op": "const",
-                    "type": "int",
-                    "value": 0
-                },
-                {
-                    "dest": "j",
-                    "op": "const",
-                    "type": "int",
-                    "value": 1
-                },
-                {
-                    "dest": "result",
-                    "op": "id",
-                    "type": "int",
-                    "args": [
-                        "i"
-                    ]
-                },
-                {
-                    "dest": "k",
-                    "op": "id",
-                    "type": "int",
-                    "args": [
-                        "i"
-                    ]
-                },
-                {
-                    "label": "compute_01"
-                },
-                {
-                    "args": [
-                        "k",
-                        "K"
-                    ],
-                    "dest": "cond",
-                    "op": "lt",
-                    "type": "bool"
-                },
-                {
-                    "args": [
-                        "cond"
-                    ],
-                    "labels": [
-                        "body_01",
-                        "done_01"
-                    ],
-                    "op": "br"
-                },
-                {
-                    "label": "body_01"
-                },
-                {
-                    "args": [
-                        "A",
-                        "M",
-                        "K",
-                        "i",
-                        "k"
-                    ],
-                    "dest": "a_val",
-                    "funcs": [
-                        "get_element"
-                    ],
-                    "op": "call",
-                    "type": "int"
-                },
-                {
-                    "args": [
-                        "B",
-                        "K",
-                        "N",
-                        "k",
-                        "j"
-                    ],
-                    "dest": "b_val",
-                    "funcs": [
-                        "get_element"
-                    ],
-                    "op": "call",
-                    "type": "int"
-                },
-                {
-                    "args": [
-                        "a_val",
-                        "b_val"
-                    ],
-                    "dest": "prod",
-                    "op": "mul",
-                    "type": "int"
-                },
-                {
-                    "args": [
-                        "result",
-                        "prod"
-                    ],
-                    "dest": "result",
-                    "op": "add",
-                    "type": "int"
-                },
-                {
-                    "args": [
-                        "k",
-                        "one"
-                    ],
-                    "dest": "k",
-                    "op": "add",
-                    "type": "int"
-                },
-                {
-                    "labels": [
-                        "compute_01"
-                    ],
-                    "op": "jmp"
-                },
-                {
-                    "label": "done_01"
-                },
-                {
-                    "args": [
-                        "C",
-                        "M",
-                        "N",
-                        "i",
-                        "j",
-                        "result"
-                    ],
-                    "funcs": [
-                        "set_element"
-                    ],
-                    "op": "call"
-                },
-                {
-                    "dest": "i",
-                    "op": "const",
-                    "type": "int",
-                    "value": 1
-                },
-                {
-                    "dest": "j",
-                    "op": "const",
-                    "type": "int",
-                    "value": 0
-                },
-                {
-                    "dest": "result",
-                    "op": "id",
-                    "type": "int",
-                    "args": [
-                        "j"
-                    ]
-                },
-                {
-                    "dest": "k",
-                    "op": "id",
-                    "type": "int",
-                    "args": [
-                        "j"
-                    ]
-                },
-                {
-                    "label": "compute_10"
-                },
-                {
-                    "args": [
-                        "k",
-                        "K"
-                    ],
-                    "dest": "cond",
-                    "op": "lt",
-                    "type": "bool"
-                },
-                {
-                    "args": [
-                        "cond"
-                    ],
-                    "labels": [
-                        "body_10",
-                        "done_10"
-                    ],
-                    "op": "br"
-                },
-                {
-                    "label": "body_10"
-                },
-                {
-                    "args": [
-                        "A",
-                        "M",
-                        "K",
-                        "i",
-                        "k"
-                    ],
-                    "dest": "a_val",
-                    "funcs": [
-                        "get_element"
-                    ],
-                    "op": "call",
-                    "type": "int"
-                },
-                {
-                    "args": [
-                        "B",
-                        "K",
-                        "N",
-                        "k",
-                        "j"
-                    ],
-                    "dest": "b_val",
-                    "funcs": [
-                        "get_element"
-                    ],
-                    "op": "call",
-                    "type": "int"
-                },
-                {
-                    "args": [
-                        "a_val",
-                        "b_val"
-                    ],
-                    "dest": "prod",
-                    "op": "mul",
-                    "type": "int"
-                },
-                {
-                    "args": [
-                        "result",
-                        "prod"
-                    ],
-                    "dest": "result",
-                    "op": "add",
-                    "type": "int"
-                },
-                {
-                    "args": [
-                        "k",
-                        "one"
-                    ],
-                    "dest": "k",
-                    "op": "add",
-                    "type": "int"
-                },
-                {
-                    "labels": [
-                        "compute_10"
-                    ],
-                    "op": "jmp"
-                },
-                {
-                    "label": "done_10"
-                },
-                {
-                    "args": [
-                        "C",
-                        "M",
-                        "N",
-                        "i",
-                        "j",
-                        "result"
-                    ],
-                    "funcs": [
-                        "set_element"
-                    ],
-                    "op": "call"
-                },
-                {
-                    "dest": "i",
-                    "op": "const",
-                    "type": "int",
-                    "value": 1
-                },
-                {
-                    "dest": "j",
-                    "op": "id",
-                    "type": "int",
-                    "args": [
-                        "i"
-                    ]
-                },
-                {
-                    "dest": "result",
-                    "op": "const",
-                    "type": "int",
-                    "value": 0
-                },
-                {
-                    "dest": "k",
-                    "op": "id",
-                    "type": "int",
-                    "args": [
-                        "result"
-                    ]
-                },
-                {
-                    "label": "compute_11"
-                },
-                {
-                    "args": [
-                        "k",
-                        "K"
-                    ],
-                    "dest": "cond",
-                    "op": "lt",
-                    "type": "bool"
-                },
-                {
-                    "args": [
-                        "cond"
-                    ],
-                    "labels": [
-                        "body_11",
-                        "done_11"
-                    ],
-                    "op": "br"
-                },
-                {
-                    "label": "body_11"
-                },
-                {
-                    "args": [
-                        "A",
-                        "M",
-                        "K",
-                        "i",
-                        "k"
-                    ],
-                    "dest": "a_val",
-                    "funcs": [
-                        "get_element"
-                    ],
-                    "op": "call",
-                    "type": "int"
-                },
-                {
-                    "args": [
-                        "B",
-                        "K",
-                        "N",
-                        "k",
-                        "j"
-                    ],
-                    "dest": "b_val",
-                    "funcs": [
-                        "get_element"
-                    ],
-                    "op": "call",
-                    "type": "int"
-                },
-                {
-                    "args": [
-                        "a_val",
-                        "b_val"
-                    ],
-                    "dest": "prod",
-                    "op": "mul",
-                    "type": "int"
-                },
-                {
-                    "args": [
-                        "result",
-                        "prod"
-                    ],
-                    "dest": "result",
-                    "op": "add",
-                    "type": "int"
-                },
-                {
-                    "args": [
-                        "k",
-                        "one"
-                    ],
-                    "dest": "k",
-                    "op": "add",
-                    "type": "int"
-                },
-                {
-                    "labels": [
-                        "compute_11"
-                    ],
-                    "op": "jmp"
-                },
-                {
-                    "label": "done_11"
-                },
-                {
-                    "args": [
-                        "C",
-                        "M",
-                        "N",
-                        "i",
-                        "j",
-                        "result"
-                    ],
-                    "funcs": [
-                        "set_element"
-                    ],
-                    "op": "call"
-                },
-                {
-                    "op": "ret"
-                }
-            ],
-            "name": "systolic_gemm"
-        },
-        {
-            "args": [
-                {
-                    "name": "A",
-                    "type": {
-                        "ptr": "int"
-                    }
-                },
-                {
-                    "name": "B",
-                    "type": {
-                        "ptr": "int"
-                    }
-                },
-                {
-                    "name": "C",
-                    "type": {
-                        "ptr": "int"
-                    }
-                }
-            ],
-            "instrs": [
-                {
-                    "dest": "M",
-                    "op": "const",
-                    "type": "int",
-                    "value": 2
-                },
-                {
-                    "dest": "N",
-                    "op": "id",
-                    "type": "int",
-                    "args": [
-                        "M"
-                    ]
-                },
-                {
-                    "dest": "K",
-                    "op": "id",
-                    "type": "int",
-                    "args": [
-                        "M"
-                    ]
-                },
-                {
                     "dest": "zero",
                     "op": "const",
                     "type": "int",
@@ -1449,13 +772,17 @@
                 },
                 {
                     "args": [
-                        "a_val"
+                        "A",
+                        "M",
+                        "K",
+                        "zero",
+                        "cycle"
                     ],
                     "dest": "a_val",
                     "funcs": [
                         "get_element"
                     ],
-                    "op": "id",
+                    "op": "call",
                     "type": "int"
                 },
                 {
@@ -1508,13 +835,17 @@
                 },
                 {
                     "args": [
-                        "b_val"
+                        "B",
+                        "K",
+                        "N",
+                        "cycle",
+                        "zero"
                     ],
                     "dest": "b_val",
                     "funcs": [
                         "get_element"
                     ],
-                    "op": "id",
+                    "op": "call",
                     "type": "int"
                 },
                 {
@@ -1537,24 +868,32 @@
                 },
                 {
                     "args": [
-                        "a_val"
+                        "A",
+                        "M",
+                        "K",
+                        "one",
+                        "cycle"
                     ],
                     "dest": "a_val",
                     "funcs": [
                         "get_element"
                     ],
-                    "op": "id",
+                    "op": "call",
                     "type": "int"
                 },
                 {
                     "args": [
-                        "b_val"
+                        "B",
+                        "K",
+                        "N",
+                        "cycle",
+                        "one"
                     ],
                     "dest": "b_val",
                     "funcs": [
                         "get_element"
                     ],
-                    "op": "id",
+                    "op": "call",
                     "type": "int"
                 },
                 {
@@ -1715,13 +1054,15 @@
                 },
                 {
                     "args": [
-                        "A"
+                        "two",
+                        "two",
+                        "rng"
                     ],
                     "dest": "B",
                     "funcs": [
                         "init_matrix"
                     ],
-                    "op": "id",
+                    "op": "call",
                     "type": {
                         "ptr": "int"
                     }
@@ -1749,17 +1090,19 @@
                 },
                 {
                     "args": [
-                        "print_matrix"
+                        "two",
+                        "two",
+                        "B"
                     ],
                     "funcs": [
                         "print_matrix"
                     ],
-                    "op": "id"
+                    "op": "call"
                 },
                 {
                     "args": [
                         "A",
-                        "A",
+                        "B",
                         "C"
                     ],
                     "funcs": [
@@ -1786,9 +1129,9 @@
                 },
                 {
                     "args": [
-                        "free"
+                        "B"
                     ],
-                    "op": "id"
+                    "op": "free"
                 },
                 {
                     "args": [
