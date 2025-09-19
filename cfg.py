@@ -27,13 +27,16 @@ class LVN_Value:
             self.vars = sorted_vars
         else:
             self.vars = vars
+    #TODO: Watch out, subtraction needs the order kept, only for commutative properties, do some sort of checking for add, mul, etc, otherwise do nothing
+        
     #TODO: Watch out, const values can be confused for actual vals
     def __eq__(self, other):
         if self.instr == other.instr:
             for (i, var) in enumerate(self.vars):
                 for (j, var2) in enumerate(other.vars):
-                    if i == j and var != var2:
-                        return False 
+                    if i == j:
+                        if type(var) is not type(var2) or var != var2:
+                            return False 
             return True
         else:
             return False
@@ -125,11 +128,11 @@ for func in instrs["functions"]:
                 else:
                     selfIdx += 1
                     block.append(instr)
-if block:
-    b2 = Block(get_block_name(block, ""), block)
-    selfIdx += 1
-    blocks.append(b2)
-    block = []
+        if block:
+            b2 = Block(get_block_name(block, ""), block)
+            selfIdx += 1
+            blocks.append(b2)
+            block = []
     
 def probe_next(block):
     found = False
@@ -176,6 +179,7 @@ one_arg_ops = ["print", "ret"]
 ignore_ops = ["br", "jmp"]
 current_idx = 0
 offset = 0
+free_count = 0
 
 def replace_args(args, arg_repl):
      new_list = []
@@ -269,14 +273,24 @@ def createVal(instr, is_const): #TODO: Optimize this lol
                     # print(lvn_list)
                     var2num[instr["dest"]] = var2num[arg] 
                     lvn_comp = lvn_list[var2num[arg]]
+                    if instr["dest"] == lvn_comp.var:
+                        return Table_Occ.DONT_USE, None
                 else:
                     createVar2Num(arg)
                     var2num[instr["dest"]] = var2num[arg]
                     lvn_val = LVN_Value(instr["op"], (instr["args"][0],))
-                    lvn_comp = LVN_Table(current_idx, lvn_val, "id")
+                    lvn_comp = LVN_Table(current_idx, lvn_val, instr["dest"])
                     return Table_Occ.NOT_IN_TABLE,lvn_comp
                 # print(lvn_comp)
                 return Table_Occ.REPLACE, lvn_comp
+            elif instr["op"] == "call":
+                new_args, arg_idx = argument_checking(instr)
+                instr["args"] = new_args
+                comp_val = LVN_Value(instr["op"], (*arg_idx,))
+                comp = LVN_Table(current_idx, comp_val, instr["op"])
+                current_idx += 1
+                var2num[instr["op"]] = comp.idx
+                return Table_Occ.NOT_IN_TABLE, comp
             elif instr["op"] == "store": #TODO: just make some of these functions becuase wowza so much code
                 new_args, arg_idx = argument_checking(instr)
                 instr["args"] = new_args
@@ -293,10 +307,13 @@ def createVal(instr, is_const): #TODO: Optimize this lol
                 inTable, lvn_comp = checkValInTable(comp_val)
                 if inTable:
                     if "dest" in instr:
+                        if instr["dest"] == lvn_comp.var:
+                            return Table_Occ.DONT_USE, None
                         var2num[instr["dest"]] = lvn_comp.idx
-                    # elif instr["op"] == "free":
+                    elif instr["op"] == "free":
                          # Need to free it more than once
                         # print(instr)
+                        free_count +=1 
                     else:
                         # print(instr)
                         var2num[instr["funcs"][0]] = lvn_comp.idx
@@ -316,6 +333,10 @@ def createVal(instr, is_const): #TODO: Optimize this lol
                         comp = LVN_Table(current_idx, comp_val, instr["op"]) 
                     elif instr["op"] == "free":
                         comp = LVN_Table(current_idx, comp_val, instr["op"])
+                    # else: #This is branch ig
+                        # print(instr)
+                        # Warning("HAHAHAHAHA")
+                        # print("MAYDAY SHIP IS SINKING")
                     current_idx += 1
                     return Table_Occ.NOT_IN_TABLE, comp
         else:
@@ -343,7 +364,9 @@ for b in blocks:
                             instr["op"] = "id"
                             instr["args"] = [lvn_comp.var]
                             instr["type"] = "int"
-
+                            del instr["value"]
+                            if "dest" not in instr:
+                                instr["dest"] = "z"
                     else:
                             lvn_list.append(lvn_comp)
             else: 
@@ -354,7 +377,8 @@ for b in blocks:
                 elif inTable == Table_Occ.PRINT_RET:
                     instr["args"] = [lvn_comp.var]
                 elif inTable == Table_Occ.DONT_USE:
-                     print(f"{instr["op"]} has been thrown in the trash")
+                     free_count +=1
+                    #  print(f"{instr["op"]} has been thrown in the trash")
                 else:
                     lvn_list.append(lvn_comp)
     current_idx = 0

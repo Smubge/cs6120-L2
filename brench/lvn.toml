@@ -8,7 +8,7 @@ pipeline = [
 ]
 
 
-[runs.myopt]
+[runs.lvn]
 pipeline = [
     "bril2json", 
     "python ../cfg.py", 
