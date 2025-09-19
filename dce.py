@@ -145,10 +145,15 @@ def print_func_block():
         for b in func_to_blocks[k]:
             print_block_instrs(b)
 
-def create_json_from_blocks(func_to_blocks):
+def create_json_from_blocks(func_to_blocks, og_func):
     funcs_json = []
     for func_name, blocks in func_to_blocks.items():
+        orig_func = next((f for f in og_func if f["name"] == func_name), {})
         func_dict = {"instrs": [], "name": func_name}
+        if "args" in orig_func:
+            func_dict["args"] = orig_func["args"]
+        if "type" in orig_func:
+            func_dict["type"] = orig_func["type"]
         for block in blocks:
             func_dict["instrs"].extend(block.instrs)
         funcs_json.append(func_dict)
@@ -187,8 +192,10 @@ def local_dce(blocks):
                     if instr["dest"] not in seen:
                         seen.add(instr["dest"])
                     else:
-                        b.instrs.remove(instr)
-                        changed = True
+                        if instr["op"] is not None:
+                            if instr["op"] == "const":
+                                b.instrs.remove(instr)
+                                changed = True
     return changed
 
 
@@ -203,6 +210,6 @@ for f in func_to_blocks.keys():
         changed = changed or local_dce(func_to_blocks[f])
         
 
-new_json = create_json_from_blocks(func_to_blocks)
+new_json = create_json_from_blocks(func_to_blocks, bril["functions"])
 
 json.dump(new_json, sys.stdout, indent=4)
