@@ -2,6 +2,6 @@
   x: int = const 1;
 .lb:
   y: int = id x;
-  x: int = add x x;
+  x: int = add y y;
   print y;
 }
