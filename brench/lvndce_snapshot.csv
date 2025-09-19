@@ -1,0 +1,17 @@
+benchmark,run,result
+idchain,baseline,5
+idchain,lvndce_snapshot,2
+redundant-dce,baseline,6
+redundant-dce,lvndce_snapshot,5
+nonlocal,baseline,7
+nonlocal,lvndce_snapshot,7
+clobber-arg,baseline,3
+clobber-arg,lvndce_snapshot,3
+commute,baseline,missing
+commute,lvndce_snapshot,missing
+idchain-nonlocal,baseline,6
+idchain-nonlocal,lvndce_snapshot,4
+nonlocal-clobber,baseline,4
+nonlocal-clobber,lvndce_snapshot,4
+divide-by-zero,baseline,missing
+divide-by-zero,lvndce_snapshot,missing
