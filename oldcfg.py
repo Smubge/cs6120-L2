@@ -400,12 +400,13 @@ for b in blocks:
 #           print(instr)
 
 # def replace_instrs(instr, ):
-for instr in instrs["functions"]:
-     print(instr)
+# for instr in instrs["functions"]:
+#      print(instr)
 
-# for (i, b) in enumerate(blocks):
-#      print(f"Block{i}")
-#      for instr in b.instrs:
-#           print(instr)
-with open(f"{sys.argv[1]}.out","w") as f: #For some reason works although I didn't edit the instrs directly? YIPEEEEEEE
-    json.dump(instrs, f, indent=4)
+
+for (i, b) in enumerate(blocks):
+     print(f"Block{i}")
+     for instr in b.instrs:
+          print(instr)
+# with open(f"{sys.argv[1]}.out","w") as f: #For some reason works although I didn't edit the instrs directly? YIPEEEEEEE
+#     json.dump(instrs, f, indent=4)

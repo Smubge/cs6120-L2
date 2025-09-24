@@ -1,2 +1,2 @@
-command = "bril2json < {filename} | python ../dce.py | brili {args}"
+command = "bril2json < {filename} | python ../livevars.py "
 output.out = "-"
