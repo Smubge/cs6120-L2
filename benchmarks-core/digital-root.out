@@ -1,14 +1,24 @@
-4
-9
-15
-6
-10
-1
-4
-10
-1
-6
-10
-1
-7
-7
+Block: zero
+In: {input}
+Out: {input, result, ten, zero}
+Block: begin
+In: {input, result, ten, zero}
+Out: {input, result, ten, zero}
+Block: check_result
+In: {input, result, ten, zero}
+Out: {input, result, ten, zero}
+Block: process_result
+In: {input, result, ten, zero}
+Out: {input, result, ten, zero}
+Block: check_done
+In: {input, result, ten, zero}
+Out: {input, result, ten, zero}
+Block: done
+In: {result}
+Out: ∅
+Block: ten
+In: {input}
+Out: ∅
+Block: ten
+In: {input}
+Out: ∅

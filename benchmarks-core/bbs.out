@@ -1,6 +1,21 @@
-1
-1
-0
-0
-1
-0
+Block: result
+In: {n}
+Out: ∅
+Block: two
+In: {n}
+Out: ∅
+Block: result
+In: {n}
+Out: ∅
+Block: modulus
+In: {p, q, seed, sequence_length}
+Out: {end, modulus, seed, start}
+Block: loop.branch
+In: {end, modulus, seed, start}
+Out: {end, modulus, seed, start}
+Block: loop.body
+In: {end, modulus, seed, start}
+Out: {end, modulus, seed, start}
+Block: loop.end
+In: ∅
+Out: ∅

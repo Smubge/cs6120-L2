@@ -1,1 +1,54 @@
-7
+Block: two
+In: {a}
+Out: ∅
+Block: i
+In: {a, b, c}
+Out: {a, ans, b, c, i, n, one, to_add, two}
+Block: loop
+In: {a, ans, b, c, i, n, one, to_add, two}
+Out: {a, ans, b, c, i, n, one, to_add, two}
+Block: here
+In: {a, ans, b, c, i, n, one, to_add, two}
+Out: {a, ans, b, c, cond_add, i, mod2a, mod2b, n, one, to_add, two}
+Block: doOr
+In: {a, ans, b, c, i, mod2a, mod2b, n, one, to_add, two}
+Out: {a, ans, b, c, cond_add, i, n, one, to_add, two}
+Block: stay
+In: {a, ans, b, c, cond_add, i, n, one, to_add, two}
+Out: {a, ans, b, c, i, n, one, to_add, two}
+Block: add
+In: {a, ans, b, c, i, n, one, to_add, two}
+Out: {a, ans, b, c, i, n, one, to_add, two}
+Block: end_loop
+In: {a, ans, b, c, i, n, one, to_add, two}
+Out: {a, ans, b, c, i, n, one, to_add, two}
+Block: end
+In: {ans}
+Out: ∅
+Block: oper
+In: {a, b}
+Out: ∅
+Block: oper
+In: {a, b}
+Out: ∅
+Block: and_val
+In: {a, b}
+Out: ∅
+Block: one
+In: {a, b, c}
+Out: {a, b, equal}
+Block: useless_lbl
+In: {a, b, equal}
+Out: {a, b}
+Block: and_op
+In: {a, b}
+Out: {ans}
+Block: or_op
+In: {a, b}
+Out: {ans}
+Block: xor_op
+In: {a, b}
+Out: {ans}
+Block: end
+In: {ans}
+Out: ∅

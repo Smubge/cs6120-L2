@@ -1,1 +1,177 @@
-4
+Block: v11
+In: {a, b, day, month, year}
+Out: {a, b, day, m100, m4, month, year}
+Block: then.18
+In: {a, b, day, month, year}
+Out: {a, b, day, leap, month, year}
+Block: else.18
+In: {m100, m4}
+Out: {m4}
+Block: then.23
+In: ∅
+Out: ∅
+Block: else.23
+In: {m4}
+Out: ∅
+Block: then.28
+In: ∅
+Out: ∅
+Block: else.28
+In: ∅
+Out: ∅
+Block: endif.28
+In: ∅
+Out: ∅
+Block: endif.23
+In: ∅
+Out: ∅
+Block: endif.18
+In: {a, b, day, leap, month, year}
+Out: {a, b, c, century, centuryCode, day, leap, month, year}
+Block: for.cond.37
+In: {a, b, c, century, centuryCode, day, leap, month, year}
+Out: {a, b, c, century, centuryCode, day, leap, month, year}
+Block: for.body.37
+In: {a, b, c, century, day, leap, month, year}
+Out: {a, b, c, century, day, leap, month, year}
+Block: then.46
+In: {a, b, c, century, day, leap, month, year}
+Out: {a, b, c, century, centuryCode, day, leap, month, year}
+Block: else.46
+In: ∅
+Out: ∅
+Block: endif.46
+In: {a, b, c, century, centuryCode, day, leap, month, year}
+Out: {a, b, c, century, centuryCode, day, leap, month, year}
+Block: for.end.37
+In: {a, b, centuryCode, day, leap, month, year}
+Out: {a, b, day, leap, month, yearCode}
+Block: then.68
+In: {a, b, day, leap, month, yearCode}
+Out: {a, b, day, leap, month, monthCode, yearCode}
+Block: else.68
+In: {month}
+Out: {month}
+Block: then.73
+In: ∅
+Out: ∅
+Block: else.73
+In: {month}
+Out: {month}
+Block: then.78
+In: ∅
+Out: ∅
+Block: else.78
+In: {month}
+Out: {month}
+Block: then.83
+In: ∅
+Out: ∅
+Block: else.83
+In: {month}
+Out: {month}
+Block: then.88
+In: ∅
+Out: ∅
+Block: else.88
+In: {month}
+Out: {month}
+Block: then.93
+In: ∅
+Out: ∅
+Block: else.93
+In: {month}
+Out: {month}
+Block: then.98
+In: ∅
+Out: ∅
+Block: else.98
+In: {month}
+Out: {month}
+Block: then.103
+In: ∅
+Out: ∅
+Block: else.103
+In: {month}
+Out: {month}
+Block: then.108
+In: ∅
+Out: ∅
+Block: else.108
+In: {month}
+Out: {month}
+Block: then.113
+In: ∅
+Out: ∅
+Block: else.113
+In: {month}
+Out: ∅
+Block: then.118
+In: ∅
+Out: ∅
+Block: else.118
+In: ∅
+Out: ∅
+Block: endif.118
+In: ∅
+Out: ∅
+Block: endif.113
+In: ∅
+Out: ∅
+Block: endif.108
+In: ∅
+Out: ∅
+Block: endif.103
+In: ∅
+Out: ∅
+Block: endif.98
+In: ∅
+Out: ∅
+Block: endif.93
+In: ∅
+Out: ∅
+Block: endif.88
+In: ∅
+Out: ∅
+Block: endif.83
+In: ∅
+Out: ∅
+Block: endif.78
+In: ∅
+Out: ∅
+Block: endif.73
+In: ∅
+Out: ∅
+Block: endif.68
+In: {a, b, day, leap, month, monthCode, yearCode}
+Out: {a, b, month, sum}
+Block: then.130
+In: {a, b, month, sum}
+Out: {a, b, month, sum}
+Block: then.134
+In: {a, b, sum}
+Out: {a, b, dayCode}
+Block: else.134
+In: {month, sum}
+Out: {sum}
+Block: then.143
+In: {sum}
+Out: ∅
+Block: else.143
+In: {sum}
+Out: ∅
+Block: endif.143
+In: ∅
+Out: ∅
+Block: endif.134
+In: {a, b, dayCode}
+Out: {a, b, dayCode}
+Block: else.130
+In: {a, b, sum}
+Out: {a, b, dayCode}
+Block: endif.130
+In: {a, b, dayCode}
+Out: {a, b}
+Block: v0
+In: {a, b}
+Out: ∅

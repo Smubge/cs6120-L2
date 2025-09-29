@@ -1,8 +1,63 @@
-19
-17
-13
-11
-9
-7
-3
-1
+Block: v0
+In: {a, b}
+Out: ∅
+Block: v0
+In: {a, b}
+Out: ∅
+Block: v1
+In: {a}
+Out: {a, b}
+Block: then.0
+In: {a, b}
+Out: {a, b}
+Block: else.0
+In: ∅
+Out: ∅
+Block: endif.0
+In: {a, b}
+Out: {a, b}
+Block: then.7
+In: {a, b}
+Out: {a, b}
+Block: 
+In: ∅
+Out: ∅
+Block: else.7
+In: ∅
+Out: ∅
+Block: then.12
+In: {a}
+Out: ∅
+Block: 
+In: ∅
+Out: ∅
+Block: else.12
+In: ∅
+Out: ∅
+Block: endif.12
+In: ∅
+Out: ∅
+Block: endif.7
+In: {a, b}
+Out: {a, b}
+Block: v1
+In: {a}
+Out: {a, b}
+Block: for.cond.0
+In: {a, b}
+Out: {a, b}
+Block: for.body.0
+In: {a, b}
+Out: {a, b}
+Block: then.7
+In: {a, b}
+Out: {a, b}
+Block: else.7
+In: ∅
+Out: ∅
+Block: endif.7
+In: {a, b}
+Out: {a, b}
+Block: for.end.0
+In: ∅
+Out: ∅

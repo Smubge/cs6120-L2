@@ -1,2 +1,30 @@
-96
-625
+Block: v1
+In: {n, x}
+Out: {n, x}
+Block: then.0
+In: {x}
+Out: ∅
+Block: else.0
+In: {n, x}
+Out: {half2, x}
+Block: then.12
+In: {half2, x}
+Out: {ans}
+Block: else.12
+In: {half2}
+Out: {ans}
+Block: endif.12
+In: {ans}
+Out: ∅
+Block: v0
+In: {step, x}
+Out: ∅
+Block: v0
+In: {step, x}
+Out: ∅
+Block: v0
+In: {step, x}
+Out: ∅
+Block: v2
+In: {a, b, c, d}
+Out: ∅

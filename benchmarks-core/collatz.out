@@ -1,17 +1,21 @@
-7
-22
-11
-34
-17
-52
-26
-13
-40
-20
-10
-5
-16
-8
-4
-2
-1
+Block: one
+In: {x}
+Out: {one, three, two, x}
+Block: cond
+In: {one, three, two, x}
+Out: {one, three, two, x}
+Block: loop
+In: {one, three, two, x}
+Out: {one, three, two, x}
+Block: even
+In: {one, three, two, x}
+Out: {one, three, two, x}
+Block: odd
+In: {one, three, two, x}
+Out: {one, three, two, x}
+Block: print
+In: {one, three, two, x}
+Out: {one, three, two, x}
+Block: end
+In: ∅
+Out: ∅

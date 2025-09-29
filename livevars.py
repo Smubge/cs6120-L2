@@ -80,8 +80,7 @@ class Block:
 	__repr__ = __str__
 # with open(sys.argv[1], 'r') as file:
 # 	instrs = json.load(file)
-with open(sys.argv[1], 'r') as file:
-	instrs = json.load(file)
+instrs = json.load(sys.stdin)
 
 blocks = []
 block = []

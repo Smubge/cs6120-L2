@@ -1,3 +1,21 @@
-75 100
-44 117
-35 120
+Block: one
+In: {n}
+Out: {a, n, n_sq, one}
+Block: outer_loop
+In: {a, n, n_sq, one}
+Out: {a, b, n, n_sq, one}
+Block: inner_loop
+In: {a, b, n, n_sq, one}
+Out: {a, b, n, n_sq, one}
+Block: found
+In: {a, b}
+Out: ∅
+Block: inner_continue
+In: {a, b, n, n_sq, one}
+Out: {a, b, n, n_sq, one}
+Block: outer_continue
+In: {a, n, n_sq, one}
+Out: {a, n, n_sq, one}
+Block: finish
+In: ∅
+Out: ∅

@@ -1,2 +1,39 @@
-2023
-1632
+Block: print
+In: {n}
+Out: ∅
+Block: result
+In: {n}
+Out: {n, one, p, result, zero}
+Block: for.set.cond
+In: {n, one, p, result, zero}
+Out: {n, one, p, result, zero}
+Block: for.set.body
+In: {n, one, p, result, zero}
+Out: {n, one, p, result, zero}
+Block: if_lbl
+In: ∅
+Out: ∅
+Block: while.set.cond
+In: {n, one, p, result, zero}
+Out: {n, one, p, result, zero}
+Block: while.body
+In: {n, one, p, result, zero}
+Out: {n, one, p, result, zero}
+Block: while.end
+In: {n, one, p, result, zero}
+Out: {n, one, p, result, zero}
+Block: else_lbl
+In: {n, one, p, result, zero}
+Out: {n, one, p, result, zero}
+Block: for.set.end
+In: {n, one, result}
+Out: {n, result}
+Block: final_if_label
+In: {n, result}
+Out: {result}
+Block: final_else_label
+In: {result}
+Out: ∅
+Block: ad
+In: {a, b}
+Out: ∅

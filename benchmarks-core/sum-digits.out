@@ -1,1 +1,12 @@
-45
+Block: v0
+In: {n}
+Out: {n, total}
+Block: for.cond.1
+In: {n, total}
+Out: {n, total}
+Block: for.body.1
+In: {n, total}
+Out: {n, total}
+Block: for.end.1
+In: {total}
+Out: ∅

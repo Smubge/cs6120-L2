@@ -1,1 +1,12 @@
-40320
+Block: value
+In: {input}
+Out: {i, result}
+Block: for.cond.2
+In: {i, result}
+Out: {i, result}
+Block: for.body.2
+In: {i, result}
+Out: {i, result}
+Block: for.end.2
+In: {result}
+Out: ∅

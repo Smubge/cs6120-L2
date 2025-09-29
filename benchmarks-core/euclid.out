@@ -1,1 +1,18 @@
-2
+Block: v0
+In: {a, b}
+Out: {a, b, cond, zero}
+Block: v0
+In: {a, b}
+Out: {a, b, cond, zero}
+Block: v0
+In: {a, b}
+Out: {a, b, cond, zero}
+Block: for.cond.5
+In: {a, b, cond, zero}
+Out: {a, b, zero}
+Block: for.body.5
+In: {a, b, zero}
+Out: {a, b, cond, zero}
+Block: for.end.5
+In: {a}
+Out: ∅

@@ -1,1 +1,24 @@
-0
+Block: n
+In: {input}
+Out: {i, n, result, sum, v0, v1}
+Block: for.cond.1
+In: {i, n, result, sum, v0, v1}
+Out: {i, n, result, sum, v0, v1}
+Block: for.body
+In: {i, n, result, sum, v0, v1}
+Out: {i, n, qut, result, sum, v0, v1}
+Block: if.body
+In: {i, n, qut, result, sum, v0, v1}
+Out: {i, n, result, sum, v0, v1}
+Block: for.incre
+In: {i, n, result, sum, v0, v1}
+Out: {i, n, result, sum, v0, v1}
+Block: for.end
+In: {n, result, sum, v0}
+Out: {result, v0}
+Block: if.success
+In: {v0}
+Out: {result}
+Block: if.failure.end
+In: {result}
+Out: ∅

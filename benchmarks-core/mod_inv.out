@@ -1,1 +1,24 @@
-2393
+Block: v0
+In: {n, p}
+Out: ∅
+Block: for.cond.6
+In: {a, ans, m, n, p, two}
+Out: {a, ans, m, n, p, two}
+Block: for.body.6
+In: {a, ans, m, n, p, two}
+Out: {a, ans, m, n, p, two}
+Block: then.11
+In: {a, ans, m, n, p, two}
+Out: {a, ans, m, n, p, two}
+Block: else.11
+In: {a, ans, m, n, p, two}
+Out: {a, ans, m, n, p, two}
+Block: endif.11
+In: {a, ans, m, n, p, two}
+Out: {a, ans, m, n, p, two}
+Block: for.end.6
+In: {ans, n, p}
+Out: {n, p}
+Block: v0
+In: {n, p}
+Out: ∅

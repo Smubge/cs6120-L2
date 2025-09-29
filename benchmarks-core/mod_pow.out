@@ -1,1 +1,33 @@
-445
+Block: out
+In: {base, exp, mod}
+Out: ∅
+Block: v1
+In: {b, e, m}
+Out: {b, e, m}
+Block: then.0
+In: ∅
+Out: ∅
+Block: else.0
+In: {b, e, m}
+Out: {base, exp, m, result}
+Block: for.cond.8
+In: {base, exp, m, result}
+Out: {base, exp, m, result}
+Block: for.body.8
+In: {base, exp, m, result}
+Out: {base, exp, m, result}
+Block: then.15
+In: {base, exp, m, result}
+Out: {base, exp, m, result}
+Block: else.15
+In: ∅
+Out: ∅
+Block: endif.15
+In: {base, exp, m, result}
+Out: {base, exp, m, result}
+Block: for.end.8
+In: {result}
+Out: ∅
+Block: v0
+In: {m, n}
+Out: ∅

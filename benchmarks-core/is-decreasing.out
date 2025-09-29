@@ -1,1 +1,30 @@
-true
+Block: tmp0
+In: {x}
+Out: ∅
+Block: tmp
+In: {x}
+Out: {prev, tmp}
+Block: label4
+In: {prev, tmp}
+Out: {prev, tmp}
+Block: label5
+In: {prev, tmp}
+Out: {digit, tmp}
+Block: label11
+In: ∅
+Out: ∅
+Block: 
+In: {digit, tmp}
+Out: {digit, tmp}
+Block: label12
+In: {digit, tmp}
+Out: {digit, tmp}
+Block: label13
+In: {digit, tmp}
+Out: {prev, tmp}
+Block: label6
+In: ∅
+Out: ∅
+Block: tmp18
+In: {x}
+Out: ∅

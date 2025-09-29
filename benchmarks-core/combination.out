@@ -1,1 +1,30 @@
-220
+Block: final
+In: {k, n}
+Out: ∅
+Block: zero
+In: {k, n}
+Out: {k, n, one, zero}
+Block: negatives
+In: {zero}
+Out: ∅
+Block: natural
+In: {k, n, one, zero}
+Out: {k, n, one, zero}
+Block: zeroes
+In: {one}
+Out: ∅
+Block: positive
+In: {k, n, zero}
+Out: {k, n, zero}
+Block: valid
+In: {k, n}
+Out: ∅
+Block: one
+In: {x}
+Out: {one, x}
+Block: base
+In: {one}
+Out: ∅
+Block: recurs
+In: {one, x}
+Out: ∅

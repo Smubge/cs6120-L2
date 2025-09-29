@@ -1,1 +1,24 @@
-120
+Block: v1
+In: {n}
+Out: ∅
+Block: then.0
+In: ∅
+Out: ∅
+Block: else.0
+In: {k, n}
+Out: ∅
+Block: v1
+In: {n}
+Out: ∅
+Block: for.cond.0
+In: {i, n}
+Out: {i, n}
+Block: for.body.0
+In: {i, n}
+Out: {i, n}
+Block: for.end.0
+In: {n}
+Out: ∅
+Block: v0
+In: {k, n}
+Out: ∅

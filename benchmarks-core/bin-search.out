@@ -1,1 +1,33 @@
-738
+Block: v0
+In: {max, min}
+Out: ∅
+Block: for.cond.6
+In: {i, max, min, target}
+Out: {i, max, min, target}
+Block: for.body.6
+In: {i, min, target}
+Out: {i, min, target}
+Block: then.13
+In: {i, min, target}
+Out: {max, min, target}
+Block: else.13
+In: {i, target}
+Out: {i}
+Block: then.18
+In: {i}
+Out: ∅
+Block: else.18
+In: ∅
+Out: ∅
+Block: endif.18
+In: ∅
+Out: ∅
+Block: endif.13
+In: {max, min, target}
+Out: {i, max, min, target}
+Block: for.end.6
+In: {i, max, min}
+Out: {max, min}
+Block: v0
+In: {max, min}
+Out: ∅

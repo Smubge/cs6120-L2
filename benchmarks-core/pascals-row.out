@@ -1,6 +1,15 @@
-1
-6
-30
-120
-360
-720
+Block: v0
+In: {x}
+Out: {i, prev, x}
+Block: v0
+In: {x}
+Out: {i, prev, x}
+Block: for.cond.3
+In: {i, prev, x}
+Out: {i, prev, x}
+Block: for.body.3
+In: {i, prev, x}
+Out: {i, prev, x}
+Block: for.end.3
+In: ∅
+Out: ∅

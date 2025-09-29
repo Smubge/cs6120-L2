@@ -1,1 +1,54 @@
-true
+Block: ten
+In: {in}
+Out: {in, index, not_finished, one, ten, zero}
+Block: for.cond
+In: {in, index, not_finished, one, ten, zero}
+Out: {in, index, not_finished, one, ten, zero}
+Block: for.body
+In: {in, index, not_finished, one, ten, zero}
+Out: {in, index, not_finished, one, ten, zero}
+Block: if.true
+In: {in, index, one, ten, zero}
+Out: {in, index, not_finished, one, ten, zero}
+Block: if.false
+In: {in, index, not_finished, one, ten, zero}
+Out: {in, index, not_finished, one, ten, zero}
+Block: for.end
+In: {in, index, one}
+Out: ∅
+Block: res
+In: {base, exp}
+Out: {base, exp, not_finished, one, res, zero}
+Block: for.cond.pow
+In: {base, exp, not_finished, one, res, zero}
+Out: {base, exp, not_finished, one, res, zero}
+Block: for.body.pow
+In: {base, exp, not_finished, one, res, zero}
+Out: {base, exp, not_finished, one, res, zero}
+Block: if.true.pow
+In: {base, exp, one, res, zero}
+Out: {base, exp, not_finished, one, res, zero}
+Block: if.false.pow
+In: {base, exp, not_finished, one, res, zero}
+Out: {base, exp, not_finished, one, res, zero}
+Block: for.end.pow
+In: {res}
+Out: ∅
+Block: is_palindrome
+In: {in, len}
+Out: {in, len, ten, two}
+Block: if.true.palindrome
+In: ∅
+Out: {is_palindrome}
+Block: if.false.palindrome
+In: {in, len, ten, two}
+Out: {in, left, len, power, right, ten, two}
+Block: if.true.mirror
+In: {in, left, len, power, right, ten, two}
+Out: {is_palindrome}
+Block: if.false.mirror
+In: ∅
+Out: {is_palindrome}
+Block: if.end.palindrome
+In: {is_palindrome}
+Out: ∅

@@ -1,1 +1,51 @@
-4267635650
+Block: result
+In: {x, y}
+Out: ∅
+Block: one
+In: {a}
+Out: {a}
+Block: then
+In: {a}
+Out: ∅
+Block: else
+In: {b}
+Out: ∅
+Block: end
+In: {result}
+Out: ∅
+Block: one
+In: {a}
+Out: {a}
+Block: while.cond
+In: {base, digits, n, one, power}
+Out: {base, digits, n, one, power}
+Block: while.body
+In: {base, digits, n, one, power}
+Out: {base, digits, n, one, power}
+Block: while.finish
+In: {digits}
+Out: ∅
+Block: cond
+In: {a, b}
+Out: {a, b}
+Block: then
+In: {a}
+Out: ∅
+Block: else
+In: {b}
+Out: ∅
+Block: c
+In: {a, b}
+Out: ∅
+Block: v0
+In: {n, x}
+Out: {_i, n, res, x}
+Block: for.cond.1
+In: {_i, n, res, x}
+Out: {_i, n, res, x}
+Block: for.body.1
+In: {_i, n, res, x}
+Out: {_i, n, res, x}
+Block: for.end.1
+In: {res}
+Out: ∅

@@ -1,12 +1,96 @@
-0
--1
--8
--5
-4
--5
-6
-3
--6
--3
--62
-25
+Block: a
+In: {max, seq}
+Out: ∅
+Block: size
+In: {cols, rng, rows}
+Out: {arr, i, max, one, rng, size}
+Block: loop
+In: {arr, i, max, one, rng, size}
+Out: {arr, i, max, one, rng, size}
+Block: body
+In: {arr, i, max, one, rng, size}
+Out: {arr, i, max, one, rng, size}
+Block: done
+In: ∅
+Out: ∅
+Block: i
+In: {arr, cols, rows}
+Out: {arr, cols, i, one, rows}
+Block: row_loop
+In: {arr, cols, i, one, rows}
+Out: {arr, cols, i, one, rows}
+Block: row_body
+In: {arr, cols, i, one, rows}
+Out: {arr, cols, i, j, one, rows}
+Block: col_loop
+In: {arr, cols, i, j, one, rows}
+Out: {arr, cols, i, j, one, rows}
+Block: col_body
+In: {arr, cols, i, j, one, rows}
+Out: {arr, cols, i, j, one, rows}
+Block: row_end
+In: {arr, cols, i, one, rows}
+Out: {arr, cols, i, one, rows}
+Block: done
+In: ∅
+Out: ∅
+Block: idx
+In: {col, cols, matrix, row, val}
+Out: ∅
+Block: idx
+In: {col, cols, matrix, row, val}
+Out: ∅
+Block: M
+In: {A, B, C, i, j, k, result}
+Out: {A, B, C, K, M, N, i, j, k, one, result}
+Block: compute_00
+In: {A, B, C, K, M, N, i, j, k, one, result}
+Out: {A, B, C, K, M, N, i, j, k, one, result}
+Block: body_00
+In: {A, B, C, K, M, N, i, j, k, one, result}
+Out: {A, B, C, K, M, N, i, j, k, one, result}
+Block: done_00
+In: {A, B, C, K, M, N, i, j, one, result}
+Out: {A, B, C, K, M, N, i, j, k, one, result}
+Block: compute_01
+In: {A, B, C, K, M, N, i, j, k, one, result}
+Out: {A, B, C, K, M, N, i, j, k, one, result}
+Block: body_01
+In: {A, B, C, K, M, N, i, j, k, one, result}
+Out: {A, B, C, K, M, N, i, j, k, one, result}
+Block: done_01
+In: {A, B, C, K, M, N, i, j, one, result}
+Out: {A, B, C, K, M, N, i, j, k, one, result}
+Block: compute_10
+In: {A, B, C, K, M, N, i, j, k, one, result}
+Out: {A, B, C, K, M, N, i, j, k, one, result}
+Block: body_10
+In: {A, B, C, K, M, N, i, j, k, one, result}
+Out: {A, B, C, K, M, N, i, j, k, one, result}
+Block: done_10
+In: {A, B, C, K, M, N, i, j, one, result}
+Out: {A, B, C, K, M, N, i, j, k, one, result}
+Block: compute_11
+In: {A, B, C, K, M, N, i, j, k, one, result}
+Out: {A, B, C, K, M, N, i, j, k, one, result}
+Block: body_11
+In: {A, B, C, K, M, N, i, j, k, one, result}
+Out: {A, B, C, K, M, N, i, j, k, one, result}
+Block: done_11
+In: {C, M, N, i, j, result}
+Out: ∅
+Block: M
+In: {A, B, C, i, j, k, result}
+Out: {A, B, C, K, M, N, i, j, k, one, result}
+Block: cycle_loop
+In: {A, B, C, K, M, N, cycle, one, pe_00, pe_01, pe_10, pe_11, zero}
+Out: {A, B, C, K, M, N, cycle, one, pe_00, pe_01, pe_10, pe_11, zero}
+Block: cycle_body
+In: {A, B, C, K, M, N, cycle, one, pe_00, pe_01, pe_10, pe_11, zero}
+Out: {A, B, C, K, M, N, cycle, one, pe_00, pe_01, pe_10, pe_11, zero}
+Block: cycles_done
+In: {C, M, N, one, pe_00, pe_01, pe_10, pe_11, zero}
+Out: ∅
+Block: one
+In: {seed}
+Out: ∅

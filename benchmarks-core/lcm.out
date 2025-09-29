@@ -1,1 +1,27 @@
-192
+Block: greater
+In: {x, y}
+Out: {x}
+Block: then.1
+In: {x}
+Out: ∅
+Block: else.1
+In: ∅
+Out: ∅
+Block: endif.1
+In: ∅
+Out: ∅
+Block: foreverloop
+In: {greater, x, y}
+Out: {greater, x, y}
+Block: then.2
+In: {greater}
+Out: ∅
+Block: else.2
+In: {greater, x, y}
+Out: {greater, x, y}
+Block: loopend
+In: ∅
+Out: ∅
+Block: divisor
+In: {mod, val}
+Out: ∅

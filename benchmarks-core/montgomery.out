@@ -1,1 +1,12 @@
-11
+Block: tr
+In: {n, nn, r, t}
+Out: {n, t}
+Block: then
+In: {n, t}
+Out: ∅
+Block: else
+In: {t}
+Out: ∅
+Block: q
+In: {x, y}
+Out: ∅

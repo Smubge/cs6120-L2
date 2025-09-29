@@ -1,1 +1,18 @@
-509
+Block: zero
+In: {m, n}
+Out: {m, n, one, zero}
+Block: m_zero
+In: {n, one}
+Out: ∅
+Block: m_nonzero
+In: {m, n, one, zero}
+Out: {m, n, one}
+Block: n_zero
+In: {m, one}
+Out: ∅
+Block: n_nonzero
+In: {m, n, one}
+Out: ∅
+Block: tmp
+In: {m, n}
+Out: ∅

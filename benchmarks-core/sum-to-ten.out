@@ -1,1 +1,12 @@
-55.00000000000000000
+Block: v0
+In: ∅
+Out: {i, n, sum}
+Block: for.cond.2
+In: {i, n, sum}
+Out: {i, n, sum}
+Block: for.body.2
+In: {i, n, sum}
+Out: {i, n, sum}
+Block: for.end.2
+In: {sum}
+Out: ∅

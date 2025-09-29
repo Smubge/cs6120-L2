@@ -1,1 +1,21 @@
-16796
+Block: catn
+In: {input}
+Out: ∅
+Block: one
+In: {n}
+Out: {n, one, zero}
+Block: if
+In: {one}
+Out: ∅
+Block: else
+In: {n, one, zero}
+Out: {idx, n, one, sum}
+Block: while
+In: {idx, n, one, sum}
+Out: {idx, n, one, sum}
+Block: while.body
+In: {idx, n, one, sum}
+Out: {idx, n, one, sum}
+Block: while.end
+In: {sum}
+Out: ∅

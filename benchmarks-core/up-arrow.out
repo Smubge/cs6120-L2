@@ -1,1 +1,24 @@
-65536
+Block: ans
+In: {arrows, n, repeats}
+Out: ∅
+Block: one
+In: {arrows, num, repeats}
+Out: {ans, arrows, i, num, one, repeats}
+Block: loopstart
+In: {ans, arrows, i, num, one, repeats}
+Out: {ans, arrows, i, num, one, repeats}
+Block: loopbody
+In: {ans, arrows, i, num, one, repeats}
+Out: {ans, arrows, i, num, one, repeats}
+Block: base
+In: {ans, arrows, i, num, one, repeats}
+Out: {ans, arrows, i, num, one, repeats}
+Block: arrowsgreaterthan1
+In: {ans, arrows, i, num, one, repeats}
+Out: {ans, arrows, i, num, one, repeats}
+Block: finally
+In: {ans, arrows, i, num, one, repeats}
+Out: {ans, arrows, i, num, one, repeats}
+Block: endloop
+In: {ans}
+Out: ∅

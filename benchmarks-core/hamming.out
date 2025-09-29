@@ -1,1 +1,24 @@
-2
+Block: two
+In: {val}
+Out: ∅
+Block: zero
+In: {one}
+Out: {one}
+Block: if
+In: {one}
+Out: ∅
+Block: else
+In: {zero}
+Out: ∅
+Block: zero
+In: {one}
+Out: {one}
+Block: while
+In: {a, b, dist, two, zero}
+Out: {a, b, dist, two, zero}
+Block: body
+In: {a, b, dist, two, zero}
+Out: {a, b, dist, two, zero}
+Block: end
+In: {dist}
+Out: ∅

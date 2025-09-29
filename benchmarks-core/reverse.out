@@ -1,1 +1,18 @@
-321
+Block: n
+In: {input}
+Out: {n, notdone, result, v0, v1}
+Block: for.cond.3
+In: {n, notdone, result, v0, v1}
+Out: {n, notdone, result, v0, v1}
+Block: for.body.3
+In: {n, notdone, result, v0, v1}
+Out: {n, notdone, result, v0, v1}
+Block: if.body
+In: {n, result, v0, v1}
+Out: {n, notdone, result, v0, v1}
+Block: for.incre
+In: {n, notdone, result, v0, v1}
+Out: {n, notdone, result, v0, v1}
+Block: for.end.3
+In: {result}
+Out: ∅
