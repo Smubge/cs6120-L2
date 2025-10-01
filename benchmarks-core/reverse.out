@@ -1,18 +1,1 @@
-Block: n
-In: {input}
-Out: {n, notdone, result, v0, v1}
-Block: for.cond.3
-In: {n, notdone, result, v0, v1}
-Out: {n, notdone, result, v0, v1}
-Block: for.body.3
-In: {n, notdone, result, v0, v1}
-Out: {n, notdone, result, v0, v1}
-Block: if.body
-In: {n, result, v0, v1}
-Out: {n, notdone, result, v0, v1}
-Block: for.incre
-In: {n, notdone, result, v0, v1}
-Out: {n, notdone, result, v0, v1}
-Block: for.end.3
-In: {result}
-Out: ∅
+{'n': {'n'}, 'for.cond.3': {'n', 'for.cond.3'}, 'for.body.3': {'n', 'for.body.3', 'for.cond.3'}, 'if.body': {'n', 'for.body.3', 'if.body', 'for.cond.3'}, 'for.incre': {'n', 'for.body.3', 'for.cond.3', 'for.incre'}, 'for.end.3': {'n', 'for.cond.3', 'for.end.3'}}

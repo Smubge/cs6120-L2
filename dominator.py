@@ -176,20 +176,48 @@ for (i, block) in enumerate(blocks):
 blocks = cleanup_arr
 
 dom = {}
+idx_set = []
 for b in blocks:
-     dom[b.idx] = set()
-print(cfg)
-print(blocks)
-def find_pred(block_index):
-    return set() #Implement to find the predecessors throughout the cfg, be careful concerning loops
+     idx_set.append(b.idx)
+idx_set = set(idx_set)
+
+for b in blocks:
+    if b.idx == blocks[0].idx:
+        dom[b.idx] = {b.idx}
+    else:
+        dom[b.idx] = idx_set.copy()
+
+
+def find_pred(b_idx, preds, dom):
+    if not preds[b_idx]:
+        return set()
+    result = dom[preds[b_idx][0]].copy() #set intersction of preds like stated in lecture 
+    for p in preds[b_idx][1:]:
+        result = result & dom[p]
+    return result
+             
+def build_preds(cfg): #TODO: check correctness on this? (not entirely sure)
+    preds = {b: [] for b in cfg}
+    for src, succs in cfg.items():
+        for s in succs:
+            if s in preds:
+                preds[s].append(src)
+            else:
+                preds[s] = [src]
+    return preds
+
+preds = build_preds(cfg)
 
 while True:
-     prev_dom = {}
-     for k in dom:
+    prev_dom = {}
+    for k in dom:
         v = dom[k]
         temp = set(v)
         prev_dom[k] = temp
-     for b in blocks: 
-        dom[b.idx] = {b.idx}.union(find_pred(b.idx))
-     if prev_dom == dom:
+    for b in blocks:
+        if b.idx == blocks[0].idx:
+            continue
+        dom[b.idx] = {b.idx}.union(find_pred(b.idx, preds, dom))
+    if dom == prev_dom:
         break
+print(dom)

@@ -1,18 +1,1 @@
-Block: v0
-In: {max_guess, min_guess, x}
-Out: {max_guess, min_guess, x}
-Block: then.3
-In: {min_guess}
-Out: ∅
-Block: else.3
-In: {max_guess, min_guess, x}
-Out: {max_guess, mid, min_guess, x}
-Block: then.18
-In: {max_guess, mid, x}
-Out: ∅
-Block: else.18
-In: {mid, min_guess, x}
-Out: ∅
-Block: endif.18
-In: ∅
-Out: ∅
+{'v0': {'v0'}, 'then.3': {'v0', 'then.3'}, 'else.3': {'v0', 'else.3'}, 'then.18': {'v0', 'then.18', 'else.3'}, 'else.18': {'v0', 'else.3', 'else.18'}, 'endif.18': {'v0', 'endif.18', 'else.3'}}

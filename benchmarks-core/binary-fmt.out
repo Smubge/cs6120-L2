@@ -1,15 +1,1 @@
-Block: printBinary
-In: {n}
-Out: ∅
-Block: zero
-In: {n}
-Out: {n}
-Block: rec
-In: {n}
-Out: ∅
-Block: end
-In: ∅
-Out: ∅
-Block: v0
-In: {a0, a1}
-Out: ∅
+{'printBinary': {'printBinary'}, 'zero': {'zero'}, 'rec': {'rec', 'zero'}, 'end': {'zero', 'end'}, 'v0': {'v0'}}

@@ -1,2 +1,2 @@
-command = "bril2json < {filename} | python ../livevars.py "
+command = "bril2json < {filename} | python ../dominator.py "
 output.out = "-"

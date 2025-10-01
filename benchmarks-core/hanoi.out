@@ -1,12 +1,1 @@
-Block: zero
-In: {disks, dst, spare, src}
-Out: {disks, dst, spare, src}
-Block: then
-In: {disks, dst, spare, src}
-Out: ∅
-Block: else
-In: ∅
-Out: ∅
-Block: src
-In: {disks}
-Out: ∅
+{'zero': {'zero'}, 'then': {'zero', 'then'}, 'else': {'zero', 'else'}, 'src': {'src'}}

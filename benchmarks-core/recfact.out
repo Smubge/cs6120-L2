@@ -1,18 +1,1 @@
-Block: x
-In: {input}
-Out: {x}
-Block: v1
-In: {x}
-Out: ∅
-Block: then.0
-In: ∅
-Out: ∅
-Block: 
-In: {x}
-Out: {x}
-Block: else.0
-In: ∅
-Out: ∅
-Block: endif.0
-In: {x}
-Out: ∅
+{'x': {'x'}, 'v1': {'x', 'v1'}, 'then.0': {'x', 'v1', 'then.0'}, '': {''}, 'else.0': {'x', 'v1', 'else.0'}, 'endif.0': {'', 'endif.0'}}

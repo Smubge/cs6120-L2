@@ -1,18 +1,1 @@
-Block: v0
-In: {a, b}
-Out: {a, b, cond, zero}
-Block: v0
-In: {a, b}
-Out: {a, b, cond, zero}
-Block: v0
-In: {a, b}
-Out: {a, b, cond, zero}
-Block: for.cond.5
-In: {a, b, cond, zero}
-Out: {a, b, zero}
-Block: for.body.5
-In: {a, b, zero}
-Out: {a, b, cond, zero}
-Block: for.end.5
-In: {a}
-Out: ∅
+{'v0': {'v0'}, 'for.cond.5': {'for.cond.5', 'v0'}, 'for.body.5': {'for.cond.5', 'v0', 'for.body.5'}, 'for.end.5': {'for.cond.5', 'v0', 'for.end.5'}}

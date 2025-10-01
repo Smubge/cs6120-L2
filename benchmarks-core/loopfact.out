@@ -1,12 +1,1 @@
-Block: value
-In: {input}
-Out: {i, result}
-Block: for.cond.2
-In: {i, result}
-Out: {i, result}
-Block: for.body.2
-In: {i, result}
-Out: {i, result}
-Block: for.end.2
-In: {result}
-Out: ∅
+{'value': {'value'}, 'for.cond.2': {'value', 'for.cond.2'}, 'for.body.2': {'for.body.2', 'value', 'for.cond.2'}, 'for.end.2': {'value', 'for.cond.2', 'for.end.2'}}

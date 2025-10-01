@@ -1,12 +1,1 @@
-Block: a1
-In: {x1, x2, y1, y2}
-Out: {res}
-Block: flip
-In: {res}
-Out: {res}
-Block: end
-In: {res}
-Out: ∅
-Block: area
-In: {x, y}
-Out: ∅
+{'a1': {'a1'}, 'flip': {'flip', 'a1'}, 'end': {'a1', 'end'}, 'area': {'area'}}

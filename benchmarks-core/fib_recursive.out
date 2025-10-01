@@ -1,18 +1,1 @@
-Block: v0
-In: {n}
-Out: ∅
-Block: v1
-In: {x}
-Out: {x}
-Block: then.0
-In: ∅
-Out: ∅
-Block: else.0
-In: {x}
-Out: {x}
-Block: then.5
-In: ∅
-Out: ∅
-Block: else.5
-In: {x}
-Out: ∅
+{'v0': {'v0'}, 'v1': {'v1'}, 'then.0': {'then.0', 'v1'}, 'else.0': {'else.0', 'v1'}, 'then.5': {'then.5', 'else.0', 'v1'}, 'else.5': {'else.5', 'else.0', 'v1'}}

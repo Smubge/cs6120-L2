@@ -1,12 +1,1 @@
-Block: one
-In: {a, n, r}
-Out: {a, i, n, one, r, r_n}
-Block: loop
-In: {a, i, n, one, r, r_n}
-Out: {a, i, n, one, r, r_n}
-Block: body
-In: {a, i, n, one, r, r_n}
-Out: {a, i, n, one, r, r_n}
-Block: done
-In: {a, one, r, r_n}
-Out: ∅
+{'one': {'one'}, 'loop': {'one', 'loop'}, 'body': {'one', 'loop', 'body'}, 'done': {'one', 'done', 'loop'}}

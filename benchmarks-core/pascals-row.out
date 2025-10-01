@@ -1,15 +1,1 @@
-Block: v0
-In: {x}
-Out: {i, prev, x}
-Block: v0
-In: {x}
-Out: {i, prev, x}
-Block: for.cond.3
-In: {i, prev, x}
-Out: {i, prev, x}
-Block: for.body.3
-In: {i, prev, x}
-Out: {i, prev, x}
-Block: for.end.3
-In: ∅
-Out: ∅
+{'v0': {'v0'}, 'for.cond.3': {'v0', 'for.cond.3'}, 'for.body.3': {'for.body.3', 'for.cond.3', 'v0'}, 'for.end.3': {'v0', 'for.cond.3', 'for.end.3'}}

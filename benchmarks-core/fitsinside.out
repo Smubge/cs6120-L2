@@ -1,6 +1,1 @@
-Block: output
-In: {height1, height2, width1, width2}
-Out: ∅
-Block: width_check
-In: {h1, h2, w1, w2}
-Out: ∅
+{'output': {'output'}, 'width_check': {'width_check'}}

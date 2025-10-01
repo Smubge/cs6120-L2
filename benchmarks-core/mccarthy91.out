@@ -1,12 +1,1 @@
-Block: ten
-In: {n}
-Out: {eleven, n, ten}
-Block: big
-In: {n, ten}
-Out: ∅
-Block: small
-In: {eleven, n}
-Out: ∅
-Block: result
-In: {n}
-Out: ∅
+{'ten': {'ten'}, 'big': {'ten', 'big'}, 'small': {'ten', 'small'}, 'result': {'result'}}

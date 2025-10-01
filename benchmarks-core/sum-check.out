@@ -1,18 +1,1 @@
-Block: first
-In: {n}
-Out: ∅
-Block: one
-In: {n}
-Out: ∅
-Block: for_start
-In: {i, n, one, sum}
-Out: {i, n, one, sum}
-Block: for
-In: {i, n, one, sum}
-Out: {i, n, one, sum}
-Block: end
-In: {sum}
-Out: ∅
-Block: one
-In: {n}
-Out: ∅
+{'first': {'first'}, 'one': {'one'}, 'for_start': {'for_start', 'end', 'first', 'one', 'for'}, 'for': {'for_start', 'end', 'first', 'one', 'for'}, 'end': {'for_start', 'end', 'first', 'one', 'for'}}

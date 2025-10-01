@@ -1,12 +1,1 @@
-Block: aed
-In: {input}
-Out: ∅
-Block: thirteen
-In: {n}
-Out: {shifted, twenty_six}
-Block: if
-In: {shifted, twenty_six}
-Out: {shifted}
-Block: else
-In: {shifted}
-Out: ∅
+{'aed': {'aed'}, 'thirteen': {'thirteen'}, 'if': {'thirteen', 'if'}, 'else': {'else', 'thirteen'}}

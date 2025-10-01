@@ -1,18 +1,1 @@
-Block: zer
-In: {num}
-Out: {fac, num, one, zer}
-Block: loopcheck
-In: {fac, num, one, zer}
-Out: {fac, num, one, zer}
-Block: loopbody
-In: {fac, num, one, zer}
-Out: {fac, num, one, zer}
-Block: ifyes
-In: {fac, num, one, zer}
-Out: {fac, num, one, zer}
-Block: ifno
-In: {fac, num, one, zer}
-Out: {fac, num, one, zer}
-Block: loopend
-In: ∅
-Out: ∅
+{'zer': {'zer'}, 'loopcheck': {'zer', 'loopcheck'}, 'loopbody': {'zer', 'loopbody', 'loopcheck'}, 'ifyes': {'zer', 'loopbody', 'ifyes', 'loopcheck'}, 'ifno': {'ifno', 'zer', 'loopbody', 'loopcheck'}, 'loopend': {'zer', 'loopend', 'loopcheck'}}

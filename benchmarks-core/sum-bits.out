@@ -1,15 +1,1 @@
-Block: sum
-In: {input}
-Out: {input, sum, two, zero}
-Block: loop
-In: {input, sum, two, zero}
-Out: {input, sum, two, zero}
-Block: body
-In: {input, sum, two, zero}
-Out: {input, sum, two, zero}
-Block: done
-In: {sum}
-Out: ∅
-Block: quotient
-In: {dividend, divisor}
-Out: ∅
+{'sum': {'sum'}, 'loop': {'sum', 'loop'}, 'body': {'sum', 'loop', 'body'}, 'done': {'sum', 'done', 'loop'}, 'quotient': {'quotient'}}
