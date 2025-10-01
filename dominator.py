@@ -216,6 +216,9 @@ for b in blocks:
 		else:
 			func_cfg[b.idx] = []
 
+idx_to_func = {}
+
+
 dom = {}
 idx_set = []
 for b in blocks:
@@ -247,7 +250,7 @@ def build_preds(cfg): #TODO: check correctness on this? (not entirely sure)
                 preds[s] = [src]
     return preds
 
-preds = build_preds(func_cfg)
+preds = build_preds(cfg)
 
 while True:
     prev_dom = {}
