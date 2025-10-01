@@ -1,1 +1,1 @@
-{'result': {'result'}, 'two': {'two'}, 'modulus': {'modulus'}, 'loop.branch': {'loop.branch', 'modulus'}, 'loop.body': {'loop.branch', 'modulus', 'loop.body'}, 'loop.end': {'modulus', 'loop.branch', 'loop.end'}}
+{'loop.body': ['loop.body', 'loop.branch', 'modulus'], 'loop.branch': ['loop.branch', 'modulus'], 'loop.end': ['loop.branch', 'loop.end', 'modulus'], 'modulus': ['modulus'], 'result': ['result'], 'two': ['two']}

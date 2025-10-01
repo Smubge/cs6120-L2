@@ -1,1 +1,1 @@
-{'zero': {'zero'}, 'then': {'zero', 'then'}, 'else': {'zero', 'else'}, 'src': {'src'}}
+{'else': ['else', 'zero'], 'src': ['src'], 'then': ['then', 'zero'], 'zero': ['zero']}

@@ -1,1 +1,1 @@
-{'a1': {'a1'}, 'flip': {'flip', 'a1'}, 'end': {'a1', 'end'}, 'area': {'area'}}
+{'a1': ['a1'], 'area': ['area'], 'end': ['a1', 'end'], 'flip': ['a1', 'flip']}

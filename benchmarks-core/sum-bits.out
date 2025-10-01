@@ -1,1 +1,1 @@
-{'sum': {'sum'}, 'loop': {'sum', 'loop'}, 'body': {'sum', 'loop', 'body'}, 'done': {'sum', 'done', 'loop'}, 'quotient': {'quotient'}}
+{'body': ['body', 'loop', 'sum'], 'done': ['done', 'loop', 'sum'], 'loop': ['loop', 'sum'], 'quotient': ['quotient'], 'sum': ['sum']}

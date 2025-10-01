@@ -1,1 +1,1 @@
-{'ten': {'ten'}, 'big': {'ten', 'big'}, 'small': {'ten', 'small'}, 'result': {'result'}}
+{'big': ['big', 'ten'], 'result': ['result'], 'small': ['small', 'ten'], 'ten': ['ten']}

@@ -1,1 +1,1 @@
-{'output': {'output'}, 'width_check': {'width_check'}}
+{'output': ['output'], 'width_check': ['width_check']}

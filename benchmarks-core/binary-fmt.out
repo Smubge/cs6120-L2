@@ -1,1 +1,1 @@
-{'printBinary': {'printBinary'}, 'zero': {'zero'}, 'rec': {'rec', 'zero'}, 'end': {'zero', 'end'}, 'v0': {'v0'}}
+{'end': ['end', 'zero'], 'printBinary': ['printBinary'], 'rec': ['rec', 'zero'], 'v0': ['v0'], 'zero': ['zero']}

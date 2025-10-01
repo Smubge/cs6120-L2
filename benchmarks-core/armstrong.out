@@ -1,1 +1,1 @@
-{'zero': {'zero'}, 'loop': {'loop', 'zero'}, 'body': {'loop', 'zero', 'body'}, 'done': {'loop', 'done', 'zero'}, 'ten': {'ten'}, 'then': {'then', 'ten'}, 'else': {'else'}, 'q': {'q'}}
+{'body': ['body', 'loop', 'zero'], 'done': ['done', 'loop', 'zero'], 'else': ['else'], 'loop': ['loop', 'zero'], 'q': ['q'], 'ten': ['ten'], 'then': ['ten', 'then'], 'zero': ['zero']}

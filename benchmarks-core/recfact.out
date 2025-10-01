@@ -1,1 +1,3 @@
-{'x': {'x'}, 'v1': {'x', 'v1'}, 'then.0': {'x', 'v1', 'then.0'}, '': {''}, 'else.0': {'x', 'v1', 'else.0'}, 'endif.0': {'', 'endif.0'}}
+{'': [''], 'else.0': ['else.0', 'v1', 'x'], 'endif.0': ['', 'endif.0'], 'then.0': ['then.0', 'v1', 'x'], 'v1': ['v1', 'x'], 'x': ['x']}
+Dominator x does not dominate v1
+Path: ['v1'], dominator not in prefix: []

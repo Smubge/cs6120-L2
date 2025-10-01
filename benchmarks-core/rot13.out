@@ -1,1 +1,1 @@
-{'aed': {'aed'}, 'thirteen': {'thirteen'}, 'if': {'thirteen', 'if'}, 'else': {'else', 'thirteen'}}
+{'aed': ['aed'], 'else': ['else', 'thirteen'], 'if': ['if', 'thirteen'], 'thirteen': ['thirteen']}

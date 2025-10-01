@@ -76,9 +76,6 @@ class Block:
 	def add_edge(self, target):
 		if target not in self.edges:
 			self.edges.append(target)
-    
-    def is_header(self):
-        return self.is_header
 	
 	def __str__(self):
 		return f"Block(idx={self.idx}, label={Block.label(self)}, edges = {self.edges} )"          
@@ -123,6 +120,8 @@ for func in instrs["functions"]:
                 is_func_header = True
             if "label" in instr:
                 b0 = Block(get_block_name(block, instr["label"]), block, is_func_header)
+                if is_func_header == True:
+                    b0 = Block(func["name"], block, is_func_header)
                 is_func_header = False 
                 selfIdx += 1
                 blocks.append(b0)
@@ -131,6 +130,8 @@ for func in instrs["functions"]:
             elif "op" in instr:
                 if instr["op"] == "br" or instr["op"] == "jmp" or instr["op"] == "ret":
                     b1 = Block(get_block_name(block, ""), block, is_func_header)
+                    if is_func_header == True:
+                        b1 = Block(func["name"], block, is_func_header)
                     is_func_header = False
                     selfIdx += 1
                     block.append(instr)
@@ -141,6 +142,9 @@ for func in instrs["functions"]:
                     block.append(instr)
         if block:
             b2 = Block(get_block_name(block, ""), block, is_func_header)
+            if is_func_header == True:
+                b2 = Block(func["name"], block, is_func_header)
+            is_func_header = False
             selfIdx += 1
             blocks.append(b2)
             block = []
@@ -186,8 +190,31 @@ for (i, block) in enumerate(blocks):
 blocks = cleanup_arr
 
 for block in blocks:
-    if block.is_header():
+    if block.is_header:
         func_headers.append(block)
+
+func_cfg = {}
+for b in blocks:
+	last = b.last() # last instr in block, doesn't work if blocks empty
+	if last is not None:
+		if "op" in last:
+			if last["op"] == "jmp":
+				if "labels" in last: 
+					func_cfg[b.idx] = last["labels"]
+				else:
+					func_cfg[b.idx] = [last["dest"]]
+			elif last["op"] == "br":
+				func_cfg[b.idx] = [last["labels"][0], last["labels"][1]]    
+			elif last["op"] == "ret":
+				func_cfg[b.idx] = []
+			elif "dest" not in last and "labels" not in last:
+				func_cfg[b.idx] = []
+			else:
+				func_cfg[b.idx] = []
+		elif "dest" not in last and "labels" not in last:
+			func_cfg[b.idx] = []
+		else:
+			func_cfg[b.idx] = []
 
 dom = {}
 idx_set = []
@@ -220,7 +247,7 @@ def build_preds(cfg): #TODO: check correctness on this? (not entirely sure)
                 preds[s] = [src]
     return preds
 
-preds = build_preds(cfg)
+preds = build_preds(func_cfg)
 
 while True:
     prev_dom = {}
@@ -234,9 +261,13 @@ while True:
         dom[b.idx] = {b.idx}.union(find_pred(b.idx, preds, dom))
     if dom == prev_dom:
         break
-print(f"Dominator: {dom}")
+print(f"dom: {dom}")
+print()
+sorted_dom = {k: sorted(list(v)) for k, v in sorted(dom.items())}
+print(sorted_dom)
+print(f"func_cfg: {func_cfg}")
 print(f"cfg: {cfg}")
-def traverse_cfg(cfg, func_header):
+def traverse_cfg(cfg, func_header, paths):
     """
     Return all paths from the source to every block in the cfg.
 
@@ -247,7 +278,6 @@ def traverse_cfg(cfg, func_header):
     returns `paths` a dictionary where k: block in cfg 
     v: a list of all possible paths to block k
     """
-    paths = {}
     
     # Track visited (node, predecessor) pairs to avoid infinite loops
     visited_pairs = set()
@@ -285,10 +315,8 @@ def traverse_cfg(cfg, func_header):
                     # Add to queue for further exploration
                     queue.append((successor, new_path))
     
-    return paths
 
-
-def test_dom(func_header):
+def test_dom():
     """
     this function verifies the generated dominators
 
@@ -298,13 +326,11 @@ def test_dom(func_header):
 
     returns true/false if the given dominator set is correct given the cfg 
     """
-    paths = traverse_cfg(cfg, func_header)
-    print("block0")
-    print(blocks[0].idx)
-    print("cfg")
-    print(cfg)
-    print()
-    print(paths)
+    
+    paths = {}
+    for f in func_headers:
+        traverse_cfg(cfg, f.idx, paths)
+        # traverse_cfg(func_cfg, f.idx, paths)
     
     for block in dom.keys():  # For each block
         for dominator in dom[block]:  # For each claimed dominator of this block
@@ -337,10 +363,7 @@ def test_dom(func_header):
     # print("All dominators verified successfully!")
     return True
 
-correct = True
-
-for f in funcs:
-    correct = correct and test_dom(f)
+correct = test_dom()
 
 if not correct:
     sys.exit()

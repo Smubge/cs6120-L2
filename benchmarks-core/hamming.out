@@ -1,1 +1,19 @@
-{'two': {'two'}, 'zero': {'zero'}, 'if': {'zero', 'if'}, 'else': {'else'}, 'while': {'if', 'body', 'two', 'end', 'zero', 'while', 'else'}, 'body': {'if', 'body', 'two', 'end', 'zero', 'while', 'else'}, 'end': {'if', 'body', 'two', 'end', 'zero', 'while', 'else'}}
+{'body': ['body', 'else', 'end', 'if', 'two', 'while', 'zero'], 'else': ['else'], 'end': ['body', 'else', 'end', 'if', 'two', 'while', 'zero'], 'if': ['if', 'zero'], 'two': ['two'], 'while': ['body', 'else', 'end', 'if', 'two', 'while', 'zero'], 'zero': ['zero']}
+No paths found to block while
+No paths found to block while
+No paths found to block while
+No paths found to block while
+No paths found to block while
+No paths found to block while
+No paths found to block body
+No paths found to block body
+No paths found to block body
+No paths found to block body
+No paths found to block body
+No paths found to block body
+No paths found to block end
+No paths found to block end
+No paths found to block end
+No paths found to block end
+No paths found to block end
+No paths found to block end

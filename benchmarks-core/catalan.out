@@ -1,1 +1,1 @@
-{'catn': {'catn'}, 'one': {'one'}, 'if': {'if', 'one'}, 'else': {'one', 'else'}, 'while': {'while', 'one', 'else'}, 'while.body': {'while', 'one', 'while.body', 'else'}, 'while.end': {'while', 'while.end', 'one', 'else'}}
+{'catn': ['catn'], 'else': ['else', 'one'], 'if': ['if', 'one'], 'one': ['one'], 'while': ['else', 'one', 'while'], 'while.body': ['else', 'one', 'while', 'while.body'], 'while.end': ['else', 'one', 'while', 'while.end']}

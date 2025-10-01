@@ -1,1 +1,1 @@
-{'zer': {'zer'}, 'loopcheck': {'zer', 'loopcheck'}, 'loopbody': {'zer', 'loopbody', 'loopcheck'}, 'ifyes': {'zer', 'loopbody', 'ifyes', 'loopcheck'}, 'ifno': {'ifno', 'zer', 'loopbody', 'loopcheck'}, 'loopend': {'zer', 'loopend', 'loopcheck'}}
+{'ifno': ['ifno', 'loopbody', 'loopcheck', 'zer'], 'ifyes': ['ifyes', 'loopbody', 'loopcheck', 'zer'], 'loopbody': ['loopbody', 'loopcheck', 'zer'], 'loopcheck': ['loopcheck', 'zer'], 'loopend': ['loopcheck', 'loopend', 'zer'], 'zer': ['zer']}

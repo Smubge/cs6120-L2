@@ -1,1 +1,1 @@
-{'i': {'i'}, 'neg': {'neg', 'i'}, 'begin': {'begin', 'i'}, 'check': {'check', 'i', 'begin'}, 'body': {'check', 'i', 'body', 'begin'}, 'then': {'check', 'then', 'begin', 'i', 'body'}, 'end': {'begin', 'end', 'i'}, 'quot': {'quot'}}
+{'begin': ['begin', 'i'], 'body': ['begin', 'body', 'check', 'i'], 'check': ['begin', 'check', 'i'], 'end': ['begin', 'end', 'i'], 'i': ['i'], 'neg': ['i', 'neg'], 'quot': ['quot'], 'then': ['begin', 'body', 'check', 'i', 'then']}

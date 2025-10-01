@@ -1,1 +1,1 @@
-{'one': {'one'}, 'loop': {'one', 'loop'}, 'body': {'one', 'loop', 'body'}, 'done': {'one', 'done', 'loop'}}
+{'body': ['body', 'loop', 'one'], 'done': ['done', 'loop', 'one'], 'loop': ['loop', 'one'], 'one': ['one']}

@@ -1,1 +1,1 @@
-{'v0': {'v0'}, 'for.cond.3': {'v0', 'for.cond.3'}, 'for.body.3': {'for.body.3', 'for.cond.3', 'v0'}, 'for.end.3': {'v0', 'for.cond.3', 'for.end.3'}}
+{'for.body.3': ['for.body.3', 'for.cond.3', 'v0'], 'for.cond.3': ['for.cond.3', 'v0'], 'for.end.3': ['for.cond.3', 'for.end.3', 'v0'], 'v0': ['v0']}

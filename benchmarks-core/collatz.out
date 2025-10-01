@@ -1,1 +1,1 @@
-{'one': {'one'}, 'cond': {'one', 'cond', 'print'}, 'loop': {'one', 'loop', 'cond', 'print'}, 'even': {'even', 'cond', 'one', 'loop', 'print'}, 'odd': {'cond', 'odd', 'one', 'loop', 'print'}, 'print': {'one', 'print'}, 'end': {'one', 'cond', 'print', 'end'}}
+{'cond': ['cond', 'one', 'print'], 'end': ['cond', 'end', 'one', 'print'], 'even': ['cond', 'even', 'loop', 'one', 'print'], 'loop': ['cond', 'loop', 'one', 'print'], 'odd': ['cond', 'loop', 'odd', 'one', 'print'], 'one': ['one'], 'print': ['one', 'print']}
