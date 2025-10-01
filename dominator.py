@@ -57,10 +57,11 @@ class LVN_Table:
 
 
 class Block:
-	def __init__(self, idx, instrs):
+	def __init__(self, idx, instrs, is_func_header):
 		self.idx = idx
 		self.instrs = instrs
 		self.edges = []
+		self.is_header = is_func_header
 
 	def label(self):
 		if self.instrs and "labels" in self.instrs[0]:
@@ -75,6 +76,9 @@ class Block:
 	def add_edge(self, target):
 		if target not in self.edges:
 			self.edges.append(target)
+    
+    def is_header(self):
+        return self.is_header
 	
 	def __str__(self):
 		return f"Block(idx={self.idx}, label={Block.label(self)}, edges = {self.edges} )"          
@@ -109,20 +113,25 @@ def get_block_name(self,lbl):
             return first["op"]
     else:
         return lbl
-
+func_headers = []
+is_func_header = False
 # creating basic blocks implementation
 for func in instrs["functions"]:
     if "instrs" in func:
-        for instr in func["instrs"]:  # loop over instructions in the function
+        for (i, instr) in enumerate(func["instrs"]):  # loop over instructions in the function
+            if i == 0:
+                is_func_header = True
             if "label" in instr:
-                b0 = Block(get_block_name(block, instr["label"]), block)
+                b0 = Block(get_block_name(block, instr["label"]), block, is_func_header)
+                is_func_header = False 
                 selfIdx += 1
                 blocks.append(b0)
                 block = []
                 block.append(instr)
             elif "op" in instr:
                 if instr["op"] == "br" or instr["op"] == "jmp" or instr["op"] == "ret":
-                    b1 = Block(get_block_name(block, ""), block)
+                    b1 = Block(get_block_name(block, ""), block, is_func_header)
+                    is_func_header = False
                     selfIdx += 1
                     block.append(instr)
                     blocks.append(b1)
@@ -131,7 +140,7 @@ for func in instrs["functions"]:
                     selfIdx += 1
                     block.append(instr)
         if block:
-            b2 = Block(get_block_name(block, ""), block)
+            b2 = Block(get_block_name(block, ""), block, is_func_header)
             selfIdx += 1
             blocks.append(b2)
             block = []
@@ -175,6 +184,10 @@ for (i, block) in enumerate(blocks):
     if block.instrs:
          cleanup_arr.append(block)
 blocks = cleanup_arr
+
+for block in blocks:
+    if block.is_header():
+        func_headers.append(block)
 
 dom = {}
 idx_set = []
@@ -221,9 +234,9 @@ while True:
         dom[b.idx] = {b.idx}.union(find_pred(b.idx, preds, dom))
     if dom == prev_dom:
         break
-print(dom)
-
-def traverse_cfg(cfg):
+print(f"Dominator: {dom}")
+print(f"cfg: {cfg}")
+def traverse_cfg(cfg, func_header):
     """
     Return all paths from the source to every block in the cfg.
 
@@ -243,7 +256,7 @@ def traverse_cfg(cfg):
     queue = deque()
     
     # The source in the cfg is blocks[0]
-    source = blocks[0].idx
+    source = func_header
     
     # Initialize with source node (no predecessor, so use None)
     queue.append((source, [source]))
@@ -275,7 +288,7 @@ def traverse_cfg(cfg):
     return paths
 
 
-def test_dom():
+def test_dom(func_header):
     """
     this function verifies the generated dominators
 
@@ -285,7 +298,7 @@ def test_dom():
 
     returns true/false if the given dominator set is correct given the cfg 
     """
-    paths = traverse_cfg(cfg)
+    paths = traverse_cfg(cfg, func_header)
     print("block0")
     print(blocks[0].idx)
     print("cfg")
@@ -324,7 +337,10 @@ def test_dom():
     # print("All dominators verified successfully!")
     return True
 
-correct = test_dom()
+correct = True
+
+for f in funcs:
+    correct = correct and test_dom(f)
 
 if not correct:
     sys.exit()
