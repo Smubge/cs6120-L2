@@ -9,6 +9,7 @@ corresponding control flow graph in a edge list format.
 from enum import Enum
 import json
 import sys
+from collections import deque
 
 class Table_Occ(Enum):
      IN_TABLE = 1
@@ -221,3 +222,109 @@ while True:
     if dom == prev_dom:
         break
 print(dom)
+
+def traverse_cfg(cfg):
+    """
+    Return all paths from the source to every block in the cfg.
+
+    cfg: a dictionary representing the cfg. keys are block names, 
+    values are the successors of this block
+    block: block.idx
+
+    returns `paths` a dictionary where k: block in cfg 
+    v: a list of all possible paths to block k
+    """
+    paths = {}
+    
+    # Track visited (node, predecessor) pairs to avoid infinite loops
+    visited_pairs = set()
+    
+    # Queue stores (current_node, path_to_current_node)
+    queue = deque()
+    
+    # The source in the cfg is blocks[0]
+    source = blocks[0].idx
+    
+    # Initialize with source node (no predecessor, so use None)
+    queue.append((source, [source]))
+    visited_pairs.add((source, None))
+    paths[source] = [[source]]
+    
+    while queue:
+        curr_node, curr_path = queue.popleft()
+        
+        # Get successors of current node
+        if curr_node in cfg:
+            for successor in cfg[curr_node]:
+                # Check if this (successor, predecessor) pair is unique
+                pair = (successor, curr_node)
+                if pair not in visited_pairs:
+                    visited_pairs.add(pair)
+                    
+                    # Create new path by extending current path
+                    new_path = curr_path + [successor]
+                    
+                    # Add to paths dictionary
+                    if successor not in paths:
+                        paths[successor] = []
+                    paths[successor].append(new_path)
+                    
+                    # Add to queue for further exploration
+                    queue.append((successor, new_path))
+    
+    return paths
+
+
+def test_dom():
+    """
+    this function verifies the generated dominators
+
+    given blocks A and B, we want to verify that A dominates B by:
+    enumerating all possible paths to B
+    checking if A exists on all possible paths to B before B occurs.
+
+    returns true/false if the given dominator set is correct given the cfg 
+    """
+    paths = traverse_cfg(cfg)
+    print("block0")
+    print(blocks[0].idx)
+    print("cfg")
+    print(cfg)
+    print()
+    print(paths)
+    
+    for block in dom.keys():  # For each block
+        for dominator in dom[block]:  # For each claimed dominator of this block
+            if dominator == block:  # Skip self-domination (always true)
+                continue
+                
+            # Get all paths to the block being dominated
+            if block not in paths:
+                print(f"No paths found to block {block}")
+                continue
+                
+            block_paths = paths[block]
+            
+            # Check if dominator appears in ALL paths to block, before block
+            for path in block_paths:
+                # Find first occurrence of the dominated block
+                try:
+                    first_block_idx = path.index(block)
+                except ValueError:
+                    print(f"Block {block} not found in its own path: {path}")
+                    return False
+                
+                # Check if dominator appears before the first occurrence of block
+                path_before_block = path[:first_block_idx]
+                if dominator not in path_before_block:
+                    print(f"Dominator {dominator} does not dominate {block}")
+                    print(f"Path: {path}, dominator not in prefix: {path_before_block}")
+                    return False
+    
+    # print("All dominators verified successfully!")
+    return True
+
+correct = test_dom()
+
+if not correct:
+    sys.exit()
