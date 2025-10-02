@@ -74,7 +74,7 @@ for func in instrs["functions"]:
             if i == 0:
                 is_func_header = True
             if "label" in instr:
-                b0 = Block(get_block_name(block, instr["label"]), block, is_func_header)
+                b0 = Block(get_block_name(block, ""), block, is_func_header)
                 if is_func_header == True:
                     b0 = Block(func["name"], block, is_func_header)
                 is_func_header = False 
@@ -103,6 +103,9 @@ for func in instrs["functions"]:
             selfIdx += 1
             blocks.append(b2)
             block = []
+
+for (i, b) in enumerate(blocks): 
+    print(f"block edited {i} : {b}")
     
 def probe_next(block):
     found = False
@@ -140,10 +143,13 @@ for b in blocks:
          
 cleanup_arr = []
 for (i, block) in enumerate(blocks):
-    if block.instrs:
+    if block.instrs and block.idx != "":
          cleanup_arr.append(block)
 blocks = cleanup_arr
 
+
+for (i, b) in enumerate(blocks): 
+    print(f"block unedited {i} : {b}")
 for block in blocks:
     if block.is_header:
         func_headers.append(block)
