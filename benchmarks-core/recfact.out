@@ -1,17 +1,10 @@
-block edited 0 : Block(idx=main, label=None, edges = [] )
-block edited 1 : Block(idx=fac, label=None, edges = [] )
-block edited 2 : Block(idx=, label=None, edges = [] )
-block edited 3 : Block(idx=then.0, label=None, edges = [] )
-block edited 4 : Block(idx=, label=['endif.0'], edges = [] )
-block edited 5 : Block(idx=, label=None, edges = [] )
-block edited 6 : Block(idx=else.0, label=None, edges = [] )
-block edited 7 : Block(idx=endif.0, label=None, edges = [] )
-block unedited 0 : Block(idx=main, label=None, edges = [] )
-block unedited 1 : Block(idx=fac, label=None, edges = [] )
-block unedited 2 : Block(idx=then.0, label=None, edges = [] )
-block unedited 3 : Block(idx=else.0, label=None, edges = [] )
-block unedited 4 : Block(idx=endif.0, label=None, edges = [] )
-predecessors {'main': [], 'fac': [], 'then.0': ['main', 'fac'], 'else.0': ['fac'], 'endif.0': []}
-dom: {'main': {'main'}, 'fac': {'fac'}, 'then.0': {'then.0'}, 'else.0': {'else.0', 'fac'}, 'endif.0': {'endif.0'}}
-func_cfg: {'main': ['then.0'], 'fac': ['then.0', 'else.0'], 'then.0': [], 'else.0': [], 'endif.0': []}
-cfg: {'main': ['fac'], 'fac': ['then.0', 'else.0'], 'then.0': [], '': ['endif.0'], 'else.0': [], 'endif.0': []}
+cfg: {'fmain': ['ffac'], 'ffac': ['then.0', 'else.0'], '': ['then.0'], 'then.0': [], 'else.0': ['endif.0'], 'endif.0': []} 
+
+predecess: {'fmain': [], 'ffac': [], 'then.0': ['fmain', 'ffac'], 'else.0': ['ffac'], 'endif.0': ['else.0']} 
+
+dom: {'fmain': {'fmain'}, 'ffac': {'ffac'}, 'then.0': {'then.0'}, 'else.0': {'ffac', 'else.0'}, 'endif.0': {'ffac', 'endif.0', 'else.0'}} 
+
+func_cfg: {'fmain': ['then.0'], 'ffac': ['then.0', 'else.0'], 'then.0': [], 'else.0': ['endif.0'], 'endif.0': []} 
+
+cfg: {'fmain': ['ffac'], 'ffac': ['then.0', 'else.0'], '': ['then.0'], 'then.0': [], 'else.0': ['endif.0'], 'endif.0': []} 
+

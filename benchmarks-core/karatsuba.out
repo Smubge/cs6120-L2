@@ -1,47 +1,10 @@
-block edited 0 : Block(idx=main, label=None, edges = [] )
-block edited 1 : Block(idx=karatsuba, label=None, edges = [] )
-block edited 2 : Block(idx=, label=None, edges = [] )
-block edited 3 : Block(idx=then, label=None, edges = [] )
-block edited 4 : Block(idx=, label=None, edges = [] )
-block edited 5 : Block(idx=else, label=None, edges = [] )
-block edited 6 : Block(idx=, label=None, edges = [] )
-block edited 7 : Block(idx=end, label=None, edges = [] )
-block edited 8 : Block(idx=num_digits, label=None, edges = [] )
-block edited 9 : Block(idx=while.cond, label=None, edges = [] )
-block edited 10 : Block(idx=, label=None, edges = [] )
-block edited 11 : Block(idx=while.body, label=None, edges = [] )
-block edited 12 : Block(idx=, label=None, edges = [] )
-block edited 13 : Block(idx=while.finish, label=None, edges = [] )
-block edited 14 : Block(idx=max, label=None, edges = [] )
-block edited 15 : Block(idx=, label=None, edges = [] )
-block edited 16 : Block(idx=then, label=None, edges = [] )
-block edited 17 : Block(idx=, label=None, edges = [] )
-block edited 18 : Block(idx=else, label=None, edges = [] )
-block edited 19 : Block(idx=mod, label=None, edges = [] )
-block edited 20 : Block(idx=pow, label=None, edges = [] )
-block edited 21 : Block(idx=for.cond.1, label=None, edges = [] )
-block edited 22 : Block(idx=, label=None, edges = [] )
-block edited 23 : Block(idx=for.body.1, label=None, edges = [] )
-block edited 24 : Block(idx=, label=None, edges = [] )
-block edited 25 : Block(idx=for.end.1, label=None, edges = [] )
-block unedited 0 : Block(idx=main, label=None, edges = [] )
-block unedited 1 : Block(idx=karatsuba, label=None, edges = [] )
-block unedited 2 : Block(idx=then, label=None, edges = [] )
-block unedited 3 : Block(idx=else, label=None, edges = [] )
-block unedited 4 : Block(idx=end, label=None, edges = [] )
-block unedited 5 : Block(idx=num_digits, label=None, edges = [] )
-block unedited 6 : Block(idx=while.cond, label=None, edges = [] )
-block unedited 7 : Block(idx=while.body, label=None, edges = [] )
-block unedited 8 : Block(idx=while.finish, label=None, edges = [] )
-block unedited 9 : Block(idx=max, label=None, edges = [] )
-block unedited 10 : Block(idx=then, label=None, edges = [] )
-block unedited 11 : Block(idx=else, label=None, edges = [] )
-block unedited 12 : Block(idx=mod, label=None, edges = [] )
-block unedited 13 : Block(idx=pow, label=None, edges = [] )
-block unedited 14 : Block(idx=for.cond.1, label=None, edges = [] )
-block unedited 15 : Block(idx=for.body.1, label=None, edges = [] )
-block unedited 16 : Block(idx=for.end.1, label=None, edges = [] )
-predecessors {'main': [], 'karatsuba': [], 'then': ['karatsuba', 'max'], 'else': ['karatsuba', 'max'], 'end': [], 'num_digits': [], 'while.cond': ['num_digits', 'while.body'], 'while.body': ['while.cond'], 'while.finish': ['while.cond'], 'max': [], 'mod': [], 'pow': [], 'for.cond.1': ['pow', 'for.body.1'], 'for.body.1': ['for.cond.1'], 'for.end.1': ['for.cond.1']}
-dom: {'main': {'main'}, 'karatsuba': {'karatsuba'}, 'then': {'then'}, 'else': {'else'}, 'end': {'end'}, 'num_digits': {'num_digits'}, 'while.cond': {'num_digits', 'while.cond'}, 'while.body': {'while.body', 'num_digits', 'while.cond'}, 'while.finish': {'num_digits', 'while.cond', 'while.finish'}, 'max': {'max'}, 'mod': {'mod'}, 'pow': {'pow'}, 'for.cond.1': {'pow', 'for.cond.1'}, 'for.body.1': {'pow', 'for.cond.1', 'for.body.1'}, 'for.end.1': {'pow', 'for.end.1', 'for.cond.1'}}
-func_cfg: {'main': [], 'karatsuba': ['then', 'else'], 'then': [], 'else': [], 'end': [], 'num_digits': ['while.cond'], 'while.cond': ['while.finish', 'while.body'], 'while.body': ['while.cond'], 'while.finish': [], 'max': ['then', 'else'], 'mod': [], 'pow': ['for.cond.1'], 'for.cond.1': ['for.body.1', 'for.end.1'], 'for.body.1': ['for.cond.1'], 'for.end.1': []}
-cfg: {'main': [], 'karatsuba': ['then', 'else'], 'then': [], 'else': [], 'end': [], 'num_digits': ['while.cond'], 'while.cond': ['while.finish', 'while.body'], 'while.body': ['while.cond'], 'while.finish': [], 'max': ['then', 'else'], 'mod': [], 'pow': ['for.cond.1'], 'for.cond.1': ['for.body.1', 'for.end.1'], 'for.body.1': ['for.cond.1'], 'for.end.1': []}
+cfg: {'fmain': [], 'fkaratsuba': ['then', 'else'], '': ['then'], 'then': [], 'else': [], 'end': [], 'fnum_digits': ['while.cond'], 'while.cond': ['while.finish', 'while.body'], 'while.body': ['while.cond'], 'while.finish': [], 'fmax': ['then', 'else'], 'fmod': [], 'fpow': ['for.cond.1'], 'for.cond.1': ['for.body.1', 'for.end.1'], 'for.body.1': ['for.cond.1'], 'for.end.1': []} 
+
+predecess: {'fmain': [], 'fkaratsuba': [], 'then': ['fkaratsuba', 'fmax'], 'else': ['fkaratsuba', 'fmax'], 'end': [], 'fnum_digits': [], 'while.cond': ['fnum_digits', 'while.body'], 'while.body': ['while.cond'], 'while.finish': ['while.cond'], 'fmax': [], 'fmod': [], 'fpow': [], 'for.cond.1': ['fpow', 'for.body.1'], 'for.body.1': ['for.cond.1'], 'for.end.1': ['for.cond.1']} 
+
+dom: {'fmain': {'fmain'}, 'fkaratsuba': {'fkaratsuba'}, 'then': {'then'}, 'else': {'else'}, 'end': {'end'}, 'fnum_digits': {'fnum_digits'}, 'while.cond': {'fnum_digits', 'while.cond'}, 'while.body': {'while.cond', 'while.body', 'fnum_digits'}, 'while.finish': {'while.cond', 'fnum_digits', 'while.finish'}, 'fmax': {'fmax'}, 'fmod': {'fmod'}, 'fpow': {'fpow'}, 'for.cond.1': {'for.cond.1', 'fpow'}, 'for.body.1': {'for.body.1', 'for.cond.1', 'fpow'}, 'for.end.1': {'fpow', 'for.cond.1', 'for.end.1'}} 
+
+func_cfg: {'fmain': [], 'fkaratsuba': ['then', 'else'], 'then': [], 'else': [], 'end': [], 'fnum_digits': ['while.cond'], 'while.cond': ['while.finish', 'while.body'], 'while.body': ['while.cond'], 'while.finish': [], 'fmax': ['then', 'else'], 'fmod': [], 'fpow': ['for.cond.1'], 'for.cond.1': ['for.body.1', 'for.end.1'], 'for.body.1': ['for.cond.1'], 'for.end.1': []} 
+
+cfg: {'fmain': [], 'fkaratsuba': ['then', 'else'], '': ['then'], 'then': [], 'else': [], 'end': [], 'fnum_digits': ['while.cond'], 'while.cond': ['while.finish', 'while.body'], 'while.body': ['while.cond'], 'while.finish': [], 'fmax': ['then', 'else'], 'fmod': [], 'fpow': ['for.cond.1'], 'for.cond.1': ['for.body.1', 'for.end.1'], 'for.body.1': ['for.cond.1'], 'for.end.1': []} 
+

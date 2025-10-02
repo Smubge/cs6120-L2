@@ -76,7 +76,7 @@ for func in instrs["functions"]:
             if "label" in instr:
                 b0 = Block(get_block_name(block, ""), block, is_func_header)
                 if is_func_header == True:
-                    b0 = Block(func["name"], block, is_func_header)
+                    b0 = Block("f" + func["name"], block, is_func_header)
                 is_func_header = False 
                 selfIdx += 1
                 blocks.append(b0)
@@ -86,7 +86,7 @@ for func in instrs["functions"]:
                 if instr["op"] == "br" or instr["op"] == "jmp" or instr["op"] == "ret":
                     b1 = Block(get_block_name(block, ""), block, is_func_header)
                     if is_func_header == True:
-                        b1 = Block(func["name"], block, is_func_header)
+                        b1 = Block("f" + func["name"], block, is_func_header)
                     is_func_header = False
                     selfIdx += 1
                     block.append(instr)
@@ -98,14 +98,14 @@ for func in instrs["functions"]:
         if block:
             b2 = Block(get_block_name(block, ""), block, is_func_header)
             if is_func_header == True:
-                b2 = Block(func["name"], block, is_func_header)
+                b2 = Block("f" + func["name"], block, is_func_header)
             is_func_header = False
             selfIdx += 1
             blocks.append(b2)
             block = []
 
-for (i, b) in enumerate(blocks): 
-    print(f"block unedited {i} : {b}")
+# for (i, b) in enumerate(blocks): 
+#     print(f"block unedited {i} : {b}")
     
 def probe_next(block):
     found = False
@@ -139,8 +139,10 @@ for b in blocks:
 			cfg[b.idx] = [probe_next(b.idx)]
 		else:
 			cfg[b.idx] = [probe_next(b.idx)]
+	else:
+		cfg[b.idx] = [probe_next(b.idx)]
 
-print(cfg)
+print(f"cfg: {cfg} \n")
 cleanup_arr = []
 for (i, block) in enumerate(blocks):
     if block.idx != "":
@@ -148,8 +150,8 @@ for (i, block) in enumerate(blocks):
 blocks = cleanup_arr
 
 
-for (i, b) in enumerate(blocks): #Cleaned up arr
-    print(f"block edited {i} : {b}")
+# for (i, b) in enumerate(blocks): #Cleaned up arr
+    # print(f"block edited {i} : {b}")
 
 
 for block in blocks:
@@ -231,16 +233,17 @@ def find_pred(b_idx, preds, dom):
 def build_preds(cfg): #TODO: check correctness on this? (not entirely sure)
     preds = {b: [] for b in cfg}
     for src, succs in cfg.items():
+        if (succs == "for.body"):
+             print("hi")
         for s in succs:
             if s in preds:
                 preds[s].append(src)
             else:
                 preds[s] = [src]
-    print(f"predecessors {preds}")
     return preds
 
 preds = build_preds(func_cfg)
-
+print(f"predecess: {preds} \n")
 while True:
     prev_dom = {}
     for k in dom:
@@ -253,11 +256,11 @@ while True:
         dom[b.idx] = {b.idx}.union(find_pred(b.idx, preds, dom))
     if dom == prev_dom:
         break
-print(f"dom: {dom}")
+print(f"dom: {dom} \n")
 sorted_dom = {k: sorted(list(v)) for k, v in sorted(dom.items())}
 # print(sorted_dom)
-print(f"func_cfg: {func_cfg}")
-print(f"cfg: {cfg}")
+print(f"func_cfg: {func_cfg} \n")
+print(f"cfg: {cfg} \n")
 def traverse_cfg(cfg, func_header, paths):
     """
     Return all paths from the source to every block in the cfg.

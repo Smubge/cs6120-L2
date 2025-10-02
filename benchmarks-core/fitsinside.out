@@ -1,8 +1,10 @@
-block edited 0 : Block(idx=main, label=None, edges = [] )
-block edited 1 : Block(idx=fitsInside, label=None, edges = [] )
-block unedited 0 : Block(idx=main, label=None, edges = [] )
-block unedited 1 : Block(idx=fitsInside, label=None, edges = [] )
-predecessors {'main': [], 'fitsInside': []}
-dom: {'main': {'main'}, 'fitsInside': {'fitsInside'}}
-func_cfg: {'main': [], 'fitsInside': []}
-cfg: {'main': [], 'fitsInside': []}
+cfg: {'fmain': [], 'ffitsInside': []} 
+
+predecess: {'fmain': [], 'ffitsInside': []} 
+
+dom: {'fmain': {'fmain'}, 'ffitsInside': {'ffitsInside'}} 
+
+func_cfg: {'fmain': [], 'ffitsInside': []} 
+
+cfg: {'fmain': [], 'ffitsInside': []} 
+

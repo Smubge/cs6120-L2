@@ -1,13 +1,10 @@
-block edited 0 : Block(idx=hanoi, label=None, edges = [] )
-block edited 1 : Block(idx=, label=None, edges = [] )
-block edited 2 : Block(idx=then, label=None, edges = [] )
-block edited 3 : Block(idx=else, label=None, edges = [] )
-block edited 4 : Block(idx=main, label=None, edges = [] )
-block unedited 0 : Block(idx=hanoi, label=None, edges = [] )
-block unedited 1 : Block(idx=then, label=None, edges = [] )
-block unedited 2 : Block(idx=else, label=None, edges = [] )
-block unedited 3 : Block(idx=main, label=None, edges = [] )
-predecessors {'hanoi': [], 'then': ['hanoi'], 'else': ['hanoi'], 'main': []}
-dom: {'hanoi': {'hanoi'}, 'then': {'hanoi', 'then'}, 'else': {'hanoi', 'else'}, 'main': {'main'}}
-func_cfg: {'hanoi': ['then', 'else'], 'then': [], 'else': [], 'main': []}
-cfg: {'hanoi': ['then', 'else'], 'then': [], 'else': [], 'main': []}
+cfg: {'fhanoi': ['then', 'else'], '': ['then'], 'then': [], 'else': [], 'fmain': []} 
+
+predecess: {'fhanoi': [], 'then': ['fhanoi'], 'else': ['fhanoi'], 'fmain': []} 
+
+dom: {'fhanoi': {'fhanoi'}, 'then': {'then', 'fhanoi'}, 'else': {'else', 'fhanoi'}, 'fmain': {'fmain'}} 
+
+func_cfg: {'fhanoi': ['then', 'else'], 'then': [], 'else': [], 'fmain': []} 
+
+cfg: {'fhanoi': ['then', 'else'], '': ['then'], 'then': [], 'else': [], 'fmain': []} 
+

@@ -1,14 +1,10 @@
-block edited 0 : Block(idx=main, label=None, edges = [] )
-block edited 1 : Block(idx=loop, label=None, edges = [] )
-block edited 2 : Block(idx=, label=None, edges = [] )
-block edited 3 : Block(idx=body, label=None, edges = [] )
-block edited 4 : Block(idx=, label=None, edges = [] )
-block edited 5 : Block(idx=done, label=None, edges = [] )
-block unedited 0 : Block(idx=main, label=None, edges = [] )
-block unedited 1 : Block(idx=loop, label=None, edges = [] )
-block unedited 2 : Block(idx=body, label=None, edges = [] )
-block unedited 3 : Block(idx=done, label=None, edges = [] )
-predecessors {'main': [], 'loop': ['main', 'body'], 'body': ['loop'], 'done': ['loop']}
-dom: {'main': {'main'}, 'loop': {'loop', 'main'}, 'body': {'loop', 'main', 'body'}, 'done': {'done', 'main', 'loop'}}
-func_cfg: {'main': ['loop'], 'loop': ['body', 'done'], 'body': ['loop'], 'done': []}
-cfg: {'main': ['loop'], 'loop': ['body', 'done'], 'body': ['loop'], 'done': []}
+cfg: {'fmain': ['loop'], 'loop': ['body', 'done'], '': ['body'], 'body': ['loop'], 'done': []} 
+
+predecess: {'fmain': [], 'loop': ['fmain', 'body'], 'body': ['loop'], 'done': ['loop']} 
+
+dom: {'fmain': {'fmain'}, 'loop': {'loop', 'fmain'}, 'body': {'body', 'fmain', 'loop'}, 'done': {'loop', 'fmain', 'done'}} 
+
+func_cfg: {'fmain': ['loop'], 'loop': ['body', 'done'], 'body': ['loop'], 'done': []} 
+
+cfg: {'fmain': ['loop'], 'loop': ['body', 'done'], '': ['body'], 'body': ['loop'], 'done': []} 
+

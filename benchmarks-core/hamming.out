@@ -1,24 +1,10 @@
-block edited 0 : Block(idx=lsb, label=None, edges = [] )
-block edited 1 : Block(idx=hamm_lsb, label=None, edges = [] )
-block edited 2 : Block(idx=, label=None, edges = [] )
-block edited 3 : Block(idx=if, label=None, edges = [] )
-block edited 4 : Block(idx=, label=None, edges = [] )
-block edited 5 : Block(idx=else, label=None, edges = [] )
-block edited 6 : Block(idx=main, label=None, edges = [] )
-block edited 7 : Block(idx=while, label=None, edges = [] )
-block edited 8 : Block(idx=, label=None, edges = [] )
-block edited 9 : Block(idx=body, label=None, edges = [] )
-block edited 10 : Block(idx=, label=None, edges = [] )
-block edited 11 : Block(idx=end, label=None, edges = [] )
-block unedited 0 : Block(idx=lsb, label=None, edges = [] )
-block unedited 1 : Block(idx=hamm_lsb, label=None, edges = [] )
-block unedited 2 : Block(idx=if, label=None, edges = [] )
-block unedited 3 : Block(idx=else, label=None, edges = [] )
-block unedited 4 : Block(idx=main, label=None, edges = [] )
-block unedited 5 : Block(idx=while, label=None, edges = [] )
-block unedited 6 : Block(idx=body, label=None, edges = [] )
-block unedited 7 : Block(idx=end, label=None, edges = [] )
-predecessors {'lsb': [], 'hamm_lsb': [], 'if': ['hamm_lsb'], 'else': ['hamm_lsb'], 'main': [], 'while': ['main', 'body'], 'body': ['while'], 'end': ['while']}
-dom: {'lsb': {'lsb'}, 'hamm_lsb': {'hamm_lsb'}, 'if': {'hamm_lsb', 'if'}, 'else': {'hamm_lsb', 'else'}, 'main': {'main'}, 'while': {'main', 'while'}, 'body': {'main', 'body', 'while'}, 'end': {'main', 'while', 'end'}}
-func_cfg: {'lsb': [], 'hamm_lsb': ['if', 'else'], 'if': [], 'else': [], 'main': ['while'], 'while': ['end', 'body'], 'body': ['while'], 'end': []}
-cfg: {'lsb': [], 'hamm_lsb': ['if', 'else'], 'if': [], 'else': [], 'main': ['while'], 'while': ['end', 'body'], 'body': ['while'], 'end': []}
+cfg: {'flsb': [], 'fhamm_lsb': ['if', 'else'], '': ['if'], 'if': [], 'else': [], 'fmain': ['while'], 'while': ['end', 'body'], 'body': ['while'], 'end': []} 
+
+predecess: {'flsb': [], 'fhamm_lsb': [], 'if': ['fhamm_lsb'], 'else': ['fhamm_lsb'], 'fmain': [], 'while': ['fmain', 'body'], 'body': ['while'], 'end': ['while']} 
+
+dom: {'flsb': {'flsb'}, 'fhamm_lsb': {'fhamm_lsb'}, 'if': {'fhamm_lsb', 'if'}, 'else': {'fhamm_lsb', 'else'}, 'fmain': {'fmain'}, 'while': {'while', 'fmain'}, 'body': {'fmain', 'body', 'while'}, 'end': {'while', 'end', 'fmain'}} 
+
+func_cfg: {'flsb': [], 'fhamm_lsb': ['if', 'else'], 'if': [], 'else': [], 'fmain': ['while'], 'while': ['end', 'body'], 'body': ['while'], 'end': []} 
+
+cfg: {'flsb': [], 'fhamm_lsb': ['if', 'else'], '': ['if'], 'if': [], 'else': [], 'fmain': ['while'], 'while': ['end', 'body'], 'body': ['while'], 'end': []} 
+

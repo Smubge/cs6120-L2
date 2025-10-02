@@ -1,23 +1,10 @@
-block edited 0 : Block(idx=main, label=None, edges = [] )
-block edited 1 : Block(idx=begin, label=None, edges = [] )
-block edited 2 : Block(idx=check_result, label=None, edges = [] )
-block edited 3 : Block(idx=, label=None, edges = [] )
-block edited 4 : Block(idx=process_result, label=None, edges = [] )
-block edited 5 : Block(idx=, label=None, edges = [] )
-block edited 6 : Block(idx=check_done, label=None, edges = [] )
-block edited 7 : Block(idx=, label=None, edges = [] )
-block edited 8 : Block(idx=done, label=None, edges = [] )
-block edited 9 : Block(idx=is_single_digit, label=None, edges = [] )
-block edited 10 : Block(idx=peel_last_digit, label=None, edges = [] )
-block unedited 0 : Block(idx=main, label=None, edges = [] )
-block unedited 1 : Block(idx=begin, label=None, edges = [] )
-block unedited 2 : Block(idx=check_result, label=None, edges = [] )
-block unedited 3 : Block(idx=process_result, label=None, edges = [] )
-block unedited 4 : Block(idx=check_done, label=None, edges = [] )
-block unedited 5 : Block(idx=done, label=None, edges = [] )
-block unedited 6 : Block(idx=is_single_digit, label=None, edges = [] )
-block unedited 7 : Block(idx=peel_last_digit, label=None, edges = [] )
-predecessors {'main': [], 'begin': ['main', 'check_done'], 'check_result': ['begin', 'process_result'], 'process_result': ['check_result'], 'check_done': ['check_result'], 'done': ['check_done'], 'is_single_digit': [], 'peel_last_digit': []}
-dom: {'main': {'main'}, 'begin': {'begin', 'main'}, 'check_result': {'begin', 'check_result', 'main'}, 'process_result': {'begin', 'main', 'check_result', 'process_result'}, 'check_done': {'begin', 'check_done', 'check_result', 'main'}, 'done': {'begin', 'main', 'done', 'check_done', 'check_result'}, 'is_single_digit': {'is_single_digit'}, 'peel_last_digit': {'peel_last_digit'}}
-func_cfg: {'main': ['begin'], 'begin': ['check_result'], 'check_result': ['check_done', 'process_result'], 'process_result': ['check_result'], 'check_done': ['done', 'begin'], 'done': [], 'is_single_digit': [], 'peel_last_digit': []}
-cfg: {'main': ['begin'], 'begin': ['check_result'], 'check_result': ['check_done', 'process_result'], 'process_result': ['check_result'], 'check_done': ['done', 'begin'], 'done': [], 'is_single_digit': [], 'peel_last_digit': []}
+cfg: {'fmain': ['begin'], 'begin': ['check_result'], 'check_result': ['check_done', 'process_result'], '': ['process_result'], 'process_result': ['check_result'], 'check_done': ['done', 'begin'], 'done': [], 'fis_single_digit': [], 'fpeel_last_digit': []} 
+
+predecess: {'fmain': [], 'begin': ['fmain', 'check_done'], 'check_result': ['begin', 'process_result'], 'process_result': ['check_result'], 'check_done': ['check_result'], 'done': ['check_done'], 'fis_single_digit': [], 'fpeel_last_digit': []} 
+
+dom: {'fmain': {'fmain'}, 'begin': {'begin', 'fmain'}, 'check_result': {'begin', 'check_result', 'fmain'}, 'process_result': {'begin', 'check_result', 'process_result', 'fmain'}, 'check_done': {'begin', 'check_result', 'fmain', 'check_done'}, 'done': {'done', 'check_result', 'fmain', 'begin', 'check_done'}, 'fis_single_digit': {'fis_single_digit'}, 'fpeel_last_digit': {'fpeel_last_digit'}} 
+
+func_cfg: {'fmain': ['begin'], 'begin': ['check_result'], 'check_result': ['check_done', 'process_result'], 'process_result': ['check_result'], 'check_done': ['done', 'begin'], 'done': [], 'fis_single_digit': [], 'fpeel_last_digit': []} 
+
+cfg: {'fmain': ['begin'], 'begin': ['check_result'], 'check_result': ['check_done', 'process_result'], '': ['process_result'], 'process_result': ['check_result'], 'check_done': ['done', 'begin'], 'done': [], 'fis_single_digit': [], 'fpeel_last_digit': []} 
+

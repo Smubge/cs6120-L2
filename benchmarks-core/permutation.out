@@ -1,24 +1,10 @@
-block edited 0 : Block(idx=permutation, label=None, edges = [] )
-block edited 1 : Block(idx=, label=None, edges = [] )
-block edited 2 : Block(idx=then.0, label=None, edges = [] )
-block edited 3 : Block(idx=, label=None, edges = [] )
-block edited 4 : Block(idx=else.0, label=None, edges = [] )
-block edited 5 : Block(idx=factorial, label=None, edges = [] )
-block edited 6 : Block(idx=for.cond.0, label=None, edges = [] )
-block edited 7 : Block(idx=, label=None, edges = [] )
-block edited 8 : Block(idx=for.body.0, label=None, edges = [] )
-block edited 9 : Block(idx=, label=None, edges = [] )
-block edited 10 : Block(idx=for.end.0, label=None, edges = [] )
-block edited 11 : Block(idx=main, label=None, edges = [] )
-block unedited 0 : Block(idx=permutation, label=None, edges = [] )
-block unedited 1 : Block(idx=then.0, label=None, edges = [] )
-block unedited 2 : Block(idx=else.0, label=None, edges = [] )
-block unedited 3 : Block(idx=factorial, label=None, edges = [] )
-block unedited 4 : Block(idx=for.cond.0, label=None, edges = [] )
-block unedited 5 : Block(idx=for.body.0, label=None, edges = [] )
-block unedited 6 : Block(idx=for.end.0, label=None, edges = [] )
-block unedited 7 : Block(idx=main, label=None, edges = [] )
-predecessors {'permutation': [], 'then.0': ['permutation'], 'else.0': ['permutation'], 'factorial': [], 'for.cond.0': ['factorial', 'for.body.0'], 'for.body.0': ['for.cond.0'], 'for.end.0': ['for.cond.0'], 'main': []}
-dom: {'permutation': {'permutation'}, 'then.0': {'then.0', 'permutation'}, 'else.0': {'permutation', 'else.0'}, 'factorial': {'factorial'}, 'for.cond.0': {'factorial', 'for.cond.0'}, 'for.body.0': {'factorial', 'for.cond.0', 'for.body.0'}, 'for.end.0': {'for.end.0', 'for.cond.0', 'factorial'}, 'main': {'main'}}
-func_cfg: {'permutation': ['then.0', 'else.0'], 'then.0': [], 'else.0': [], 'factorial': ['for.cond.0'], 'for.cond.0': ['for.body.0', 'for.end.0'], 'for.body.0': ['for.cond.0'], 'for.end.0': [], 'main': []}
-cfg: {'permutation': ['then.0', 'else.0'], 'then.0': [], 'else.0': [], 'factorial': ['for.cond.0'], 'for.cond.0': ['for.body.0', 'for.end.0'], 'for.body.0': ['for.cond.0'], 'for.end.0': [], 'main': [None]}
+cfg: {'fpermutation': ['then.0', 'else.0'], '': ['then.0'], 'then.0': [], 'else.0': [], 'ffactorial': ['for.cond.0'], 'for.cond.0': ['for.body.0', 'for.end.0'], 'for.body.0': ['for.cond.0'], 'for.end.0': [], 'fmain': [None]} 
+
+predecess: {'fpermutation': [], 'then.0': ['fpermutation'], 'else.0': ['fpermutation'], 'ffactorial': [], 'for.cond.0': ['ffactorial', 'for.body.0'], 'for.body.0': ['for.cond.0'], 'for.end.0': ['for.cond.0'], 'fmain': []} 
+
+dom: {'fpermutation': {'fpermutation'}, 'then.0': {'fpermutation', 'then.0'}, 'else.0': {'else.0', 'fpermutation'}, 'ffactorial': {'ffactorial'}, 'for.cond.0': {'for.cond.0', 'ffactorial'}, 'for.body.0': {'for.cond.0', 'for.body.0', 'ffactorial'}, 'for.end.0': {'for.cond.0', 'ffactorial', 'for.end.0'}, 'fmain': {'fmain'}} 
+
+func_cfg: {'fpermutation': ['then.0', 'else.0'], 'then.0': [], 'else.0': [], 'ffactorial': ['for.cond.0'], 'for.cond.0': ['for.body.0', 'for.end.0'], 'for.body.0': ['for.cond.0'], 'for.end.0': [], 'fmain': []} 
+
+cfg: {'fpermutation': ['then.0', 'else.0'], '': ['then.0'], 'then.0': [], 'else.0': [], 'ffactorial': ['for.cond.0'], 'for.cond.0': ['for.body.0', 'for.end.0'], 'for.body.0': ['for.cond.0'], 'for.end.0': [], 'fmain': [None]} 
+

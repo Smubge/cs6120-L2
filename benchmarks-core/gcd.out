@@ -1,29 +1,10 @@
-block edited 0 : Block(idx=main, label=None, edges = [] )
-block edited 1 : Block(idx=cmp.val, label=None, edges = [] )
-block edited 2 : Block(idx=, label=None, edges = [] )
-block edited 3 : Block(idx=if.1, label=None, edges = [] )
-block edited 4 : Block(idx=, label=None, edges = [] )
-block edited 5 : Block(idx=else.1, label=None, edges = [] )
-block edited 6 : Block(idx=, label=None, edges = [] )
-block edited 7 : Block(idx=loop.bound, label=None, edges = [] )
-block edited 8 : Block(idx=, label=None, edges = [] )
-block edited 9 : Block(idx=update.val, label=None, edges = [] )
-block edited 10 : Block(idx=, label=None, edges = [] )
-block edited 11 : Block(idx=if.2, label=None, edges = [] )
-block edited 12 : Block(idx=, label=None, edges = [] )
-block edited 13 : Block(idx=else.2, label=None, edges = [] )
-block edited 14 : Block(idx=, label=None, edges = [] )
-block edited 15 : Block(idx=program.end, label=None, edges = [] )
-block unedited 0 : Block(idx=main, label=None, edges = [] )
-block unedited 1 : Block(idx=cmp.val, label=None, edges = [] )
-block unedited 2 : Block(idx=if.1, label=None, edges = [] )
-block unedited 3 : Block(idx=else.1, label=None, edges = [] )
-block unedited 4 : Block(idx=loop.bound, label=None, edges = [] )
-block unedited 5 : Block(idx=update.val, label=None, edges = [] )
-block unedited 6 : Block(idx=if.2, label=None, edges = [] )
-block unedited 7 : Block(idx=else.2, label=None, edges = [] )
-block unedited 8 : Block(idx=program.end, label=None, edges = [] )
-predecessors {'main': [], 'cmp.val': ['main', 'if.2', 'else.2'], 'if.1': ['cmp.val'], 'else.1': ['cmp.val'], 'loop.bound': ['if.1', 'else.1'], 'update.val': ['loop.bound'], 'if.2': ['update.val'], 'else.2': ['update.val'], 'program.end': ['loop.bound']}
-dom: {'main': {'main'}, 'cmp.val': {'cmp.val', 'main'}, 'if.1': {'cmp.val', 'if.1', 'main'}, 'else.1': {'cmp.val', 'else.1', 'main'}, 'loop.bound': {'main', 'cmp.val', 'loop.bound'}, 'update.val': {'main', 'cmp.val', 'loop.bound', 'update.val'}, 'if.2': {'cmp.val', 'main', 'update.val', 'if.2', 'loop.bound'}, 'else.2': {'cmp.val', 'main', 'update.val', 'else.2', 'loop.bound'}, 'program.end': {'cmp.val', 'program.end', 'loop.bound', 'main'}}
-func_cfg: {'main': ['cmp.val'], 'cmp.val': ['if.1', 'else.1'], 'if.1': ['loop.bound'], 'else.1': ['loop.bound'], 'loop.bound': ['program.end', 'update.val'], 'update.val': ['if.2', 'else.2'], 'if.2': ['cmp.val'], 'else.2': ['cmp.val'], 'program.end': []}
-cfg: {'main': ['cmp.val'], 'cmp.val': ['if.1', 'else.1'], 'if.1': ['loop.bound'], 'else.1': ['loop.bound'], 'loop.bound': ['program.end', 'update.val'], 'update.val': ['if.2', 'else.2'], 'if.2': ['cmp.val'], 'else.2': ['cmp.val'], 'program.end': []}
+cfg: {'fmain': ['cmp.val'], 'cmp.val': ['if.1', 'else.1'], '': ['if.1'], 'if.1': ['loop.bound'], 'else.1': ['loop.bound'], 'loop.bound': ['program.end', 'update.val'], 'update.val': ['if.2', 'else.2'], 'if.2': ['cmp.val'], 'else.2': ['cmp.val'], 'program.end': []} 
+
+predecess: {'fmain': [], 'cmp.val': ['fmain', 'if.2', 'else.2'], 'if.1': ['cmp.val'], 'else.1': ['cmp.val'], 'loop.bound': ['if.1', 'else.1'], 'update.val': ['loop.bound'], 'if.2': ['update.val'], 'else.2': ['update.val'], 'program.end': ['loop.bound']} 
+
+dom: {'fmain': {'fmain'}, 'cmp.val': {'cmp.val', 'fmain'}, 'if.1': {'cmp.val', 'fmain', 'if.1'}, 'else.1': {'else.1', 'fmain', 'cmp.val'}, 'loop.bound': {'cmp.val', 'loop.bound', 'fmain'}, 'update.val': {'cmp.val', 'loop.bound', 'fmain', 'update.val'}, 'if.2': {'loop.bound', 'fmain', 'update.val', 'cmp.val', 'if.2'}, 'else.2': {'loop.bound', 'fmain', 'update.val', 'cmp.val', 'else.2'}, 'program.end': {'cmp.val', 'loop.bound', 'fmain', 'program.end'}} 
+
+func_cfg: {'fmain': ['cmp.val'], 'cmp.val': ['if.1', 'else.1'], 'if.1': ['loop.bound'], 'else.1': ['loop.bound'], 'loop.bound': ['program.end', 'update.val'], 'update.val': ['if.2', 'else.2'], 'if.2': ['cmp.val'], 'else.2': ['cmp.val'], 'program.end': []} 
+
+cfg: {'fmain': ['cmp.val'], 'cmp.val': ['if.1', 'else.1'], '': ['if.1'], 'if.1': ['loop.bound'], 'else.1': ['loop.bound'], 'loop.bound': ['program.end', 'update.val'], 'update.val': ['if.2', 'else.2'], 'if.2': ['cmp.val'], 'else.2': ['cmp.val'], 'program.end': []} 
+

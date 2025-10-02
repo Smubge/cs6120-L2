@@ -1,67 +1,10 @@
-block edited 0 : Block(idx=main, label=None, edges = [] )
-block edited 1 : Block(idx=row_loop, label=None, edges = [] )
-block edited 2 : Block(idx=, label=None, edges = [] )
-block edited 3 : Block(idx=col_loop, label=None, edges = [] )
-block edited 4 : Block(idx=, label=None, edges = [] )
-block edited 5 : Block(idx=inner_loop, label=None, edges = [] )
-block edited 6 : Block(idx=, label=None, edges = [] )
-block edited 7 : Block(idx=multiply, label=None, edges = [] )
-block edited 8 : Block(idx=, label=None, edges = [] )
-block edited 9 : Block(idx=end_col, label=None, edges = [] )
-block edited 10 : Block(idx=, label=None, edges = [] )
-block edited 11 : Block(idx=add_dp, label=None, edges = [] )
-block edited 12 : Block(idx=, label=None, edges = [] )
-block edited 13 : Block(idx=return, label=None, edges = [] )
-block edited 14 : Block(idx=mat_bitsel, label=None, edges = [] )
-block edited 15 : Block(idx=, label=None, edges = [] )
-block edited 16 : Block(idx=ret_one, label=None, edges = [] )
-block edited 17 : Block(idx=, label=None, edges = [] )
-block edited 18 : Block(idx=ret_zero, label=None, edges = [] )
-block edited 19 : Block(idx=mat_packed_index, label=None, edges = [] )
-block edited 20 : Block(idx=pow2, label=None, edges = [] )
-block edited 21 : Block(idx=loop, label=None, edges = [] )
-block edited 22 : Block(idx=, label=None, edges = [] )
-block edited 23 : Block(idx=multiply, label=None, edges = [] )
-block edited 24 : Block(idx=, label=None, edges = [] )
-block edited 25 : Block(idx=return, label=None, edges = [] )
-block edited 26 : Block(idx=bitsel, label=None, edges = [] )
-block edited 27 : Block(idx=loop, label=None, edges = [] )
-block edited 28 : Block(idx=, label=None, edges = [] )
-block edited 29 : Block(idx=divide, label=None, edges = [] )
-block edited 30 : Block(idx=, label=None, edges = [] )
-block edited 31 : Block(idx=return, label=None, edges = [] )
-block edited 32 : Block(idx=abs, label=None, edges = [] )
-block edited 33 : Block(idx=, label=None, edges = [] )
-block edited 34 : Block(idx=negative, label=None, edges = [] )
-block edited 35 : Block(idx=positive, label=None, edges = [] )
-block edited 36 : Block(idx=is_even, label=None, edges = [] )
-block edited 37 : Block(idx=is_odd, label=None, edges = [] )
-block unedited 0 : Block(idx=main, label=None, edges = [] )
-block unedited 1 : Block(idx=row_loop, label=None, edges = [] )
-block unedited 2 : Block(idx=col_loop, label=None, edges = [] )
-block unedited 3 : Block(idx=inner_loop, label=None, edges = [] )
-block unedited 4 : Block(idx=multiply, label=None, edges = [] )
-block unedited 5 : Block(idx=end_col, label=None, edges = [] )
-block unedited 6 : Block(idx=add_dp, label=None, edges = [] )
-block unedited 7 : Block(idx=return, label=None, edges = [] )
-block unedited 8 : Block(idx=mat_bitsel, label=None, edges = [] )
-block unedited 9 : Block(idx=ret_one, label=None, edges = [] )
-block unedited 10 : Block(idx=ret_zero, label=None, edges = [] )
-block unedited 11 : Block(idx=mat_packed_index, label=None, edges = [] )
-block unedited 12 : Block(idx=pow2, label=None, edges = [] )
-block unedited 13 : Block(idx=loop, label=None, edges = [] )
-block unedited 14 : Block(idx=multiply, label=None, edges = [] )
-block unedited 15 : Block(idx=return, label=None, edges = [] )
-block unedited 16 : Block(idx=bitsel, label=None, edges = [] )
-block unedited 17 : Block(idx=loop, label=None, edges = [] )
-block unedited 18 : Block(idx=divide, label=None, edges = [] )
-block unedited 19 : Block(idx=return, label=None, edges = [] )
-block unedited 20 : Block(idx=abs, label=None, edges = [] )
-block unedited 21 : Block(idx=negative, label=None, edges = [] )
-block unedited 22 : Block(idx=positive, label=None, edges = [] )
-block unedited 23 : Block(idx=is_even, label=None, edges = [] )
-block unedited 24 : Block(idx=is_odd, label=None, edges = [] )
-predecessors {'main': [], 'row_loop': ['main', 'col_loop'], 'col_loop': ['row_loop', 'end_col', 'add_dp'], 'inner_loop': ['col_loop'], 'multiply': ['inner_loop'], 'end_col': ['inner_loop'], 'add_dp': ['end_col'], 'return': ['row_loop', 'loop'], 'mat_bitsel': [], 'ret_one': ['mat_bitsel'], 'ret_zero': ['mat_bitsel'], 'mat_packed_index': [], 'pow2': [], 'loop': ['multiply', 'pow2', 'bitsel', 'divide'], 'bitsel': [], 'divide': ['loop'], 'abs': [], 'negative': ['abs'], 'positive': ['abs', 'negative'], 'is_even': [], 'is_odd': []}
-dom: {'main': {'main'}, 'row_loop': {'main', 'row_loop'}, 'col_loop': {'col_loop', 'main', 'row_loop'}, 'inner_loop': {'col_loop', 'row_loop', 'main', 'inner_loop'}, 'multiply': {'main', 'multiply', 'col_loop', 'inner_loop', 'row_loop'}, 'end_col': {'main', 'end_col', 'col_loop', 'inner_loop', 'row_loop'}, 'add_dp': {'main', 'end_col', 'col_loop', 'add_dp', 'row_loop', 'inner_loop'}, 'return': {'return'}, 'mat_bitsel': {'mat_bitsel'}, 'ret_one': {'ret_one', 'mat_bitsel'}, 'ret_zero': {'mat_bitsel', 'ret_zero'}, 'mat_packed_index': {'mat_packed_index'}, 'pow2': {'pow2'}, 'loop': {'loop'}, 'bitsel': {'bitsel'}, 'divide': {'divide', 'loop'}, 'abs': {'abs'}, 'negative': {'abs', 'negative'}, 'positive': {'abs', 'positive'}, 'is_even': {'is_even'}, 'is_odd': {'is_odd'}}
-func_cfg: {'main': ['row_loop'], 'row_loop': ['col_loop', 'return'], 'col_loop': ['inner_loop', 'row_loop'], 'inner_loop': ['multiply', 'end_col'], 'multiply': ['loop'], 'end_col': ['add_dp', 'col_loop'], 'add_dp': ['col_loop'], 'return': [], 'mat_bitsel': ['ret_one', 'ret_zero'], 'ret_one': [], 'ret_zero': [], 'mat_packed_index': [], 'pow2': ['loop'], 'loop': ['return', 'divide'], 'bitsel': ['loop'], 'divide': ['loop'], 'abs': ['negative', 'positive'], 'negative': ['positive'], 'positive': [], 'is_even': [], 'is_odd': []}
-cfg: {'main': ['row_loop'], 'row_loop': ['col_loop', 'return'], 'col_loop': ['inner_loop', 'row_loop'], 'inner_loop': ['multiply', 'end_col'], 'multiply': ['loop'], 'end_col': ['add_dp', 'col_loop'], 'add_dp': ['col_loop'], 'return': [], 'mat_bitsel': ['ret_one', 'ret_zero'], 'ret_one': [], 'ret_zero': [], 'mat_packed_index': [], 'pow2': ['loop'], 'loop': ['return', 'divide'], 'bitsel': ['loop'], 'divide': ['loop'], 'abs': ['negative', 'positive'], 'negative': ['positive'], 'positive': [], 'is_even': [], 'is_odd': []}
+cfg: {'fmain': ['row_loop'], 'row_loop': ['col_loop', 'return'], '': ['col_loop'], 'col_loop': ['inner_loop', 'row_loop'], 'inner_loop': ['multiply', 'end_col'], 'multiply': ['loop'], 'end_col': ['add_dp', 'col_loop'], 'add_dp': ['col_loop'], 'return': [], 'fmat_bitsel': ['ret_one', 'ret_zero'], 'ret_one': [], 'ret_zero': [], 'fmat_packed_index': [], 'fpow2': ['loop'], 'loop': ['return', 'divide'], 'fbitsel': ['loop'], 'divide': ['loop'], 'fabs': ['negative', 'positive'], 'negative': ['positive'], 'positive': [], 'fis_even': [], 'fis_odd': []} 
+
+predecess: {'fmain': [], 'row_loop': ['fmain', 'col_loop'], 'col_loop': ['row_loop', 'end_col', 'add_dp'], 'inner_loop': ['col_loop'], 'multiply': ['inner_loop'], 'end_col': ['inner_loop'], 'add_dp': ['end_col'], 'return': ['row_loop', 'loop'], 'fmat_bitsel': [], 'ret_one': ['fmat_bitsel'], 'ret_zero': ['fmat_bitsel'], 'fmat_packed_index': [], 'fpow2': [], 'loop': ['multiply', 'fpow2', 'fbitsel', 'divide'], 'fbitsel': [], 'divide': ['loop'], 'fabs': [], 'negative': ['fabs'], 'positive': ['fabs', 'negative'], 'fis_even': [], 'fis_odd': []} 
+
+dom: {'fmain': {'fmain'}, 'row_loop': {'row_loop', 'fmain'}, 'col_loop': {'row_loop', 'col_loop', 'fmain'}, 'inner_loop': {'row_loop', 'col_loop', 'fmain', 'inner_loop'}, 'multiply': {'col_loop', 'multiply', 'fmain', 'inner_loop', 'row_loop'}, 'end_col': {'col_loop', 'fmain', 'inner_loop', 'row_loop', 'end_col'}, 'add_dp': {'add_dp', 'col_loop', 'fmain', 'inner_loop', 'row_loop', 'end_col'}, 'return': {'return'}, 'fmat_bitsel': {'fmat_bitsel'}, 'ret_one': {'fmat_bitsel', 'ret_one'}, 'ret_zero': {'ret_zero', 'fmat_bitsel'}, 'fmat_packed_index': {'fmat_packed_index'}, 'fpow2': {'fpow2'}, 'loop': {'loop'}, 'fbitsel': {'fbitsel'}, 'divide': {'divide', 'loop'}, 'fabs': {'fabs'}, 'negative': {'fabs', 'negative'}, 'positive': {'positive', 'fabs'}, 'fis_even': {'fis_even'}, 'fis_odd': {'fis_odd'}} 
+
+func_cfg: {'fmain': ['row_loop'], 'row_loop': ['col_loop', 'return'], 'col_loop': ['inner_loop', 'row_loop'], 'inner_loop': ['multiply', 'end_col'], 'multiply': ['loop'], 'end_col': ['add_dp', 'col_loop'], 'add_dp': ['col_loop'], 'return': [], 'fmat_bitsel': ['ret_one', 'ret_zero'], 'ret_one': [], 'ret_zero': [], 'fmat_packed_index': [], 'fpow2': ['loop'], 'loop': ['return', 'divide'], 'fbitsel': ['loop'], 'divide': ['loop'], 'fabs': ['negative', 'positive'], 'negative': ['positive'], 'positive': [], 'fis_even': [], 'fis_odd': []} 
+
+cfg: {'fmain': ['row_loop'], 'row_loop': ['col_loop', 'return'], '': ['col_loop'], 'col_loop': ['inner_loop', 'row_loop'], 'inner_loop': ['multiply', 'end_col'], 'multiply': ['loop'], 'end_col': ['add_dp', 'col_loop'], 'add_dp': ['col_loop'], 'return': [], 'fmat_bitsel': ['ret_one', 'ret_zero'], 'ret_one': [], 'ret_zero': [], 'fmat_packed_index': [], 'fpow2': ['loop'], 'loop': ['return', 'divide'], 'fbitsel': ['loop'], 'divide': ['loop'], 'fabs': ['negative', 'positive'], 'negative': ['positive'], 'positive': [], 'fis_even': [], 'fis_odd': []} 
+

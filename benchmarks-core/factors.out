@@ -1,20 +1,10 @@
-block edited 0 : Block(idx=main, label=None, edges = [] )
-block edited 1 : Block(idx=loopcheck, label=None, edges = [] )
-block edited 2 : Block(idx=, label=None, edges = [] )
-block edited 3 : Block(idx=loopbody, label=None, edges = [] )
-block edited 4 : Block(idx=, label=None, edges = [] )
-block edited 5 : Block(idx=ifyes, label=None, edges = [] )
-block edited 6 : Block(idx=, label=None, edges = [] )
-block edited 7 : Block(idx=ifno, label=None, edges = [] )
-block edited 8 : Block(idx=, label=None, edges = [] )
-block edited 9 : Block(idx=loopend, label=None, edges = [] )
-block unedited 0 : Block(idx=main, label=None, edges = [] )
-block unedited 1 : Block(idx=loopcheck, label=None, edges = [] )
-block unedited 2 : Block(idx=loopbody, label=None, edges = [] )
-block unedited 3 : Block(idx=ifyes, label=None, edges = [] )
-block unedited 4 : Block(idx=ifno, label=None, edges = [] )
-block unedited 5 : Block(idx=loopend, label=None, edges = [] )
-predecessors {'main': [], 'loopcheck': ['main', 'ifyes', 'ifno'], 'loopbody': ['loopcheck'], 'ifyes': ['loopbody'], 'ifno': ['loopbody'], 'loopend': ['loopcheck']}
-dom: {'main': {'main'}, 'loopcheck': {'loopcheck', 'main'}, 'loopbody': {'loopbody', 'loopcheck', 'main'}, 'ifyes': {'loopbody', 'loopcheck', 'ifyes', 'main'}, 'ifno': {'loopbody', 'ifno', 'loopcheck', 'main'}, 'loopend': {'loopend', 'loopcheck', 'main'}}
-func_cfg: {'main': ['loopcheck'], 'loopcheck': ['loopbody', 'loopend'], 'loopbody': ['ifyes', 'ifno'], 'ifyes': ['loopcheck'], 'ifno': ['loopcheck'], 'loopend': []}
-cfg: {'main': ['loopcheck'], 'loopcheck': ['loopbody', 'loopend'], 'loopbody': ['ifyes', 'ifno'], 'ifyes': ['loopcheck'], 'ifno': ['loopcheck'], 'loopend': []}
+cfg: {'fmain': ['loopcheck'], 'loopcheck': ['loopbody', 'loopend'], '': ['loopbody'], 'loopbody': ['ifyes', 'ifno'], 'ifyes': ['loopcheck'], 'ifno': ['loopcheck'], 'loopend': [None]} 
+
+predecess: {'fmain': [], 'loopcheck': ['fmain', 'ifyes', 'ifno'], 'loopbody': ['loopcheck'], 'ifyes': ['loopbody'], 'ifno': ['loopbody'], 'loopend': ['loopcheck']} 
+
+dom: {'fmain': {'fmain'}, 'loopcheck': {'loopcheck', 'fmain'}, 'loopbody': {'loopcheck', 'fmain', 'loopbody'}, 'ifyes': {'loopcheck', 'fmain', 'ifyes', 'loopbody'}, 'ifno': {'loopcheck', 'fmain', 'loopbody', 'ifno'}, 'loopend': {'loopend', 'fmain', 'loopcheck'}} 
+
+func_cfg: {'fmain': ['loopcheck'], 'loopcheck': ['loopbody', 'loopend'], 'loopbody': ['ifyes', 'ifno'], 'ifyes': ['loopcheck'], 'ifno': ['loopcheck'], 'loopend': []} 
+
+cfg: {'fmain': ['loopcheck'], 'loopcheck': ['loopbody', 'loopend'], '': ['loopbody'], 'loopbody': ['ifyes', 'ifno'], 'ifyes': ['loopcheck'], 'ifno': ['loopcheck'], 'loopend': [None]} 
+

@@ -1,13 +1,10 @@
-block edited 0 : Block(idx=main, label=None, edges = [] )
-block edited 1 : Block(idx=, label=None, edges = [] )
-block edited 2 : Block(idx=then, label=None, edges = [] )
-block edited 3 : Block(idx=else, label=None, edges = [] )
-block edited 4 : Block(idx=mod, label=None, edges = [] )
-block unedited 0 : Block(idx=main, label=None, edges = [] )
-block unedited 1 : Block(idx=then, label=None, edges = [] )
-block unedited 2 : Block(idx=else, label=None, edges = [] )
-block unedited 3 : Block(idx=mod, label=None, edges = [] )
-predecessors {'main': [], 'then': ['main'], 'else': ['main'], 'mod': []}
-dom: {'main': {'main'}, 'then': {'then', 'main'}, 'else': {'else', 'main'}, 'mod': {'mod'}}
-func_cfg: {'main': ['then', 'else'], 'then': [], 'else': [], 'mod': []}
-cfg: {'main': ['then', 'else'], 'then': [], 'else': [], 'mod': []}
+cfg: {'fmain': ['then', 'else'], '': ['then'], 'then': [], 'else': [], 'fmod': []} 
+
+predecess: {'fmain': [], 'then': ['fmain'], 'else': ['fmain'], 'fmod': []} 
+
+dom: {'fmain': {'fmain'}, 'then': {'fmain', 'then'}, 'else': {'fmain', 'else'}, 'fmod': {'fmod'}} 
+
+func_cfg: {'fmain': ['then', 'else'], 'then': [], 'else': [], 'fmod': []} 
+
+cfg: {'fmain': ['then', 'else'], '': ['then'], 'then': [], 'else': [], 'fmod': []} 
+

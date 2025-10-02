@@ -1,21 +1,10 @@
-block edited 0 : Block(idx=main, label=None, edges = [] )
-block edited 1 : Block(idx=outer_loop, label=None, edges = [] )
-block edited 2 : Block(idx=inner_loop, label=None, edges = [] )
-block edited 3 : Block(idx=, label=None, edges = [] )
-block edited 4 : Block(idx=found, label=None, edges = [] )
-block edited 5 : Block(idx=inner_continue, label=None, edges = [] )
-block edited 6 : Block(idx=, label=None, edges = [] )
-block edited 7 : Block(idx=outer_continue, label=None, edges = [] )
-block edited 8 : Block(idx=, label=None, edges = [] )
-block edited 9 : Block(idx=finish, label=None, edges = [] )
-block unedited 0 : Block(idx=main, label=None, edges = [] )
-block unedited 1 : Block(idx=outer_loop, label=None, edges = [] )
-block unedited 2 : Block(idx=inner_loop, label=None, edges = [] )
-block unedited 3 : Block(idx=found, label=None, edges = [] )
-block unedited 4 : Block(idx=inner_continue, label=None, edges = [] )
-block unedited 5 : Block(idx=outer_continue, label=None, edges = [] )
-block unedited 6 : Block(idx=finish, label=None, edges = [] )
-predecessors {'main': [], 'outer_loop': ['main', 'outer_continue'], 'inner_loop': ['outer_loop', 'inner_continue'], 'found': ['inner_loop'], 'inner_continue': ['inner_loop'], 'outer_continue': ['inner_continue'], 'finish': ['outer_continue']}
-dom: {'main': {'main'}, 'outer_loop': {'main', 'outer_loop'}, 'inner_loop': {'inner_loop', 'outer_loop', 'main'}, 'found': {'found', 'outer_loop', 'main', 'inner_loop'}, 'inner_continue': {'inner_loop', 'outer_loop', 'main', 'inner_continue'}, 'outer_continue': {'inner_loop', 'main', 'outer_loop', 'outer_continue', 'inner_continue'}, 'finish': {'inner_loop', 'finish', 'main', 'outer_loop', 'outer_continue', 'inner_continue'}}
-func_cfg: {'main': ['outer_loop'], 'outer_loop': ['inner_loop'], 'inner_loop': ['found', 'inner_continue'], 'found': [], 'inner_continue': ['outer_continue', 'inner_loop'], 'outer_continue': ['finish', 'outer_loop'], 'finish': []}
-cfg: {'main': ['outer_loop'], 'outer_loop': ['inner_loop'], 'inner_loop': ['found', 'inner_continue'], 'found': [], 'inner_continue': ['outer_continue', 'inner_loop'], 'outer_continue': ['finish', 'outer_loop'], 'finish': []}
+cfg: {'fmain': ['outer_loop'], 'outer_loop': ['inner_loop'], 'inner_loop': ['found', 'inner_continue'], '': ['found'], 'found': [], 'inner_continue': ['outer_continue', 'inner_loop'], 'outer_continue': ['finish', 'outer_loop'], 'finish': [None]} 
+
+predecess: {'fmain': [], 'outer_loop': ['fmain', 'outer_continue'], 'inner_loop': ['outer_loop', 'inner_continue'], 'found': ['inner_loop'], 'inner_continue': ['inner_loop'], 'outer_continue': ['inner_continue'], 'finish': ['outer_continue']} 
+
+dom: {'fmain': {'fmain'}, 'outer_loop': {'outer_loop', 'fmain'}, 'inner_loop': {'inner_loop', 'fmain', 'outer_loop'}, 'found': {'inner_loop', 'fmain', 'outer_loop', 'found'}, 'inner_continue': {'inner_continue', 'inner_loop', 'fmain', 'outer_loop'}, 'outer_continue': {'inner_loop', 'fmain', 'inner_continue', 'outer_loop', 'outer_continue'}, 'finish': {'inner_loop', 'fmain', 'finish', 'inner_continue', 'outer_loop', 'outer_continue'}} 
+
+func_cfg: {'fmain': ['outer_loop'], 'outer_loop': ['inner_loop'], 'inner_loop': ['found', 'inner_continue'], 'found': [], 'inner_continue': ['outer_continue', 'inner_loop'], 'outer_continue': ['finish', 'outer_loop'], 'finish': []} 
+
+cfg: {'fmain': ['outer_loop'], 'outer_loop': ['inner_loop'], 'inner_loop': ['found', 'inner_continue'], '': ['found'], 'found': [], 'inner_continue': ['outer_continue', 'inner_loop'], 'outer_continue': ['finish', 'outer_loop'], 'finish': [None]} 
+

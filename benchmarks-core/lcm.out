@@ -1,59 +1,10 @@
-block edited 0 : Block(idx=main, label=None, edges = [] )
-block edited 1 : Block(idx=, label=None, edges = [] )
-block edited 2 : Block(idx=then.1, label=None, edges = [] )
-block edited 3 : Block(idx=, label=None, edges = [] )
-block edited 4 : Block(idx=else.1, label=None, edges = [] )
-block edited 5 : Block(idx=endif.1, label=None, edges = [] )
-block edited 6 : Block(idx=foreverloop, label=None, edges = [] )
-block edited 7 : Block(idx=, label=None, edges = [] )
-block edited 8 : Block(idx=then.2, label=None, edges = [] )
-block edited 9 : Block(idx=, label=None, edges = [] )
-block edited 10 : Block(idx=else.2, label=None, edges = [] )
-block edited 11 : Block(idx=, label=None, edges = [] )
-block edited 12 : Block(idx=loopend, label=None, edges = [] )
-block edited 13 : Block(idx=getMod, label=None, edges = [] )
-block unedited 0 : Block(idx=main, label=None, edges = [] )
-block unedited 1 : Block(idx=then.1, label=None, edges = [] )
-block unedited 2 : Block(idx=else.1, label=None, edges = [] )
-block unedited 3 : Block(idx=endif.1, label=None, edges = [] )
-block unedited 4 : Block(idx=foreverloop, label=None, edges = [] )
-block unedited 5 : Block(idx=then.2, label=None, edges = [] )
-block unedited 6 : Block(idx=else.2, label=None, edges = [] )
-block unedited 7 : Block(idx=loopend, label=None, edges = [] )
-block unedited 8 : Block(idx=getMod, label=None, edges = [] )
-predecessors {'main': [], 'then.1': ['main'], 'else.1': ['main'], 'endif.1': ['then.1'], 'foreverloop': ['else.2'], 'then.2': ['foreverloop'], 'else.2': ['foreverloop'], 'loopend': ['then.2'], 'getMod': []}
-dom: {'main': {'main'}, 'then.1': {'then.1', 'main'}, 'else.1': {'else.1', 'main'}, 'endif.1': {'then.1', 'main', 'endif.1'}, 'foreverloop': {'getMod', 'main', 'loopend', 'else.1', 'endif.1', 'then.1', 'then.2', 'foreverloop', 'else.2'}, 'then.2': {'getMod', 'main', 'loopend', 'else.1', 'endif.1', 'then.1', 'then.2', 'foreverloop', 'else.2'}, 'else.2': {'getMod', 'main', 'loopend', 'else.1', 'endif.1', 'then.1', 'then.2', 'foreverloop', 'else.2'}, 'loopend': {'getMod', 'main', 'loopend', 'else.1', 'endif.1', 'then.1', 'then.2', 'foreverloop', 'else.2'}, 'getMod': {'getMod'}}
-func_cfg: {'main': ['then.1', 'else.1'], 'then.1': ['endif.1'], 'else.1': [], 'endif.1': [], 'foreverloop': ['then.2', 'else.2'], 'then.2': ['loopend'], 'else.2': ['foreverloop'], 'loopend': [], 'getMod': []}
-cfg: {'main': ['then.1', 'else.1'], 'then.1': ['endif.1'], 'else.1': [], 'endif.1': [], 'foreverloop': ['then.2', 'else.2'], 'then.2': ['loopend'], 'else.2': ['foreverloop'], 'loopend': [], 'getMod': []}
-No paths found to block foreverloop
-No paths found to block foreverloop
-No paths found to block foreverloop
-No paths found to block foreverloop
-No paths found to block foreverloop
-No paths found to block foreverloop
-No paths found to block foreverloop
-No paths found to block foreverloop
-No paths found to block then.2
-No paths found to block then.2
-No paths found to block then.2
-No paths found to block then.2
-No paths found to block then.2
-No paths found to block then.2
-No paths found to block then.2
-No paths found to block then.2
-No paths found to block else.2
-No paths found to block else.2
-No paths found to block else.2
-No paths found to block else.2
-No paths found to block else.2
-No paths found to block else.2
-No paths found to block else.2
-No paths found to block else.2
-No paths found to block loopend
-No paths found to block loopend
-No paths found to block loopend
-No paths found to block loopend
-No paths found to block loopend
-No paths found to block loopend
-No paths found to block loopend
-No paths found to block loopend
+cfg: {'fmain': ['then.1', 'else.1'], '': ['then.1'], 'then.1': ['endif.1'], 'else.1': ['endif.1'], 'endif.1': ['foreverloop'], 'foreverloop': ['then.2', 'else.2'], 'then.2': ['loopend'], 'else.2': ['foreverloop'], 'loopend': ['fgetMod'], 'fgetMod': []} 
+
+predecess: {'fmain': [], 'then.1': ['fmain'], 'else.1': ['fmain'], 'endif.1': ['then.1', 'else.1'], 'foreverloop': ['endif.1', 'else.2'], 'then.2': ['foreverloop'], 'else.2': ['foreverloop'], 'loopend': ['then.2'], 'fgetMod': []} 
+
+dom: {'fmain': {'fmain'}, 'then.1': {'then.1', 'fmain'}, 'else.1': {'else.1', 'fmain'}, 'endif.1': {'endif.1', 'fmain'}, 'foreverloop': {'endif.1', 'foreverloop', 'fmain'}, 'then.2': {'endif.1', 'foreverloop', 'fmain', 'then.2'}, 'else.2': {'endif.1', 'else.2', 'foreverloop', 'fmain'}, 'loopend': {'endif.1', 'then.2', 'foreverloop', 'fmain', 'loopend'}, 'fgetMod': {'fgetMod'}} 
+
+func_cfg: {'fmain': ['then.1', 'else.1'], 'then.1': ['endif.1'], 'else.1': ['endif.1'], 'endif.1': ['foreverloop'], 'foreverloop': ['then.2', 'else.2'], 'then.2': ['loopend'], 'else.2': ['foreverloop'], 'loopend': [], 'fgetMod': []} 
+
+cfg: {'fmain': ['then.1', 'else.1'], '': ['then.1'], 'then.1': ['endif.1'], 'else.1': ['endif.1'], 'endif.1': ['foreverloop'], 'foreverloop': ['then.2', 'else.2'], 'then.2': ['loopend'], 'else.2': ['foreverloop'], 'loopend': ['fgetMod'], 'fgetMod': []} 
+
