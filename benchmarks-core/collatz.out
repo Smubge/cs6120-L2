@@ -1,4 +1,23 @@
+block edited 0 : Block(idx=main, label=None, edges = [] )
+block edited 1 : Block(idx=, label=None, edges = [] )
+block edited 2 : Block(idx=cond, label=None, edges = [] )
+block edited 3 : Block(idx=, label=None, edges = [] )
+block edited 4 : Block(idx=loop, label=None, edges = [] )
+block edited 5 : Block(idx=, label=None, edges = [] )
+block edited 6 : Block(idx=even, label=None, edges = [] )
+block edited 7 : Block(idx=, label=None, edges = [] )
+block edited 8 : Block(idx=odd, label=None, edges = [] )
+block edited 9 : Block(idx=print, label=None, edges = [] )
+block edited 10 : Block(idx=, label=None, edges = [] )
+block edited 11 : Block(idx=end, label=None, edges = [] )
+block unedited 0 : Block(idx=main, label=None, edges = [] )
+block unedited 1 : Block(idx=cond, label=None, edges = [] )
+block unedited 2 : Block(idx=loop, label=None, edges = [] )
+block unedited 3 : Block(idx=even, label=None, edges = [] )
+block unedited 4 : Block(idx=odd, label=None, edges = [] )
+block unedited 5 : Block(idx=print, label=None, edges = [] )
+block unedited 6 : Block(idx=end, label=None, edges = [] )
 predecessors {'main': [], 'cond': ['print'], 'loop': ['cond'], 'even': ['loop'], 'odd': ['loop'], 'print': ['main', 'even', 'odd'], 'end': ['cond']}
-dom: {'main': {'main'}, 'cond': {'print', 'main', 'cond'}, 'loop': {'print', 'main', 'cond', 'loop'}, 'even': {'loop', 'main', 'cond', 'even', 'print'}, 'odd': {'loop', 'odd', 'main', 'cond', 'print'}, 'print': {'main', 'print'}, 'end': {'main', 'end', 'cond', 'print'}}
+dom: {'main': {'main'}, 'cond': {'main', 'cond', 'print'}, 'loop': {'main', 'cond', 'loop', 'print'}, 'even': {'even', 'loop', 'print', 'main', 'cond'}, 'odd': {'loop', 'odd', 'print', 'main', 'cond'}, 'print': {'main', 'print'}, 'end': {'end', 'main', 'cond', 'print'}}
 func_cfg: {'main': ['print'], 'cond': ['end', 'loop'], 'loop': ['even', 'odd'], 'even': ['print'], 'odd': ['print'], 'print': ['cond'], 'end': []}
 cfg: {'main': ['print'], 'cond': ['end', 'loop'], 'loop': ['even', 'odd'], 'even': ['print'], 'odd': ['print'], 'print': ['cond'], 'end': []}

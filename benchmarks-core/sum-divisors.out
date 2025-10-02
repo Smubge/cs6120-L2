@@ -1,4 +1,25 @@
+block edited 0 : Block(idx=main, label=None, edges = [] )
+block edited 1 : Block(idx=, label=None, edges = [] )
+block edited 2 : Block(idx=neg, label=None, edges = [] )
+block edited 3 : Block(idx=begin, label=None, edges = [] )
+block edited 4 : Block(idx=, label=None, edges = [] )
+block edited 5 : Block(idx=check, label=None, edges = [] )
+block edited 6 : Block(idx=, label=None, edges = [] )
+block edited 7 : Block(idx=body, label=None, edges = [] )
+block edited 8 : Block(idx=, label=None, edges = [] )
+block edited 9 : Block(idx=then, label=None, edges = [] )
+block edited 10 : Block(idx=, label=None, edges = [] )
+block edited 11 : Block(idx=end, label=None, edges = [] )
+block edited 12 : Block(idx=mod, label=None, edges = [] )
+block unedited 0 : Block(idx=main, label=None, edges = [] )
+block unedited 1 : Block(idx=neg, label=None, edges = [] )
+block unedited 2 : Block(idx=begin, label=None, edges = [] )
+block unedited 3 : Block(idx=check, label=None, edges = [] )
+block unedited 4 : Block(idx=body, label=None, edges = [] )
+block unedited 5 : Block(idx=then, label=None, edges = [] )
+block unedited 6 : Block(idx=end, label=None, edges = [] )
+block unedited 7 : Block(idx=mod, label=None, edges = [] )
 predecessors {'main': [], 'neg': ['main'], 'begin': ['main', 'neg', 'check', 'body', 'then'], 'check': ['begin'], 'body': ['check'], 'then': ['body'], 'end': ['begin'], 'mod': []}
-dom: {'main': {'main'}, 'neg': {'main', 'neg'}, 'begin': {'main', 'begin'}, 'check': {'check', 'main', 'begin'}, 'body': {'check', 'main', 'begin', 'body'}, 'then': {'then', 'check', 'begin', 'body', 'main'}, 'end': {'main', 'begin', 'end'}, 'mod': {'mod'}}
+dom: {'main': {'main'}, 'neg': {'main', 'neg'}, 'begin': {'main', 'begin'}, 'check': {'main', 'begin', 'check'}, 'body': {'main', 'body', 'begin', 'check'}, 'then': {'then', 'body', 'begin', 'main', 'check'}, 'end': {'end', 'main', 'begin'}, 'mod': {'mod'}}
 func_cfg: {'main': ['neg', 'begin'], 'neg': ['begin'], 'begin': ['end', 'check'], 'check': ['body', 'begin'], 'body': ['begin', 'then'], 'then': ['begin'], 'end': [], 'mod': []}
 cfg: {'main': ['neg', 'begin'], 'neg': ['begin'], 'begin': ['end', 'check'], 'check': ['body', 'begin'], 'body': ['begin', 'then'], 'then': ['begin'], 'end': [], 'mod': []}

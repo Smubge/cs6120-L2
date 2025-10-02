@@ -1,3 +1,13 @@
+block edited 0 : Block(idx=main, label=None, edges = [] )
+block edited 1 : Block(idx=for.cond.2, label=None, edges = [] )
+block edited 2 : Block(idx=, label=None, edges = [] )
+block edited 3 : Block(idx=for.body.2, label=None, edges = [] )
+block edited 4 : Block(idx=, label=None, edges = [] )
+block edited 5 : Block(idx=for.end.2, label=None, edges = [] )
+block unedited 0 : Block(idx=main, label=None, edges = [] )
+block unedited 1 : Block(idx=for.cond.2, label=None, edges = [] )
+block unedited 2 : Block(idx=for.body.2, label=None, edges = [] )
+block unedited 3 : Block(idx=for.end.2, label=None, edges = [] )
 predecessors {'main': [], 'for.cond.2': ['main', 'for.body.2'], 'for.body.2': ['for.cond.2'], 'for.end.2': ['for.cond.2']}
 dom: {'main': {'main'}, 'for.cond.2': {'main', 'for.cond.2'}, 'for.body.2': {'main', 'for.cond.2', 'for.body.2'}, 'for.end.2': {'for.end.2', 'main', 'for.cond.2'}}
 func_cfg: {'main': ['for.cond.2'], 'for.cond.2': ['for.body.2', 'for.end.2'], 'for.body.2': ['for.cond.2'], 'for.end.2': []}

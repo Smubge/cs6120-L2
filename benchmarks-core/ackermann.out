@@ -1,4 +1,20 @@
+block edited 0 : Block(idx=ack, label=None, edges = [] )
+block edited 1 : Block(idx=, label=None, edges = [] )
+block edited 2 : Block(idx=m_zero, label=None, edges = [] )
+block edited 3 : Block(idx=, label=None, edges = [] )
+block edited 4 : Block(idx=m_nonzero, label=None, edges = [] )
+block edited 5 : Block(idx=, label=None, edges = [] )
+block edited 6 : Block(idx=n_zero, label=None, edges = [] )
+block edited 7 : Block(idx=, label=None, edges = [] )
+block edited 8 : Block(idx=n_nonzero, label=None, edges = [] )
+block edited 9 : Block(idx=main, label=None, edges = [] )
+block unedited 0 : Block(idx=ack, label=None, edges = [] )
+block unedited 1 : Block(idx=m_zero, label=None, edges = [] )
+block unedited 2 : Block(idx=m_nonzero, label=None, edges = [] )
+block unedited 3 : Block(idx=n_zero, label=None, edges = [] )
+block unedited 4 : Block(idx=n_nonzero, label=None, edges = [] )
+block unedited 5 : Block(idx=main, label=None, edges = [] )
 predecessors {'ack': [], 'm_zero': ['ack'], 'm_nonzero': ['ack'], 'n_zero': ['m_nonzero'], 'n_nonzero': ['m_nonzero'], 'main': []}
-dom: {'ack': {'ack'}, 'm_zero': {'ack', 'm_zero'}, 'm_nonzero': {'m_nonzero', 'ack'}, 'n_zero': {'m_nonzero', 'ack', 'n_zero'}, 'n_nonzero': {'m_nonzero', 'ack', 'n_nonzero'}, 'main': {'main'}}
+dom: {'ack': {'ack'}, 'm_zero': {'ack', 'm_zero'}, 'm_nonzero': {'ack', 'm_nonzero'}, 'n_zero': {'ack', 'm_nonzero', 'n_zero'}, 'n_nonzero': {'ack', 'm_nonzero', 'n_nonzero'}, 'main': {'main'}}
 func_cfg: {'ack': ['m_zero', 'm_nonzero'], 'm_zero': [], 'm_nonzero': ['n_zero', 'n_nonzero'], 'n_zero': [], 'n_nonzero': [], 'main': []}
 cfg: {'ack': ['m_zero', 'm_nonzero'], 'm_zero': [], 'm_nonzero': ['n_zero', 'n_nonzero'], 'n_zero': [], 'n_nonzero': [], 'main': []}

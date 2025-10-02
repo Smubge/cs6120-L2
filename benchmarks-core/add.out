@@ -1,3 +1,5 @@
+block edited 0 : Block(idx=main, label=None, edges = [] )
+block unedited 0 : Block(idx=main, label=None, edges = [] )
 predecessors {'main': []}
 dom: {'main': {'main'}}
 func_cfg: {'main': []}

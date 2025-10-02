@@ -1,4 +1,32 @@
+block edited 0 : Block(idx=main, label=None, edges = [] )
+block edited 1 : Block(idx=for.cond.6, label=None, edges = [] )
+block edited 2 : Block(idx=, label=None, edges = [] )
+block edited 3 : Block(idx=for.body.6, label=None, edges = [] )
+block edited 4 : Block(idx=, label=None, edges = [] )
+block edited 5 : Block(idx=then.13, label=None, edges = [] )
+block edited 6 : Block(idx=, label=None, edges = [] )
+block edited 7 : Block(idx=else.13, label=None, edges = [] )
+block edited 8 : Block(idx=, label=None, edges = [] )
+block edited 9 : Block(idx=then.18, label=None, edges = [] )
+block edited 10 : Block(idx=, label=None, edges = [] )
+block edited 11 : Block(idx=else.18, label=None, edges = [] )
+block edited 12 : Block(idx=endif.18, label=None, edges = [] )
+block edited 13 : Block(idx=endif.13, label=None, edges = [] )
+block edited 14 : Block(idx=, label=None, edges = [] )
+block edited 15 : Block(idx=for.end.6, label=None, edges = [] )
+block edited 16 : Block(idx=midpoint, label=None, edges = [] )
+block unedited 0 : Block(idx=main, label=None, edges = [] )
+block unedited 1 : Block(idx=for.cond.6, label=None, edges = [] )
+block unedited 2 : Block(idx=for.body.6, label=None, edges = [] )
+block unedited 3 : Block(idx=then.13, label=None, edges = [] )
+block unedited 4 : Block(idx=else.13, label=None, edges = [] )
+block unedited 5 : Block(idx=then.18, label=None, edges = [] )
+block unedited 6 : Block(idx=else.18, label=None, edges = [] )
+block unedited 7 : Block(idx=endif.18, label=None, edges = [] )
+block unedited 8 : Block(idx=endif.13, label=None, edges = [] )
+block unedited 9 : Block(idx=for.end.6, label=None, edges = [] )
+block unedited 10 : Block(idx=midpoint, label=None, edges = [] )
 predecessors {'main': [], 'for.cond.6': ['main', 'endif.13'], 'for.body.6': ['for.cond.6'], 'then.13': ['for.body.6'], 'else.13': ['for.body.6'], 'then.18': ['else.13'], 'else.18': ['else.13'], 'endif.18': ['then.18'], 'endif.13': ['then.13'], 'for.end.6': ['for.cond.6'], 'midpoint': []}
-dom: {'main': {'main'}, 'for.cond.6': {'for.cond.6', 'main'}, 'for.body.6': {'for.cond.6', 'for.body.6', 'main'}, 'then.13': {'then.13', 'for.cond.6', 'for.body.6', 'main'}, 'else.13': {'for.cond.6', 'else.13', 'for.body.6', 'main'}, 'then.18': {'main', 'for.body.6', 'then.18', 'for.cond.6', 'else.13'}, 'else.18': {'else.18', 'for.body.6', 'for.cond.6', 'else.13', 'main'}, 'endif.18': {'for.body.6', 'then.18', 'endif.18', 'for.cond.6', 'else.13', 'main'}, 'endif.13': {'then.13', 'endif.13', 'for.body.6', 'for.cond.6', 'main'}, 'for.end.6': {'for.cond.6', 'main', 'for.end.6'}, 'midpoint': {'midpoint'}}
+dom: {'main': {'main'}, 'for.cond.6': {'main', 'for.cond.6'}, 'for.body.6': {'main', 'for.body.6', 'for.cond.6'}, 'then.13': {'then.13', 'main', 'for.body.6', 'for.cond.6'}, 'else.13': {'main', 'for.body.6', 'for.cond.6', 'else.13'}, 'then.18': {'for.body.6', 'else.13', 'then.18', 'main', 'for.cond.6'}, 'else.18': {'for.body.6', 'else.13', 'else.18', 'main', 'for.cond.6'}, 'endif.18': {'for.body.6', 'endif.18', 'else.13', 'then.18', 'main', 'for.cond.6'}, 'endif.13': {'then.13', 'for.body.6', 'main', 'endif.13', 'for.cond.6'}, 'for.end.6': {'main', 'for.end.6', 'for.cond.6'}, 'midpoint': {'midpoint'}}
 func_cfg: {'main': ['for.cond.6'], 'for.cond.6': ['for.body.6', 'for.end.6'], 'for.body.6': ['then.13', 'else.13'], 'then.13': ['endif.13'], 'else.13': ['then.18', 'else.18'], 'then.18': ['endif.18'], 'else.18': [], 'endif.18': [], 'endif.13': ['for.cond.6'], 'for.end.6': [], 'midpoint': []}
 cfg: {'main': ['for.cond.6'], 'for.cond.6': ['for.body.6', 'for.end.6'], 'for.body.6': ['then.13', 'else.13'], 'then.13': ['endif.13'], 'else.13': ['then.18', 'else.18'], 'then.18': ['endif.18'], 'else.18': [], 'endif.18': [], 'endif.13': ['for.cond.6'], 'for.end.6': ['midpoint'], 'midpoint': []}

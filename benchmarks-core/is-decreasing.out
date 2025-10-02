@@ -1,4 +1,28 @@
-predecessors {'main': [], 'is_decreasing': [], 'label4': ['is_decreasing', 'label13'], 'label5': ['label4'], 'label11': ['label5'], '': [], 'label12': ['label5'], 'label13': ['', 'label12'], 'label6': ['label4'], 'last_digit': []}
-dom: {'main': {'main'}, 'is_decreasing': {'is_decreasing'}, 'label4': {'label4'}, 'label5': {'label5', 'label4'}, 'label11': {'label11', 'label5', 'label4'}, '': {''}, 'label12': {'label12', 'label5', 'label4'}, 'label13': {'label13'}, 'label6': {'label6', 'label4'}, 'last_digit': {'last_digit'}}
-func_cfg: {'main': [], 'is_decreasing': ['label4'], 'label4': ['label5', 'label6'], 'label5': ['label11', 'label12'], 'label11': [], '': ['label13'], 'label12': ['label13'], 'label13': ['label4'], 'label6': [], 'last_digit': []}
+block edited 0 : Block(idx=main, label=None, edges = [] )
+block edited 1 : Block(idx=is_decreasing, label=None, edges = [] )
+block edited 2 : Block(idx=label4, label=None, edges = [] )
+block edited 3 : Block(idx=, label=None, edges = [] )
+block edited 4 : Block(idx=label5, label=None, edges = [] )
+block edited 5 : Block(idx=, label=None, edges = [] )
+block edited 6 : Block(idx=label11, label=None, edges = [] )
+block edited 7 : Block(idx=, label=['label13'], edges = [] )
+block edited 8 : Block(idx=, label=None, edges = [] )
+block edited 9 : Block(idx=label12, label=None, edges = [] )
+block edited 10 : Block(idx=, label=None, edges = [] )
+block edited 11 : Block(idx=label13, label=None, edges = [] )
+block edited 12 : Block(idx=, label=None, edges = [] )
+block edited 13 : Block(idx=label6, label=None, edges = [] )
+block edited 14 : Block(idx=last_digit, label=None, edges = [] )
+block unedited 0 : Block(idx=main, label=None, edges = [] )
+block unedited 1 : Block(idx=is_decreasing, label=None, edges = [] )
+block unedited 2 : Block(idx=label4, label=None, edges = [] )
+block unedited 3 : Block(idx=label5, label=None, edges = [] )
+block unedited 4 : Block(idx=label11, label=None, edges = [] )
+block unedited 5 : Block(idx=label12, label=None, edges = [] )
+block unedited 6 : Block(idx=label13, label=None, edges = [] )
+block unedited 7 : Block(idx=label6, label=None, edges = [] )
+block unedited 8 : Block(idx=last_digit, label=None, edges = [] )
+predecessors {'main': [], 'is_decreasing': [], 'label4': ['is_decreasing', 'label13'], 'label5': ['label4'], 'label11': ['label5'], 'label12': ['label5'], 'label13': ['label12'], 'label6': ['label4'], 'last_digit': []}
+dom: {'main': {'main'}, 'is_decreasing': {'is_decreasing'}, 'label4': {'label4', 'is_decreasing'}, 'label5': {'label4', 'label5', 'is_decreasing'}, 'label11': {'label4', 'label11', 'label5', 'is_decreasing'}, 'label12': {'label4', 'is_decreasing', 'label5', 'label12'}, 'label13': {'label4', 'label13', 'label12', 'label5', 'is_decreasing'}, 'label6': {'label4', 'label6', 'is_decreasing'}, 'last_digit': {'last_digit'}}
+func_cfg: {'main': [], 'is_decreasing': ['label4'], 'label4': ['label5', 'label6'], 'label5': ['label11', 'label12'], 'label11': [], 'label12': ['label13'], 'label13': ['label4'], 'label6': [], 'last_digit': []}
 cfg: {'main': [], 'is_decreasing': ['label4'], 'label4': ['label5', 'label6'], 'label5': ['label11', 'label12'], 'label11': [], '': ['label13'], 'label12': ['label13'], 'label13': ['label4'], 'label6': [], 'last_digit': []}

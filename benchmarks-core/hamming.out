@@ -1,4 +1,24 @@
+block edited 0 : Block(idx=lsb, label=None, edges = [] )
+block edited 1 : Block(idx=hamm_lsb, label=None, edges = [] )
+block edited 2 : Block(idx=, label=None, edges = [] )
+block edited 3 : Block(idx=if, label=None, edges = [] )
+block edited 4 : Block(idx=, label=None, edges = [] )
+block edited 5 : Block(idx=else, label=None, edges = [] )
+block edited 6 : Block(idx=main, label=None, edges = [] )
+block edited 7 : Block(idx=while, label=None, edges = [] )
+block edited 8 : Block(idx=, label=None, edges = [] )
+block edited 9 : Block(idx=body, label=None, edges = [] )
+block edited 10 : Block(idx=, label=None, edges = [] )
+block edited 11 : Block(idx=end, label=None, edges = [] )
+block unedited 0 : Block(idx=lsb, label=None, edges = [] )
+block unedited 1 : Block(idx=hamm_lsb, label=None, edges = [] )
+block unedited 2 : Block(idx=if, label=None, edges = [] )
+block unedited 3 : Block(idx=else, label=None, edges = [] )
+block unedited 4 : Block(idx=main, label=None, edges = [] )
+block unedited 5 : Block(idx=while, label=None, edges = [] )
+block unedited 6 : Block(idx=body, label=None, edges = [] )
+block unedited 7 : Block(idx=end, label=None, edges = [] )
 predecessors {'lsb': [], 'hamm_lsb': [], 'if': ['hamm_lsb'], 'else': ['hamm_lsb'], 'main': [], 'while': ['main', 'body'], 'body': ['while'], 'end': ['while']}
-dom: {'lsb': {'lsb'}, 'hamm_lsb': {'hamm_lsb'}, 'if': {'hamm_lsb', 'if'}, 'else': {'hamm_lsb', 'else'}, 'main': {'main'}, 'while': {'while', 'main'}, 'body': {'body', 'while', 'main'}, 'end': {'while', 'end', 'main'}}
+dom: {'lsb': {'lsb'}, 'hamm_lsb': {'hamm_lsb'}, 'if': {'hamm_lsb', 'if'}, 'else': {'hamm_lsb', 'else'}, 'main': {'main'}, 'while': {'main', 'while'}, 'body': {'main', 'body', 'while'}, 'end': {'main', 'while', 'end'}}
 func_cfg: {'lsb': [], 'hamm_lsb': ['if', 'else'], 'if': [], 'else': [], 'main': ['while'], 'while': ['end', 'body'], 'body': ['while'], 'end': []}
 cfg: {'lsb': [], 'hamm_lsb': ['if', 'else'], 'if': [], 'else': [], 'main': ['while'], 'while': ['end', 'body'], 'body': ['while'], 'end': []}

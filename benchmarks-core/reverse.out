@@ -1,4 +1,20 @@
+block edited 0 : Block(idx=main, label=None, edges = [] )
+block edited 1 : Block(idx=for.cond.3, label=None, edges = [] )
+block edited 2 : Block(idx=, label=None, edges = [] )
+block edited 3 : Block(idx=for.body.3, label=None, edges = [] )
+block edited 4 : Block(idx=, label=None, edges = [] )
+block edited 5 : Block(idx=if.body, label=None, edges = [] )
+block edited 6 : Block(idx=, label=None, edges = [] )
+block edited 7 : Block(idx=for.incre, label=None, edges = [] )
+block edited 8 : Block(idx=, label=None, edges = [] )
+block edited 9 : Block(idx=for.end.3, label=None, edges = [] )
+block unedited 0 : Block(idx=main, label=None, edges = [] )
+block unedited 1 : Block(idx=for.cond.3, label=None, edges = [] )
+block unedited 2 : Block(idx=for.body.3, label=None, edges = [] )
+block unedited 3 : Block(idx=if.body, label=None, edges = [] )
+block unedited 4 : Block(idx=for.incre, label=None, edges = [] )
+block unedited 5 : Block(idx=for.end.3, label=None, edges = [] )
 predecessors {'main': [], 'for.cond.3': ['main', 'if.body', 'for.incre'], 'for.body.3': ['for.cond.3'], 'if.body': ['for.body.3'], 'for.incre': ['for.body.3'], 'for.end.3': ['for.cond.3']}
-dom: {'main': {'main'}, 'for.cond.3': {'for.cond.3', 'main'}, 'for.body.3': {'for.body.3', 'for.cond.3', 'main'}, 'if.body': {'for.body.3', 'for.cond.3', 'main', 'if.body'}, 'for.incre': {'for.body.3', 'for.cond.3', 'main', 'for.incre'}, 'for.end.3': {'for.cond.3', 'for.end.3', 'main'}}
+dom: {'main': {'main'}, 'for.cond.3': {'for.cond.3', 'main'}, 'for.body.3': {'for.body.3', 'main', 'for.cond.3'}, 'if.body': {'for.body.3', 'main', 'for.cond.3', 'if.body'}, 'for.incre': {'for.body.3', 'main', 'for.cond.3', 'for.incre'}, 'for.end.3': {'for.end.3', 'main', 'for.cond.3'}}
 func_cfg: {'main': ['for.cond.3'], 'for.cond.3': ['for.body.3', 'for.end.3'], 'for.body.3': ['if.body', 'for.incre'], 'if.body': ['for.cond.3'], 'for.incre': ['for.cond.3'], 'for.end.3': []}
 cfg: {'main': ['for.cond.3'], 'for.cond.3': ['for.body.3', 'for.end.3'], 'for.body.3': ['if.body', 'for.incre'], 'if.body': ['for.cond.3'], 'for.incre': ['for.cond.3'], 'for.end.3': []}

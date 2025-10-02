@@ -1,4 +1,20 @@
+block edited 0 : Block(idx=mod, label=None, edges = [] )
+block edited 1 : Block(idx=lsb, label=None, edges = [] )
+block edited 2 : Block(idx=square, label=None, edges = [] )
+block edited 3 : Block(idx=main, label=None, edges = [] )
+block edited 4 : Block(idx=loop.branch, label=None, edges = [] )
+block edited 5 : Block(idx=, label=None, edges = [] )
+block edited 6 : Block(idx=loop.body, label=None, edges = [] )
+block edited 7 : Block(idx=, label=None, edges = [] )
+block edited 8 : Block(idx=loop.end, label=None, edges = [] )
+block unedited 0 : Block(idx=mod, label=None, edges = [] )
+block unedited 1 : Block(idx=lsb, label=None, edges = [] )
+block unedited 2 : Block(idx=square, label=None, edges = [] )
+block unedited 3 : Block(idx=main, label=None, edges = [] )
+block unedited 4 : Block(idx=loop.branch, label=None, edges = [] )
+block unedited 5 : Block(idx=loop.body, label=None, edges = [] )
+block unedited 6 : Block(idx=loop.end, label=None, edges = [] )
 predecessors {'mod': [], 'lsb': [], 'square': [], 'main': [], 'loop.branch': ['main', 'loop.body'], 'loop.body': ['loop.branch'], 'loop.end': ['loop.branch']}
-dom: {'mod': {'mod'}, 'lsb': {'lsb'}, 'square': {'square'}, 'main': {'main'}, 'loop.branch': {'main', 'loop.branch'}, 'loop.body': {'loop.branch', 'loop.body', 'main'}, 'loop.end': {'loop.end', 'loop.branch', 'main'}}
+dom: {'mod': {'mod'}, 'lsb': {'lsb'}, 'square': {'square'}, 'main': {'main'}, 'loop.branch': {'loop.branch', 'main'}, 'loop.body': {'loop.branch', 'main', 'loop.body'}, 'loop.end': {'loop.branch', 'main', 'loop.end'}}
 func_cfg: {'mod': [], 'lsb': [], 'square': [], 'main': ['loop.branch'], 'loop.branch': ['loop.body', 'loop.end'], 'loop.body': ['loop.branch'], 'loop.end': []}
 cfg: {'mod': [], 'lsb': [], 'square': [], 'main': ['loop.branch'], 'loop.branch': ['loop.body', 'loop.end'], 'loop.body': ['loop.branch'], 'loop.end': []}

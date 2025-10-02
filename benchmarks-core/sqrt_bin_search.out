@@ -1,4 +1,20 @@
+block edited 0 : Block(idx=main, label=None, edges = [] )
+block edited 1 : Block(idx=, label=None, edges = [] )
+block edited 2 : Block(idx=then.3, label=None, edges = [] )
+block edited 3 : Block(idx=, label=None, edges = [] )
+block edited 4 : Block(idx=else.3, label=None, edges = [] )
+block edited 5 : Block(idx=, label=None, edges = [] )
+block edited 6 : Block(idx=then.18, label=None, edges = [] )
+block edited 7 : Block(idx=, label=None, edges = [] )
+block edited 8 : Block(idx=else.18, label=None, edges = [] )
+block edited 9 : Block(idx=endif.18, label=None, edges = [] )
+block unedited 0 : Block(idx=main, label=None, edges = [] )
+block unedited 1 : Block(idx=then.3, label=None, edges = [] )
+block unedited 2 : Block(idx=else.3, label=None, edges = [] )
+block unedited 3 : Block(idx=then.18, label=None, edges = [] )
+block unedited 4 : Block(idx=else.18, label=None, edges = [] )
+block unedited 5 : Block(idx=endif.18, label=None, edges = [] )
 predecessors {'main': [], 'then.3': ['main'], 'else.3': ['main'], 'then.18': ['else.3'], 'else.18': ['else.3'], 'endif.18': ['then.18', 'else.18']}
-dom: {'main': {'main'}, 'then.3': {'then.3', 'main'}, 'else.3': {'else.3', 'main'}, 'then.18': {'else.3', 'main', 'then.18'}, 'else.18': {'else.3', 'else.18', 'main'}, 'endif.18': {'else.3', 'endif.18', 'main'}}
+dom: {'main': {'main'}, 'then.3': {'main', 'then.3'}, 'else.3': {'main', 'else.3'}, 'then.18': {'then.18', 'main', 'else.3'}, 'else.18': {'else.18', 'main', 'else.3'}, 'endif.18': {'main', 'endif.18', 'else.3'}}
 func_cfg: {'main': ['then.3', 'else.3'], 'then.3': [], 'else.3': ['then.18', 'else.18'], 'then.18': ['endif.18'], 'else.18': ['endif.18'], 'endif.18': []}
 cfg: {'main': ['then.3', 'else.3'], 'then.3': [], 'else.3': ['then.18', 'else.18'], 'then.18': ['endif.18'], 'else.18': ['endif.18'], 'endif.18': []}

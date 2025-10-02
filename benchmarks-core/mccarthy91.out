@@ -1,4 +1,14 @@
+block edited 0 : Block(idx=mccarthy91, label=None, edges = [] )
+block edited 1 : Block(idx=, label=None, edges = [] )
+block edited 2 : Block(idx=big, label=None, edges = [] )
+block edited 3 : Block(idx=, label=None, edges = [] )
+block edited 4 : Block(idx=small, label=None, edges = [] )
+block edited 5 : Block(idx=main, label=None, edges = [] )
+block unedited 0 : Block(idx=mccarthy91, label=None, edges = [] )
+block unedited 1 : Block(idx=big, label=None, edges = [] )
+block unedited 2 : Block(idx=small, label=None, edges = [] )
+block unedited 3 : Block(idx=main, label=None, edges = [] )
 predecessors {'mccarthy91': [], 'big': ['mccarthy91'], 'small': ['mccarthy91'], 'main': []}
-dom: {'mccarthy91': {'mccarthy91'}, 'big': {'big', 'mccarthy91'}, 'small': {'small', 'mccarthy91'}, 'main': {'main'}}
+dom: {'mccarthy91': {'mccarthy91'}, 'big': {'big', 'mccarthy91'}, 'small': {'mccarthy91', 'small'}, 'main': {'main'}}
 func_cfg: {'mccarthy91': ['big', 'small'], 'big': [], 'small': [], 'main': []}
 cfg: {'mccarthy91': ['big', 'small'], 'big': [], 'small': [], 'main': []}

@@ -1,4 +1,31 @@
+block edited 0 : Block(idx=main, label=None, edges = [] )
+block edited 1 : Block(idx=combo, label=None, edges = [] )
+block edited 2 : Block(idx=, label=None, edges = [] )
+block edited 3 : Block(idx=negatives, label=None, edges = [] )
+block edited 4 : Block(idx=, label=None, edges = [] )
+block edited 5 : Block(idx=natural, label=None, edges = [] )
+block edited 6 : Block(idx=, label=None, edges = [] )
+block edited 7 : Block(idx=zeroes, label=None, edges = [] )
+block edited 8 : Block(idx=, label=None, edges = [] )
+block edited 9 : Block(idx=positive, label=None, edges = [] )
+block edited 10 : Block(idx=, label=None, edges = [] )
+block edited 11 : Block(idx=valid, label=None, edges = [] )
+block edited 12 : Block(idx=factorial, label=None, edges = [] )
+block edited 13 : Block(idx=, label=None, edges = [] )
+block edited 14 : Block(idx=base, label=None, edges = [] )
+block edited 15 : Block(idx=, label=None, edges = [] )
+block edited 16 : Block(idx=recurs, label=None, edges = [] )
+block unedited 0 : Block(idx=main, label=None, edges = [] )
+block unedited 1 : Block(idx=combo, label=None, edges = [] )
+block unedited 2 : Block(idx=negatives, label=None, edges = [] )
+block unedited 3 : Block(idx=natural, label=None, edges = [] )
+block unedited 4 : Block(idx=zeroes, label=None, edges = [] )
+block unedited 5 : Block(idx=positive, label=None, edges = [] )
+block unedited 6 : Block(idx=valid, label=None, edges = [] )
+block unedited 7 : Block(idx=factorial, label=None, edges = [] )
+block unedited 8 : Block(idx=base, label=None, edges = [] )
+block unedited 9 : Block(idx=recurs, label=None, edges = [] )
 predecessors {'main': [], 'combo': [], 'negatives': ['combo', 'positive'], 'natural': ['combo'], 'zeroes': ['natural'], 'positive': ['natural'], 'valid': ['positive'], 'factorial': [], 'base': ['factorial'], 'recurs': ['factorial']}
-dom: {'main': {'main'}, 'combo': {'combo'}, 'negatives': {'negatives', 'combo'}, 'natural': {'natural', 'combo'}, 'zeroes': {'natural', 'zeroes', 'combo'}, 'positive': {'positive', 'combo', 'natural'}, 'valid': {'positive', 'combo', 'valid', 'natural'}, 'factorial': {'factorial'}, 'base': {'factorial', 'base'}, 'recurs': {'factorial', 'recurs'}}
+dom: {'main': {'main'}, 'combo': {'combo'}, 'negatives': {'negatives', 'combo'}, 'natural': {'natural', 'combo'}, 'zeroes': {'natural', 'combo', 'zeroes'}, 'positive': {'natural', 'positive', 'combo'}, 'valid': {'natural', 'positive', 'valid', 'combo'}, 'factorial': {'factorial'}, 'base': {'factorial', 'base'}, 'recurs': {'recurs', 'factorial'}}
 func_cfg: {'main': [], 'combo': ['negatives', 'natural'], 'negatives': [], 'natural': ['zeroes', 'positive'], 'zeroes': [], 'positive': ['negatives', 'valid'], 'valid': [], 'factorial': ['base', 'recurs'], 'base': [], 'recurs': []}
 cfg: {'main': [], 'combo': ['negatives', 'natural'], 'negatives': [], 'natural': ['zeroes', 'positive'], 'zeroes': [], 'positive': ['negatives', 'valid'], 'valid': [], 'factorial': ['base', 'recurs'], 'base': [], 'recurs': []}

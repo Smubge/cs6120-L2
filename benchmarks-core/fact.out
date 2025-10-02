@@ -1,3 +1,13 @@
+block edited 0 : Block(idx=main, label=None, edges = [] )
+block edited 1 : Block(idx=fact, label=None, edges = [] )
+block edited 2 : Block(idx=, label=None, edges = [] )
+block edited 3 : Block(idx=then.0, label=None, edges = [] )
+block edited 4 : Block(idx=, label=None, edges = [] )
+block edited 5 : Block(idx=else.0, label=None, edges = [] )
+block unedited 0 : Block(idx=main, label=None, edges = [] )
+block unedited 1 : Block(idx=fact, label=None, edges = [] )
+block unedited 2 : Block(idx=then.0, label=None, edges = [] )
+block unedited 3 : Block(idx=else.0, label=None, edges = [] )
 predecessors {'main': [], 'fact': [], 'then.0': ['main', 'fact'], 'else.0': ['fact']}
 dom: {'main': {'main'}, 'fact': {'fact'}, 'then.0': {'then.0'}, 'else.0': {'else.0', 'fact'}}
 func_cfg: {'main': ['then.0'], 'fact': ['then.0', 'else.0'], 'then.0': [], 'else.0': []}

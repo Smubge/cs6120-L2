@@ -1,5 +1,37 @@
+block edited 0 : Block(idx=main, label=None, edges = [] )
+block edited 1 : Block(idx=totient, label=None, edges = [] )
+block edited 2 : Block(idx=for.set.cond, label=None, edges = [] )
+block edited 3 : Block(idx=, label=None, edges = [] )
+block edited 4 : Block(idx=for.set.body, label=None, edges = [] )
+block edited 5 : Block(idx=, label=None, edges = [] )
+block edited 6 : Block(idx=if_lbl, label=None, edges = [] )
+block edited 7 : Block(idx=while.set.cond, label=None, edges = [] )
+block edited 8 : Block(idx=, label=None, edges = [] )
+block edited 9 : Block(idx=while.body, label=None, edges = [] )
+block edited 10 : Block(idx=, label=None, edges = [] )
+block edited 11 : Block(idx=while.end, label=None, edges = [] )
+block edited 12 : Block(idx=else_lbl, label=None, edges = [] )
+block edited 13 : Block(idx=, label=None, edges = [] )
+block edited 14 : Block(idx=for.set.end, label=None, edges = [] )
+block edited 15 : Block(idx=, label=None, edges = [] )
+block edited 16 : Block(idx=final_if_label, label=None, edges = [] )
+block edited 17 : Block(idx=final_else_label, label=None, edges = [] )
+block edited 18 : Block(idx=mod, label=None, edges = [] )
+block unedited 0 : Block(idx=main, label=None, edges = [] )
+block unedited 1 : Block(idx=totient, label=None, edges = [] )
+block unedited 2 : Block(idx=for.set.cond, label=None, edges = [] )
+block unedited 3 : Block(idx=for.set.body, label=None, edges = [] )
+block unedited 4 : Block(idx=if_lbl, label=None, edges = [] )
+block unedited 5 : Block(idx=while.set.cond, label=None, edges = [] )
+block unedited 6 : Block(idx=while.body, label=None, edges = [] )
+block unedited 7 : Block(idx=while.end, label=None, edges = [] )
+block unedited 8 : Block(idx=else_lbl, label=None, edges = [] )
+block unedited 9 : Block(idx=for.set.end, label=None, edges = [] )
+block unedited 10 : Block(idx=final_if_label, label=None, edges = [] )
+block unedited 11 : Block(idx=final_else_label, label=None, edges = [] )
+block unedited 12 : Block(idx=mod, label=None, edges = [] )
 predecessors {'main': [], 'totient': [], 'for.set.cond': ['totient', 'else_lbl'], 'for.set.body': ['for.set.cond'], 'if_lbl': ['for.set.body'], 'while.set.cond': ['while.body'], 'while.body': ['while.set.cond'], 'while.end': ['while.set.cond'], 'else_lbl': ['for.set.body', 'while.end'], 'for.set.end': ['for.set.cond'], 'final_if_label': ['for.set.end'], 'final_else_label': ['for.set.end', 'final_if_label'], 'mod': []}
-dom: {'main': {'main'}, 'totient': {'totient'}, 'for.set.cond': {'for.set.cond', 'totient'}, 'for.set.body': {'for.set.body', 'for.set.cond', 'totient'}, 'if_lbl': {'for.set.body', 'for.set.cond', 'totient', 'if_lbl'}, 'while.set.cond': {'while.set.cond', 'main', 'final_else_label', 'for.set.end', 'mod', 'for.set.body', 'for.set.cond', 'else_lbl', 'while.body', 'final_if_label', 'totient', 'while.end', 'if_lbl'}, 'while.body': {'while.set.cond', 'main', 'final_else_label', 'for.set.end', 'mod', 'for.set.body', 'for.set.cond', 'else_lbl', 'while.body', 'final_if_label', 'totient', 'while.end', 'if_lbl'}, 'while.end': {'while.set.cond', 'main', 'final_else_label', 'for.set.end', 'mod', 'for.set.body', 'for.set.cond', 'else_lbl', 'while.body', 'final_if_label', 'totient', 'while.end', 'if_lbl'}, 'else_lbl': {'for.set.body', 'else_lbl', 'totient', 'for.set.cond'}, 'for.set.end': {'for.set.cond', 'for.set.end', 'totient'}, 'final_if_label': {'for.set.cond', 'final_if_label', 'for.set.end', 'totient'}, 'final_else_label': {'for.set.cond', 'final_else_label', 'for.set.end', 'totient'}, 'mod': {'mod'}}
+dom: {'main': {'main'}, 'totient': {'totient'}, 'for.set.cond': {'for.set.cond', 'totient'}, 'for.set.body': {'for.set.cond', 'for.set.body', 'totient'}, 'if_lbl': {'for.set.cond', 'if_lbl', 'for.set.body', 'totient'}, 'while.set.cond': {'if_lbl', 'else_lbl', 'for.set.body', 'final_if_label', 'mod', 'main', 'for.set.end', 'totient', 'while.set.cond', 'for.set.cond', 'while.end', 'while.body', 'final_else_label'}, 'while.body': {'if_lbl', 'else_lbl', 'for.set.body', 'final_if_label', 'mod', 'main', 'for.set.end', 'totient', 'while.set.cond', 'for.set.cond', 'while.end', 'while.body', 'final_else_label'}, 'while.end': {'if_lbl', 'else_lbl', 'for.set.body', 'final_if_label', 'mod', 'main', 'for.set.end', 'totient', 'while.set.cond', 'for.set.cond', 'while.end', 'while.body', 'final_else_label'}, 'else_lbl': {'for.set.cond', 'else_lbl', 'for.set.body', 'totient'}, 'for.set.end': {'for.set.cond', 'totient', 'for.set.end'}, 'final_if_label': {'for.set.cond', 'for.set.end', 'final_if_label', 'totient'}, 'final_else_label': {'for.set.cond', 'totient', 'final_else_label', 'for.set.end'}, 'mod': {'mod'}}
 func_cfg: {'main': [], 'totient': ['for.set.cond'], 'for.set.cond': ['for.set.body', 'for.set.end'], 'for.set.body': ['if_lbl', 'else_lbl'], 'if_lbl': [], 'while.set.cond': ['while.body', 'while.end'], 'while.body': ['while.set.cond'], 'while.end': ['else_lbl'], 'else_lbl': ['for.set.cond'], 'for.set.end': ['final_if_label', 'final_else_label'], 'final_if_label': ['final_else_label'], 'final_else_label': [], 'mod': []}
 cfg: {'main': [], 'totient': ['for.set.cond'], 'for.set.cond': ['for.set.body', 'for.set.end'], 'for.set.body': ['if_lbl', 'else_lbl'], 'if_lbl': [], 'while.set.cond': ['while.body', 'while.end'], 'while.body': ['while.set.cond'], 'while.end': ['else_lbl'], 'else_lbl': ['for.set.cond'], 'for.set.end': ['final_if_label', 'final_else_label'], 'final_if_label': ['final_else_label'], 'final_else_label': [], 'mod': []}
 No paths found to block while.set.cond

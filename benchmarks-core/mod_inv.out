@@ -1,4 +1,24 @@
+block edited 0 : Block(idx=main, label=None, edges = [] )
+block edited 1 : Block(idx=for.cond.6, label=None, edges = [] )
+block edited 2 : Block(idx=, label=None, edges = [] )
+block edited 3 : Block(idx=for.body.6, label=None, edges = [] )
+block edited 4 : Block(idx=, label=None, edges = [] )
+block edited 5 : Block(idx=then.11, label=None, edges = [] )
+block edited 6 : Block(idx=, label=None, edges = [] )
+block edited 7 : Block(idx=else.11, label=None, edges = [] )
+block edited 8 : Block(idx=endif.11, label=None, edges = [] )
+block edited 9 : Block(idx=, label=None, edges = [] )
+block edited 10 : Block(idx=for.end.6, label=None, edges = [] )
+block edited 11 : Block(idx=mod, label=None, edges = [] )
+block unedited 0 : Block(idx=main, label=None, edges = [] )
+block unedited 1 : Block(idx=for.cond.6, label=None, edges = [] )
+block unedited 2 : Block(idx=for.body.6, label=None, edges = [] )
+block unedited 3 : Block(idx=then.11, label=None, edges = [] )
+block unedited 4 : Block(idx=else.11, label=None, edges = [] )
+block unedited 5 : Block(idx=endif.11, label=None, edges = [] )
+block unedited 6 : Block(idx=for.end.6, label=None, edges = [] )
+block unedited 7 : Block(idx=mod, label=None, edges = [] )
 predecessors {'main': [], 'for.cond.6': ['main', 'endif.11'], 'for.body.6': ['for.cond.6'], 'then.11': ['for.body.6'], 'else.11': ['for.body.6'], 'endif.11': ['then.11', 'else.11'], 'for.end.6': ['for.cond.6'], 'mod': []}
-dom: {'main': {'main'}, 'for.cond.6': {'main', 'for.cond.6'}, 'for.body.6': {'main', 'for.body.6', 'for.cond.6'}, 'then.11': {'main', 'for.body.6', 'then.11', 'for.cond.6'}, 'else.11': {'main', 'for.body.6', 'else.11', 'for.cond.6'}, 'endif.11': {'endif.11', 'for.body.6', 'for.cond.6', 'main'}, 'for.end.6': {'main', 'for.end.6', 'for.cond.6'}, 'mod': {'mod'}}
+dom: {'main': {'main'}, 'for.cond.6': {'main', 'for.cond.6'}, 'for.body.6': {'main', 'for.body.6', 'for.cond.6'}, 'then.11': {'main', 'for.body.6', 'then.11', 'for.cond.6'}, 'else.11': {'main', 'for.body.6', 'else.11', 'for.cond.6'}, 'endif.11': {'main', 'for.body.6', 'for.cond.6', 'endif.11'}, 'for.end.6': {'main', 'for.end.6', 'for.cond.6'}, 'mod': {'mod'}}
 func_cfg: {'main': ['for.cond.6'], 'for.cond.6': ['for.body.6', 'for.end.6'], 'for.body.6': ['then.11', 'else.11'], 'then.11': ['endif.11'], 'else.11': ['endif.11'], 'endif.11': ['for.cond.6'], 'for.end.6': [], 'mod': []}
 cfg: {'main': ['for.cond.6'], 'for.cond.6': ['for.body.6', 'for.end.6'], 'for.body.6': ['then.11', 'else.11'], 'then.11': ['endif.11'], 'else.11': ['endif.11'], 'endif.11': ['for.cond.6'], 'for.end.6': ['mod'], 'mod': []}

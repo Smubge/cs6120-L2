@@ -1,4 +1,18 @@
+block edited 0 : Block(idx=main, label=None, edges = [] )
+block edited 1 : Block(idx=mod, label=None, edges = [] )
+block edited 2 : Block(idx=gcd, label=None, edges = [] )
+block edited 3 : Block(idx=for.cond.5, label=None, edges = [] )
+block edited 4 : Block(idx=, label=None, edges = [] )
+block edited 5 : Block(idx=for.body.5, label=None, edges = [] )
+block edited 6 : Block(idx=, label=None, edges = [] )
+block edited 7 : Block(idx=for.end.5, label=None, edges = [] )
+block unedited 0 : Block(idx=main, label=None, edges = [] )
+block unedited 1 : Block(idx=mod, label=None, edges = [] )
+block unedited 2 : Block(idx=gcd, label=None, edges = [] )
+block unedited 3 : Block(idx=for.cond.5, label=None, edges = [] )
+block unedited 4 : Block(idx=for.body.5, label=None, edges = [] )
+block unedited 5 : Block(idx=for.end.5, label=None, edges = [] )
 predecessors {'main': [], 'mod': [], 'gcd': [], 'for.cond.5': ['main', 'gcd', 'for.body.5'], 'for.body.5': ['for.cond.5'], 'for.end.5': ['for.cond.5']}
-dom: {'main': {'main'}, 'mod': {'mod'}, 'gcd': {'gcd'}, 'for.cond.5': {'for.cond.5'}, 'for.body.5': {'for.body.5', 'for.cond.5'}, 'for.end.5': {'for.cond.5', 'for.end.5'}}
+dom: {'main': {'main'}, 'mod': {'mod'}, 'gcd': {'gcd'}, 'for.cond.5': {'for.cond.5'}, 'for.body.5': {'for.body.5', 'for.cond.5'}, 'for.end.5': {'for.end.5', 'for.cond.5'}}
 func_cfg: {'main': ['for.cond.5'], 'mod': [], 'gcd': ['for.cond.5'], 'for.cond.5': ['for.body.5', 'for.end.5'], 'for.body.5': ['for.cond.5'], 'for.end.5': []}
 cfg: {'main': ['mod'], 'mod': [], 'gcd': ['for.cond.5'], 'for.cond.5': ['for.body.5', 'for.end.5'], 'for.body.5': ['for.cond.5'], 'for.end.5': []}

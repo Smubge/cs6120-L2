@@ -1,4 +1,18 @@
+block edited 0 : Block(idx=main, label=None, edges = [] )
+block edited 1 : Block(idx=sum_by_loop, label=None, edges = [] )
+block edited 2 : Block(idx=for_start, label=None, edges = [] )
+block edited 3 : Block(idx=, label=None, edges = [] )
+block edited 4 : Block(idx=for, label=None, edges = [] )
+block edited 5 : Block(idx=, label=None, edges = [] )
+block edited 6 : Block(idx=end, label=None, edges = [] )
+block edited 7 : Block(idx=sum_by_formula, label=None, edges = [] )
+block unedited 0 : Block(idx=main, label=None, edges = [] )
+block unedited 1 : Block(idx=sum_by_loop, label=None, edges = [] )
+block unedited 2 : Block(idx=for_start, label=None, edges = [] )
+block unedited 3 : Block(idx=for, label=None, edges = [] )
+block unedited 4 : Block(idx=end, label=None, edges = [] )
+block unedited 5 : Block(idx=sum_by_formula, label=None, edges = [] )
 predecessors {'main': [], 'sum_by_loop': [], 'for_start': ['sum_by_loop', 'for'], 'for': ['for_start'], 'end': ['for_start'], 'sum_by_formula': []}
-dom: {'main': {'main'}, 'sum_by_loop': {'sum_by_loop'}, 'for_start': {'sum_by_loop', 'for_start'}, 'for': {'for', 'sum_by_loop', 'for_start'}, 'end': {'end', 'sum_by_loop', 'for_start'}, 'sum_by_formula': {'sum_by_formula'}}
+dom: {'main': {'main'}, 'sum_by_loop': {'sum_by_loop'}, 'for_start': {'sum_by_loop', 'for_start'}, 'for': {'for', 'for_start', 'sum_by_loop'}, 'end': {'sum_by_loop', 'for_start', 'end'}, 'sum_by_formula': {'sum_by_formula'}}
 func_cfg: {'main': [], 'sum_by_loop': ['for_start'], 'for_start': ['for', 'end'], 'for': ['for_start'], 'end': [], 'sum_by_formula': []}
 cfg: {'main': [], 'sum_by_loop': ['for_start'], 'for_start': ['for', 'end'], 'for': ['for_start'], 'end': [], 'sum_by_formula': []}

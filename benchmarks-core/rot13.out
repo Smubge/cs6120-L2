@@ -1,4 +1,13 @@
+block edited 0 : Block(idx=main, label=None, edges = [] )
+block edited 1 : Block(idx=rot, label=None, edges = [] )
+block edited 2 : Block(idx=, label=None, edges = [] )
+block edited 3 : Block(idx=if, label=None, edges = [] )
+block edited 4 : Block(idx=else, label=None, edges = [] )
+block unedited 0 : Block(idx=main, label=None, edges = [] )
+block unedited 1 : Block(idx=rot, label=None, edges = [] )
+block unedited 2 : Block(idx=if, label=None, edges = [] )
+block unedited 3 : Block(idx=else, label=None, edges = [] )
 predecessors {'main': [], 'rot': [], 'if': ['rot'], 'else': ['rot', 'if']}
-dom: {'main': {'main'}, 'rot': {'rot'}, 'if': {'rot', 'if'}, 'else': {'else', 'rot'}}
+dom: {'main': {'main'}, 'rot': {'rot'}, 'if': {'if', 'rot'}, 'else': {'else', 'rot'}}
 func_cfg: {'main': [], 'rot': ['if', 'else'], 'if': ['else'], 'else': []}
 cfg: {'main': [], 'rot': ['if', 'else'], 'if': ['else'], 'else': []}

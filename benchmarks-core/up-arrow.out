@@ -1,4 +1,24 @@
+block edited 0 : Block(idx=main, label=None, edges = [] )
+block edited 1 : Block(idx=up_arrow, label=None, edges = [] )
+block edited 2 : Block(idx=loopstart, label=None, edges = [] )
+block edited 3 : Block(idx=, label=None, edges = [] )
+block edited 4 : Block(idx=loopbody, label=None, edges = [] )
+block edited 5 : Block(idx=, label=None, edges = [] )
+block edited 6 : Block(idx=base, label=None, edges = [] )
+block edited 7 : Block(idx=, label=None, edges = [] )
+block edited 8 : Block(idx=arrowsgreaterthan1, label=None, edges = [] )
+block edited 9 : Block(idx=finally, label=None, edges = [] )
+block edited 10 : Block(idx=, label=None, edges = [] )
+block edited 11 : Block(idx=endloop, label=None, edges = [] )
+block unedited 0 : Block(idx=main, label=None, edges = [] )
+block unedited 1 : Block(idx=up_arrow, label=None, edges = [] )
+block unedited 2 : Block(idx=loopstart, label=None, edges = [] )
+block unedited 3 : Block(idx=loopbody, label=None, edges = [] )
+block unedited 4 : Block(idx=base, label=None, edges = [] )
+block unedited 5 : Block(idx=arrowsgreaterthan1, label=None, edges = [] )
+block unedited 6 : Block(idx=finally, label=None, edges = [] )
+block unedited 7 : Block(idx=endloop, label=None, edges = [] )
 predecessors {'main': [], 'up_arrow': [], 'loopstart': ['up_arrow', 'finally'], 'loopbody': ['loopstart'], 'base': ['loopbody'], 'arrowsgreaterthan1': ['loopbody'], 'finally': ['base', 'arrowsgreaterthan1'], 'endloop': ['loopstart']}
-dom: {'main': {'main'}, 'up_arrow': {'up_arrow'}, 'loopstart': {'loopstart', 'up_arrow'}, 'loopbody': {'loopbody', 'loopstart', 'up_arrow'}, 'base': {'loopbody', 'loopstart', 'up_arrow', 'base'}, 'arrowsgreaterthan1': {'arrowsgreaterthan1', 'loopbody', 'loopstart', 'up_arrow'}, 'finally': {'finally', 'loopbody', 'loopstart', 'up_arrow'}, 'endloop': {'endloop', 'loopstart', 'up_arrow'}}
+dom: {'main': {'main'}, 'up_arrow': {'up_arrow'}, 'loopstart': {'up_arrow', 'loopstart'}, 'loopbody': {'up_arrow', 'loopbody', 'loopstart'}, 'base': {'base', 'up_arrow', 'loopbody', 'loopstart'}, 'arrowsgreaterthan1': {'up_arrow', 'arrowsgreaterthan1', 'loopbody', 'loopstart'}, 'finally': {'finally', 'up_arrow', 'loopbody', 'loopstart'}, 'endloop': {'up_arrow', 'loopstart', 'endloop'}}
 func_cfg: {'main': [], 'up_arrow': ['loopstart'], 'loopstart': ['loopbody', 'endloop'], 'loopbody': ['base', 'arrowsgreaterthan1'], 'base': ['finally'], 'arrowsgreaterthan1': ['finally'], 'finally': ['loopstart'], 'endloop': []}
 cfg: {'main': [], 'up_arrow': ['loopstart'], 'loopstart': ['loopbody', 'endloop'], 'loopbody': ['base', 'arrowsgreaterthan1'], 'base': ['finally'], 'arrowsgreaterthan1': ['finally'], 'finally': ['loopstart'], 'endloop': []}

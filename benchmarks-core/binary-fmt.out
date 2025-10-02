@@ -1,4 +1,15 @@
+block edited 0 : Block(idx=main, label=None, edges = [] )
+block edited 1 : Block(idx=printBinary, label=None, edges = [] )
+block edited 2 : Block(idx=, label=None, edges = [] )
+block edited 3 : Block(idx=rec, label=None, edges = [] )
+block edited 4 : Block(idx=end, label=None, edges = [] )
+block edited 5 : Block(idx=mod, label=None, edges = [] )
+block unedited 0 : Block(idx=main, label=None, edges = [] )
+block unedited 1 : Block(idx=printBinary, label=None, edges = [] )
+block unedited 2 : Block(idx=rec, label=None, edges = [] )
+block unedited 3 : Block(idx=end, label=None, edges = [] )
+block unedited 4 : Block(idx=mod, label=None, edges = [] )
 predecessors {'main': [], 'printBinary': [], 'rec': ['printBinary'], 'end': ['printBinary'], 'mod': []}
-dom: {'main': {'main'}, 'printBinary': {'printBinary'}, 'rec': {'rec', 'printBinary'}, 'end': {'printBinary', 'end'}, 'mod': {'mod'}}
+dom: {'main': {'main'}, 'printBinary': {'printBinary'}, 'rec': {'printBinary', 'rec'}, 'end': {'printBinary', 'end'}, 'mod': {'mod'}}
 func_cfg: {'main': [], 'printBinary': ['end', 'rec'], 'rec': [], 'end': [], 'mod': []}
 cfg: {'main': [], 'printBinary': ['end', 'rec'], 'rec': [], 'end': [], 'mod': []}

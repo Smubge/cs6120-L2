@@ -1,4 +1,13 @@
+block edited 0 : Block(idx=main, label=None, edges = [] )
+block edited 1 : Block(idx=, label=None, edges = [] )
+block edited 2 : Block(idx=flip, label=None, edges = [] )
+block edited 3 : Block(idx=end, label=None, edges = [] )
+block edited 4 : Block(idx=area, label=None, edges = [] )
+block unedited 0 : Block(idx=main, label=None, edges = [] )
+block unedited 1 : Block(idx=flip, label=None, edges = [] )
+block unedited 2 : Block(idx=end, label=None, edges = [] )
+block unedited 3 : Block(idx=area, label=None, edges = [] )
 predecessors {'main': [], 'flip': ['main'], 'end': ['main', 'flip'], 'area': []}
-dom: {'main': {'main'}, 'flip': {'flip', 'main'}, 'end': {'main', 'end'}, 'area': {'area'}}
+dom: {'main': {'main'}, 'flip': {'main', 'flip'}, 'end': {'end', 'main'}, 'area': {'area'}}
 func_cfg: {'main': ['end', 'flip'], 'flip': ['end'], 'end': [], 'area': []}
 cfg: {'main': ['end', 'flip'], 'flip': ['end'], 'end': [], 'area': []}

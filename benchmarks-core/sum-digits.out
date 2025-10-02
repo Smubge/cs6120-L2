@@ -1,4 +1,14 @@
+block edited 0 : Block(idx=main, label=None, edges = [] )
+block edited 1 : Block(idx=for.cond.1, label=None, edges = [] )
+block edited 2 : Block(idx=, label=None, edges = [] )
+block edited 3 : Block(idx=for.body.1, label=None, edges = [] )
+block edited 4 : Block(idx=, label=None, edges = [] )
+block edited 5 : Block(idx=for.end.1, label=None, edges = [] )
+block unedited 0 : Block(idx=main, label=None, edges = [] )
+block unedited 1 : Block(idx=for.cond.1, label=None, edges = [] )
+block unedited 2 : Block(idx=for.body.1, label=None, edges = [] )
+block unedited 3 : Block(idx=for.end.1, label=None, edges = [] )
 predecessors {'main': [], 'for.cond.1': ['main', 'for.body.1'], 'for.body.1': ['for.cond.1'], 'for.end.1': ['for.cond.1']}
-dom: {'main': {'main'}, 'for.cond.1': {'for.cond.1', 'main'}, 'for.body.1': {'for.cond.1', 'main', 'for.body.1'}, 'for.end.1': {'for.cond.1', 'for.end.1', 'main'}}
+dom: {'main': {'main'}, 'for.cond.1': {'main', 'for.cond.1'}, 'for.body.1': {'main', 'for.body.1', 'for.cond.1'}, 'for.end.1': {'main', 'for.cond.1', 'for.end.1'}}
 func_cfg: {'main': ['for.cond.1'], 'for.cond.1': ['for.body.1', 'for.end.1'], 'for.body.1': ['for.cond.1'], 'for.end.1': []}
 cfg: {'main': ['for.cond.1'], 'for.cond.1': ['for.body.1', 'for.end.1'], 'for.body.1': ['for.cond.1'], 'for.end.1': [None]}

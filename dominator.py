@@ -105,7 +105,7 @@ for func in instrs["functions"]:
             block = []
 
 for (i, b) in enumerate(blocks): 
-    print(f"block edited {i} : {b}")
+    print(f"block unedited {i} : {b}")
     
 def probe_next(block):
     found = False
@@ -136,20 +136,22 @@ for b in blocks:
 			else:
 				cfg[b.idx] = [probe_next(b.idx)]
 		elif "dest" not in last and "labels" not in last:
-			cfg[b.idx] = []
+			cfg[b.idx] = [probe_next(b.idx)]
 		else:
 			cfg[b.idx] = [probe_next(b.idx)]
 
-         
+print(cfg)
 cleanup_arr = []
 for (i, block) in enumerate(blocks):
-    if block.instrs and block.idx != "":
+    if block.idx != "":
          cleanup_arr.append(block)
 blocks = cleanup_arr
 
 
-for (i, b) in enumerate(blocks): 
-    print(f"block unedited {i} : {b}")
+for (i, b) in enumerate(blocks): #Cleaned up arr
+    print(f"block edited {i} : {b}")
+
+
 for block in blocks:
     if block.is_header:
         func_headers.append(block)
@@ -184,10 +186,11 @@ for b in blocks:
 			else:
 				func_cfg[b.idx] = probe_next_func_cfg(b.idx)
 		elif "dest" not in last and "labels" not in last:
-			func_cfg[b.idx] = []
+			func_cfg[b.idx] = probe_next_func_cfg(b.idx)
 		else:
 			func_cfg[b.idx] = probe_next_func_cfg(b.idx)
-
+	else:
+		func_cfg[b.idx] = probe_next_func_cfg(b.idx)
 idx_to_func = {}
 func_idx = None
 func_to_idx = {}

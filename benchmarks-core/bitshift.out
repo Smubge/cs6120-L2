@@ -1,4 +1,28 @@
+block edited 0 : Block(idx=pow, label=None, edges = [] )
+block edited 1 : Block(idx=, label=None, edges = [] )
+block edited 2 : Block(idx=then.0, label=None, edges = [] )
+block edited 3 : Block(idx=, label=None, edges = [] )
+block edited 4 : Block(idx=else.0, label=None, edges = [] )
+block edited 5 : Block(idx=, label=None, edges = [] )
+block edited 6 : Block(idx=then.12, label=None, edges = [] )
+block edited 7 : Block(idx=, label=None, edges = [] )
+block edited 8 : Block(idx=else.12, label=None, edges = [] )
+block edited 9 : Block(idx=endif.12, label=None, edges = [] )
+block edited 10 : Block(idx=mod, label=None, edges = [] )
+block edited 11 : Block(idx=LEFTSHIFT, label=None, edges = [] )
+block edited 12 : Block(idx=RIGHTSHIFT, label=None, edges = [] )
+block edited 13 : Block(idx=main, label=None, edges = [] )
+block unedited 0 : Block(idx=pow, label=None, edges = [] )
+block unedited 1 : Block(idx=then.0, label=None, edges = [] )
+block unedited 2 : Block(idx=else.0, label=None, edges = [] )
+block unedited 3 : Block(idx=then.12, label=None, edges = [] )
+block unedited 4 : Block(idx=else.12, label=None, edges = [] )
+block unedited 5 : Block(idx=endif.12, label=None, edges = [] )
+block unedited 6 : Block(idx=mod, label=None, edges = [] )
+block unedited 7 : Block(idx=LEFTSHIFT, label=None, edges = [] )
+block unedited 8 : Block(idx=RIGHTSHIFT, label=None, edges = [] )
+block unedited 9 : Block(idx=main, label=None, edges = [] )
 predecessors {'pow': [], 'then.0': ['pow'], 'else.0': ['pow'], 'then.12': ['else.0'], 'else.12': ['else.0'], 'endif.12': ['then.12', 'else.12'], 'mod': [], 'LEFTSHIFT': [], 'RIGHTSHIFT': [], 'main': []}
-dom: {'pow': {'pow'}, 'then.0': {'pow', 'then.0'}, 'else.0': {'pow', 'else.0'}, 'then.12': {'pow', 'else.0', 'then.12'}, 'else.12': {'pow', 'else.0', 'else.12'}, 'endif.12': {'pow', 'else.0', 'endif.12'}, 'mod': {'mod'}, 'LEFTSHIFT': {'LEFTSHIFT'}, 'RIGHTSHIFT': {'RIGHTSHIFT'}, 'main': {'main'}}
+dom: {'pow': {'pow'}, 'then.0': {'pow', 'then.0'}, 'else.0': {'pow', 'else.0'}, 'then.12': {'else.0', 'then.12', 'pow'}, 'else.12': {'else.12', 'else.0', 'pow'}, 'endif.12': {'else.0', 'pow', 'endif.12'}, 'mod': {'mod'}, 'LEFTSHIFT': {'LEFTSHIFT'}, 'RIGHTSHIFT': {'RIGHTSHIFT'}, 'main': {'main'}}
 func_cfg: {'pow': ['then.0', 'else.0'], 'then.0': [], 'else.0': ['then.12', 'else.12'], 'then.12': ['endif.12'], 'else.12': ['endif.12'], 'endif.12': [], 'mod': [], 'LEFTSHIFT': [], 'RIGHTSHIFT': [], 'main': []}
 cfg: {'pow': ['then.0', 'else.0'], 'then.0': [], 'else.0': ['then.12', 'else.12'], 'then.12': ['endif.12'], 'else.12': ['endif.12'], 'endif.12': [], 'mod': [], 'LEFTSHIFT': [], 'RIGHTSHIFT': [], 'main': []}
