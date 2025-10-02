@@ -1,13 +1,4 @@
-{'end': ['end', 'first', 'for', 'for_start', 'one'], 'first': ['first'], 'for': ['end', 'first', 'for', 'for_start', 'one'], 'for_start': ['end', 'first', 'for', 'for_start', 'one'], 'one': ['one']}
-No paths found to block for_start
-No paths found to block for_start
-No paths found to block for_start
-No paths found to block for_start
-No paths found to block for
-No paths found to block for
-No paths found to block for
-No paths found to block for
-No paths found to block end
-No paths found to block end
-No paths found to block end
-No paths found to block end
+predecessors {'main': [], 'sum_by_loop': [], 'for_start': ['sum_by_loop', 'for'], 'for': ['for_start'], 'end': ['for_start'], 'sum_by_formula': []}
+dom: {'main': {'main'}, 'sum_by_loop': {'sum_by_loop'}, 'for_start': {'sum_by_loop', 'for_start'}, 'for': {'for', 'sum_by_loop', 'for_start'}, 'end': {'end', 'sum_by_loop', 'for_start'}, 'sum_by_formula': {'sum_by_formula'}}
+func_cfg: {'main': [], 'sum_by_loop': ['for_start'], 'for_start': ['for', 'end'], 'for': ['for_start'], 'end': [], 'sum_by_formula': []}
+cfg: {'main': [], 'sum_by_loop': ['for_start'], 'for_start': ['for', 'end'], 'for': ['for_start'], 'end': [], 'sum_by_formula': []}

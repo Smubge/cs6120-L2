@@ -1,1 +1,4 @@
-{'aed': ['aed'], 'else': ['else', 'thirteen'], 'if': ['if', 'thirteen'], 'thirteen': ['thirteen']}
+predecessors {'main': [], 'rot': [], 'if': ['rot'], 'else': ['rot', 'if']}
+dom: {'main': {'main'}, 'rot': {'rot'}, 'if': {'rot', 'if'}, 'else': {'else', 'rot'}}
+func_cfg: {'main': [], 'rot': ['if', 'else'], 'if': ['else'], 'else': []}
+cfg: {'main': [], 'rot': ['if', 'else'], 'if': ['else'], 'else': []}

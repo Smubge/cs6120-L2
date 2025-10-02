@@ -1,1 +1,4 @@
-{'v0': ['v0']}
+predecessors {'main': []}
+dom: {'main': {'main'}}
+func_cfg: {'main': []}
+cfg: {'main': []}

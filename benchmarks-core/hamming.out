@@ -1,19 +1,4 @@
-{'body': ['body', 'else', 'end', 'if', 'two', 'while', 'zero'], 'else': ['else'], 'end': ['body', 'else', 'end', 'if', 'two', 'while', 'zero'], 'if': ['if', 'zero'], 'two': ['two'], 'while': ['body', 'else', 'end', 'if', 'two', 'while', 'zero'], 'zero': ['zero']}
-No paths found to block while
-No paths found to block while
-No paths found to block while
-No paths found to block while
-No paths found to block while
-No paths found to block while
-No paths found to block body
-No paths found to block body
-No paths found to block body
-No paths found to block body
-No paths found to block body
-No paths found to block body
-No paths found to block end
-No paths found to block end
-No paths found to block end
-No paths found to block end
-No paths found to block end
-No paths found to block end
+predecessors {'lsb': [], 'hamm_lsb': [], 'if': ['hamm_lsb'], 'else': ['hamm_lsb'], 'main': [], 'while': ['main', 'body'], 'body': ['while'], 'end': ['while']}
+dom: {'lsb': {'lsb'}, 'hamm_lsb': {'hamm_lsb'}, 'if': {'hamm_lsb', 'if'}, 'else': {'hamm_lsb', 'else'}, 'main': {'main'}, 'while': {'while', 'main'}, 'body': {'body', 'while', 'main'}, 'end': {'while', 'end', 'main'}}
+func_cfg: {'lsb': [], 'hamm_lsb': ['if', 'else'], 'if': [], 'else': [], 'main': ['while'], 'while': ['end', 'body'], 'body': ['while'], 'end': []}
+cfg: {'lsb': [], 'hamm_lsb': ['if', 'else'], 'if': [], 'else': [], 'main': ['while'], 'while': ['end', 'body'], 'body': ['while'], 'end': []}

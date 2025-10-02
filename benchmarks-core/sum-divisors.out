@@ -1,1 +1,4 @@
-{'begin': ['begin', 'i'], 'body': ['begin', 'body', 'check', 'i'], 'check': ['begin', 'check', 'i'], 'end': ['begin', 'end', 'i'], 'i': ['i'], 'neg': ['i', 'neg'], 'quot': ['quot'], 'then': ['begin', 'body', 'check', 'i', 'then']}
+predecessors {'main': [], 'neg': ['main'], 'begin': ['main', 'neg', 'check', 'body', 'then'], 'check': ['begin'], 'body': ['check'], 'then': ['body'], 'end': ['begin'], 'mod': []}
+dom: {'main': {'main'}, 'neg': {'main', 'neg'}, 'begin': {'main', 'begin'}, 'check': {'check', 'main', 'begin'}, 'body': {'check', 'main', 'begin', 'body'}, 'then': {'then', 'check', 'begin', 'body', 'main'}, 'end': {'main', 'begin', 'end'}, 'mod': {'mod'}}
+func_cfg: {'main': ['neg', 'begin'], 'neg': ['begin'], 'begin': ['end', 'check'], 'check': ['body', 'begin'], 'body': ['begin', 'then'], 'then': ['begin'], 'end': [], 'mod': []}
+cfg: {'main': ['neg', 'begin'], 'neg': ['begin'], 'begin': ['end', 'check'], 'check': ['body', 'begin'], 'body': ['begin', 'then'], 'then': ['begin'], 'end': [], 'mod': []}

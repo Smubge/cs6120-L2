@@ -1,1 +1,4 @@
-{'output': ['output'], 'width_check': ['width_check']}
+predecessors {'main': [], 'fitsInside': []}
+dom: {'main': {'main'}, 'fitsInside': {'fitsInside'}}
+func_cfg: {'main': [], 'fitsInside': []}
+cfg: {'main': [], 'fitsInside': []}

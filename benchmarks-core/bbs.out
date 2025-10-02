@@ -1,1 +1,4 @@
-{'loop.body': ['loop.body', 'loop.branch', 'modulus'], 'loop.branch': ['loop.branch', 'modulus'], 'loop.end': ['loop.branch', 'loop.end', 'modulus'], 'modulus': ['modulus'], 'result': ['result'], 'two': ['two']}
+predecessors {'mod': [], 'lsb': [], 'square': [], 'main': [], 'loop.branch': ['main', 'loop.body'], 'loop.body': ['loop.branch'], 'loop.end': ['loop.branch']}
+dom: {'mod': {'mod'}, 'lsb': {'lsb'}, 'square': {'square'}, 'main': {'main'}, 'loop.branch': {'main', 'loop.branch'}, 'loop.body': {'loop.branch', 'loop.body', 'main'}, 'loop.end': {'loop.end', 'loop.branch', 'main'}}
+func_cfg: {'mod': [], 'lsb': [], 'square': [], 'main': ['loop.branch'], 'loop.branch': ['loop.body', 'loop.end'], 'loop.body': ['loop.branch'], 'loop.end': []}
+cfg: {'mod': [], 'lsb': [], 'square': [], 'main': ['loop.branch'], 'loop.branch': ['loop.body', 'loop.end'], 'loop.body': ['loop.branch'], 'loop.end': []}

@@ -1,1 +1,4 @@
-{'else.18': ['else.18', 'else.3', 'v0'], 'else.3': ['else.3', 'v0'], 'endif.18': ['else.3', 'endif.18', 'v0'], 'then.18': ['else.3', 'then.18', 'v0'], 'then.3': ['then.3', 'v0'], 'v0': ['v0']}
+predecessors {'main': [], 'then.3': ['main'], 'else.3': ['main'], 'then.18': ['else.3'], 'else.18': ['else.3'], 'endif.18': ['then.18', 'else.18']}
+dom: {'main': {'main'}, 'then.3': {'then.3', 'main'}, 'else.3': {'else.3', 'main'}, 'then.18': {'else.3', 'main', 'then.18'}, 'else.18': {'else.3', 'else.18', 'main'}, 'endif.18': {'else.3', 'endif.18', 'main'}}
+func_cfg: {'main': ['then.3', 'else.3'], 'then.3': [], 'else.3': ['then.18', 'else.18'], 'then.18': ['endif.18'], 'else.18': ['endif.18'], 'endif.18': []}
+cfg: {'main': ['then.3', 'else.3'], 'then.3': [], 'else.3': ['then.18', 'else.18'], 'then.18': ['endif.18'], 'else.18': ['endif.18'], 'endif.18': []}

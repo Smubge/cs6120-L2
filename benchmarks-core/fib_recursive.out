@@ -1,1 +1,4 @@
-{'else.0': ['else.0', 'v1'], 'else.5': ['else.0', 'else.5', 'v1'], 'then.0': ['then.0', 'v1'], 'then.5': ['else.0', 'then.5', 'v1'], 'v0': ['v0'], 'v1': ['v1']}
+predecessors {'main': [], 'fib': [], 'then.0': ['fib'], 'else.0': ['fib'], 'then.5': ['else.0'], 'else.5': ['else.0']}
+dom: {'main': {'main'}, 'fib': {'fib'}, 'then.0': {'fib', 'then.0'}, 'else.0': {'fib', 'else.0'}, 'then.5': {'else.0', 'fib', 'then.5'}, 'else.5': {'else.5', 'fib', 'else.0'}}
+func_cfg: {'main': [], 'fib': ['then.0', 'else.0'], 'then.0': [], 'else.0': ['then.5', 'else.5'], 'then.5': [], 'else.5': []}
+cfg: {'main': [], 'fib': ['then.0', 'else.0'], 'then.0': [], 'else.0': ['then.5', 'else.5'], 'then.5': [], 'else.5': []}

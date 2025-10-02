@@ -1,1 +1,4 @@
-{'ifno': ['ifno', 'loopbody', 'loopcheck', 'zer'], 'ifyes': ['ifyes', 'loopbody', 'loopcheck', 'zer'], 'loopbody': ['loopbody', 'loopcheck', 'zer'], 'loopcheck': ['loopcheck', 'zer'], 'loopend': ['loopcheck', 'loopend', 'zer'], 'zer': ['zer']}
+predecessors {'main': [], 'loopcheck': ['main', 'ifyes', 'ifno'], 'loopbody': ['loopcheck'], 'ifyes': ['loopbody'], 'ifno': ['loopbody'], 'loopend': ['loopcheck']}
+dom: {'main': {'main'}, 'loopcheck': {'main', 'loopcheck'}, 'loopbody': {'loopbody', 'main', 'loopcheck'}, 'ifyes': {'loopbody', 'ifyes', 'main', 'loopcheck'}, 'ifno': {'loopbody', 'loopcheck', 'ifno', 'main'}, 'loopend': {'main', 'loopend', 'loopcheck'}}
+func_cfg: {'main': ['loopcheck'], 'loopcheck': ['loopbody', 'loopend'], 'loopbody': ['ifyes', 'ifno'], 'ifyes': ['loopcheck'], 'ifno': ['loopcheck'], 'loopend': []}
+cfg: {'main': ['loopcheck'], 'loopcheck': ['loopbody', 'loopend'], 'loopbody': ['ifyes', 'ifno'], 'ifyes': ['loopcheck'], 'ifno': ['loopcheck'], 'loopend': []}

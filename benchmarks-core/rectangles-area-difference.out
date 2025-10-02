@@ -1,1 +1,4 @@
-{'a1': ['a1'], 'area': ['area'], 'end': ['a1', 'end'], 'flip': ['a1', 'flip']}
+predecessors {'main': [], 'flip': ['main'], 'end': ['main', 'flip'], 'area': []}
+dom: {'main': {'main'}, 'flip': {'flip', 'main'}, 'end': {'main', 'end'}, 'area': {'area'}}
+func_cfg: {'main': ['end', 'flip'], 'flip': ['end'], 'end': [], 'area': []}
+cfg: {'main': ['end', 'flip'], 'flip': ['end'], 'end': [], 'area': []}

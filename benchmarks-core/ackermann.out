@@ -1,1 +1,4 @@
-{'m_nonzero': ['m_nonzero', 'zero'], 'm_zero': ['m_zero', 'zero'], 'n_nonzero': ['m_nonzero', 'n_nonzero', 'zero'], 'n_zero': ['m_nonzero', 'n_zero', 'zero'], 'tmp': ['tmp'], 'zero': ['zero']}
+predecessors {'ack': [], 'm_zero': ['ack'], 'm_nonzero': ['ack'], 'n_zero': ['m_nonzero'], 'n_nonzero': ['m_nonzero'], 'main': []}
+dom: {'ack': {'ack'}, 'm_zero': {'ack', 'm_zero'}, 'm_nonzero': {'m_nonzero', 'ack'}, 'n_zero': {'m_nonzero', 'ack', 'n_zero'}, 'n_nonzero': {'m_nonzero', 'ack', 'n_nonzero'}, 'main': {'main'}}
+func_cfg: {'ack': ['m_zero', 'm_nonzero'], 'm_zero': [], 'm_nonzero': ['n_zero', 'n_nonzero'], 'n_zero': [], 'n_nonzero': [], 'main': []}
+cfg: {'ack': ['m_zero', 'm_nonzero'], 'm_zero': [], 'm_nonzero': ['n_zero', 'n_nonzero'], 'n_zero': [], 'n_nonzero': [], 'main': []}

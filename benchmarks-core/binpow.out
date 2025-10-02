@@ -1,1 +1,4 @@
-{'acc': ['acc'], 'else.0': ['else.0', 'zero'], 'else.1': ['else.0', 'else.1', 'zero'], 'then.0': ['then.0', 'zero'], 'then.1': ['else.0', 'then.1', 'zero'], 'two': ['two'], 'zero': ['zero']}
+predecessors {'main': [], 'is_even': [], 'bin_pow': [], 'then.0': ['bin_pow'], 'else.0': ['bin_pow'], 'then.1': ['else.0'], 'else.1': ['else.0']}
+dom: {'main': {'main'}, 'is_even': {'is_even'}, 'bin_pow': {'bin_pow'}, 'then.0': {'bin_pow', 'then.0'}, 'else.0': {'bin_pow', 'else.0'}, 'then.1': {'else.0', 'bin_pow', 'then.1'}, 'else.1': {'else.1', 'else.0', 'bin_pow'}}
+func_cfg: {'main': [], 'is_even': [], 'bin_pow': ['then.0', 'else.0'], 'then.0': [], 'else.0': ['then.1', 'else.1'], 'then.1': [], 'else.1': []}
+cfg: {'main': [], 'is_even': [], 'bin_pow': ['then.0', 'else.0'], 'then.0': [], 'else.0': ['then.1', 'else.1'], 'then.1': [], 'else.1': []}

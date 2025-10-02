@@ -1,1 +1,4 @@
-{'body': ['body', 'loop', 'one'], 'done': ['done', 'loop', 'one'], 'loop': ['loop', 'one'], 'one': ['one']}
+predecessors {'main': [], 'loop': ['main', 'body'], 'body': ['loop'], 'done': ['loop']}
+dom: {'main': {'main'}, 'loop': {'main', 'loop'}, 'body': {'main', 'body', 'loop'}, 'done': {'main', 'done', 'loop'}}
+func_cfg: {'main': ['loop'], 'loop': ['body', 'done'], 'body': ['loop'], 'done': []}
+cfg: {'main': ['loop'], 'loop': ['body', 'done'], 'body': ['loop'], 'done': []}

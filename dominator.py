@@ -10,52 +10,7 @@ from enum import Enum
 import json
 import sys
 from collections import deque
-
-class Table_Occ(Enum):
-     IN_TABLE = 1
-     NOT_IN_TABLE = 2
-     REPLACE = 3
-     PRINT_RET = 4
-     DONT_USE = 5
      
-
-commutative_instr = ["call", "add", "mul", "and", "or", "eq", "neq"]
-#Make var a sort of enum, make var a str, and make idx a num
-class LVN_Value:
-    def __init__(self, instr, vars): #Instr = string, var1 is the variable index, var2 is the var index
-        self.instr = instr 
-        if instr in commutative_instr:
-            sorted_vars = tuple(sorted(vars))
-            self.vars = sorted_vars
-        else:
-            self.vars = vars
-    #TODO: Watch out, subtraction needs the order kept, only for commutative properties, do some sort of checking for add, mul, etc, otherwise do nothing
-        
-    #TODO: Watch out, const values can be confused for actual vals
-    def __eq__(self, other):
-        if self.instr == other.instr:
-            for (i, var) in enumerate(self.vars):
-                for (j, var2) in enumerate(other.vars):
-                    if i == j:
-                        if type(var) is not type(var2) or var != var2:
-                            return False 
-            return True
-        else:
-            return False
-    def __str__(self):
-        return f"(Instr = {self.instr}, Value = ({self.vars}))"
-    __repr__ = __str__
-
-class LVN_Table:
-    def __init__(self, idx, value, var):
-        self.idx = idx
-        self.value = value
-        self.var = var 
-    def __str__(self):
-        return f"(Idx = {self.idx}, Value = {self.value}, Var = {self.var})"
-    __repr__ = __str__
-
-
 class Block:
 	def __init__(self, idx, instrs, is_func_header):
 		self.idx = idx
@@ -193,6 +148,17 @@ for block in blocks:
     if block.is_header:
         func_headers.append(block)
 
+def probe_next_func_cfg(block):
+    found = False
+    for (i,b) in enumerate(blocks):
+        if found: 
+            if b.idx != block and b.is_header == False:
+                return [b.idx]
+        if (b.idx) == block:
+            found = True
+    return []
+
+
 func_cfg = {}
 for b in blocks:
 	last = b.last() # last instr in block, doesn't work if blocks empty
@@ -210,13 +176,26 @@ for b in blocks:
 			elif "dest" not in last and "labels" not in last:
 				func_cfg[b.idx] = []
 			else:
-				func_cfg[b.idx] = []
+				func_cfg[b.idx] = probe_next_func_cfg(b.idx)
 		elif "dest" not in last and "labels" not in last:
 			func_cfg[b.idx] = []
 		else:
-			func_cfg[b.idx] = []
+			func_cfg[b.idx] = probe_next_func_cfg(b.idx)
 
 idx_to_func = {}
+func_idx = None
+func_to_idx = {}
+func_idx_list = []
+for (i,b) in enumerate(blocks):
+    if b.is_header:
+        func_to_idx[b.idx] = func_idx_list
+        func_idx_list = []
+    else:
+        func_idx_list.append(b.idx)
+# print(f"func_to_idx: {func_to_idx}")
+# for (idx, func_list) in func_to_idx.items():
+#     for block in func_list:
+#         print(idx)
 
 
 dom = {}
@@ -248,9 +227,10 @@ def build_preds(cfg): #TODO: check correctness on this? (not entirely sure)
                 preds[s].append(src)
             else:
                 preds[s] = [src]
+    print(f"predecessors {preds}")
     return preds
 
-preds = build_preds(cfg)
+preds = build_preds(func_cfg)
 
 while True:
     prev_dom = {}
@@ -265,9 +245,8 @@ while True:
     if dom == prev_dom:
         break
 print(f"dom: {dom}")
-print()
 sorted_dom = {k: sorted(list(v)) for k, v in sorted(dom.items())}
-print(sorted_dom)
+# print(sorted_dom)
 print(f"func_cfg: {func_cfg}")
 print(f"cfg: {cfg}")
 def traverse_cfg(cfg, func_header, paths):

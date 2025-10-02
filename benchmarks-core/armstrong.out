@@ -1,1 +1,4 @@
-{'body': ['body', 'loop', 'zero'], 'done': ['done', 'loop', 'zero'], 'else': ['else'], 'loop': ['loop', 'zero'], 'q': ['q'], 'ten': ['ten'], 'then': ['ten', 'then'], 'zero': ['zero']}
+predecessors {'main': [], 'loop': ['main', 'body', 'power'], 'body': ['loop'], 'done': ['loop'], 'getDigits': [], 'then': ['getDigits'], 'else': ['getDigits'], 'mod': [], 'power': []}
+dom: {'main': {'main'}, 'loop': {'loop'}, 'body': {'loop', 'body'}, 'done': {'done', 'loop'}, 'getDigits': {'getDigits'}, 'then': {'then', 'getDigits'}, 'else': {'else', 'getDigits'}, 'mod': {'mod'}, 'power': {'power'}}
+func_cfg: {'main': ['loop'], 'loop': ['done', 'body'], 'body': ['loop'], 'done': [], 'getDigits': ['then', 'else'], 'then': [], 'else': [], 'mod': [], 'power': ['loop']}
+cfg: {'main': ['loop'], 'loop': ['done', 'body'], 'body': ['loop'], 'done': [], 'getDigits': ['then', 'else'], 'then': [], 'else': [], 'mod': [], 'power': ['loop']}

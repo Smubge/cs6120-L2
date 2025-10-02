@@ -1,1 +1,4 @@
-{'catn': ['catn'], 'else': ['else', 'one'], 'if': ['if', 'one'], 'one': ['one'], 'while': ['else', 'one', 'while'], 'while.body': ['else', 'one', 'while', 'while.body'], 'while.end': ['else', 'one', 'while', 'while.end']}
+predecessors {'main': [], 'catalan': [], 'if': ['catalan'], 'else': ['catalan'], 'while': ['else', 'while.body'], 'while.body': ['while'], 'while.end': ['while']}
+dom: {'main': {'main'}, 'catalan': {'catalan'}, 'if': {'catalan', 'if'}, 'else': {'else', 'catalan'}, 'while': {'while', 'else', 'catalan'}, 'while.body': {'while', 'while.body', 'else', 'catalan'}, 'while.end': {'while.end', 'while', 'else', 'catalan'}}
+func_cfg: {'main': [], 'catalan': ['if', 'else'], 'if': [], 'else': ['while'], 'while': ['while.body', 'while.end'], 'while.body': ['while'], 'while.end': []}
+cfg: {'main': [], 'catalan': ['if', 'else'], 'if': [], 'else': ['while'], 'while': ['while.body', 'while.end'], 'while.body': ['while'], 'while.end': []}

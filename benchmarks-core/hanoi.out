@@ -1,1 +1,4 @@
-{'else': ['else', 'zero'], 'src': ['src'], 'then': ['then', 'zero'], 'zero': ['zero']}
+predecessors {'hanoi': [], 'then': ['hanoi'], 'else': ['hanoi'], 'main': []}
+dom: {'hanoi': {'hanoi'}, 'then': {'hanoi', 'then'}, 'else': {'hanoi', 'else'}, 'main': {'main'}}
+func_cfg: {'hanoi': ['then', 'else'], 'then': [], 'else': [], 'main': []}
+cfg: {'hanoi': ['then', 'else'], 'then': [], 'else': [], 'main': []}

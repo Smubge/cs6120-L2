@@ -1,1 +1,4 @@
-{'end': ['end', 'zero'], 'printBinary': ['printBinary'], 'rec': ['rec', 'zero'], 'v0': ['v0'], 'zero': ['zero']}
+predecessors {'main': [], 'printBinary': [], 'rec': ['printBinary'], 'end': ['printBinary'], 'mod': []}
+dom: {'main': {'main'}, 'printBinary': {'printBinary'}, 'rec': {'rec', 'printBinary'}, 'end': {'printBinary', 'end'}, 'mod': {'mod'}}
+func_cfg: {'main': [], 'printBinary': ['end', 'rec'], 'rec': [], 'end': [], 'mod': []}
+cfg: {'main': [], 'printBinary': ['end', 'rec'], 'rec': [], 'end': [], 'mod': []}

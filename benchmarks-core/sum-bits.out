@@ -1,1 +1,4 @@
-{'body': ['body', 'loop', 'sum'], 'done': ['done', 'loop', 'sum'], 'loop': ['loop', 'sum'], 'quotient': ['quotient'], 'sum': ['sum']}
+predecessors {'main': [], 'loop': ['main', 'body'], 'body': ['loop'], 'done': ['loop'], 'mod': []}
+dom: {'main': {'main'}, 'loop': {'loop', 'main'}, 'body': {'loop', 'main', 'body'}, 'done': {'loop', 'main', 'done'}, 'mod': {'mod'}}
+func_cfg: {'main': ['loop'], 'loop': ['done', 'body'], 'body': ['loop'], 'done': [], 'mod': []}
+cfg: {'main': ['loop'], 'loop': ['done', 'body'], 'body': ['loop'], 'done': [], 'mod': []}

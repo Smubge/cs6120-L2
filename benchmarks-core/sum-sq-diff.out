@@ -1,1 +1,4 @@
-{'for.body.1': ['for.body.1', 'for.cond.1', 'v0'], 'for.cond.1': ['for.cond.1', 'v0'], 'for.end.1': ['for.cond.1', 'for.end.1', 'v0'], 'v0': ['v0']}
+predecessors {'sumOfSquares': [], 'for.cond.1': ['sumOfSquares', 'for.body.1', 'squareOfSum'], 'for.body.1': ['for.cond.1'], 'for.end.1': ['for.cond.1'], 'squareOfSum': [], 'main': []}
+dom: {'sumOfSquares': {'sumOfSquares'}, 'for.cond.1': {'for.cond.1'}, 'for.body.1': {'for.body.1', 'for.cond.1'}, 'for.end.1': {'for.end.1', 'for.cond.1'}, 'squareOfSum': {'squareOfSum'}, 'main': {'main'}}
+func_cfg: {'sumOfSquares': ['for.cond.1'], 'for.cond.1': ['for.body.1', 'for.end.1'], 'for.body.1': ['for.cond.1'], 'for.end.1': [], 'squareOfSum': ['for.cond.1'], 'main': []}
+cfg: {'sumOfSquares': ['for.cond.1'], 'for.cond.1': ['for.body.1', 'for.end.1'], 'for.body.1': ['for.cond.1'], 'for.end.1': [], 'squareOfSum': ['for.cond.1'], 'main': [None]}

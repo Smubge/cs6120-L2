@@ -1,3 +1,4 @@
-{'else.0': ['else.0', 'v1', 'x'], 'then.0': ['then.0', 'v1', 'x'], 'v1': ['v1', 'x'], 'x': ['x']}
-Dominator x does not dominate v1
-Path: ['v1'], dominator not in prefix: []
+predecessors {'main': [], 'fact': [], 'then.0': ['main', 'fact'], 'else.0': ['fact']}
+dom: {'main': {'main'}, 'fact': {'fact'}, 'then.0': {'then.0'}, 'else.0': {'else.0', 'fact'}}
+func_cfg: {'main': ['then.0'], 'fact': ['then.0', 'else.0'], 'then.0': [], 'else.0': []}
+cfg: {'main': ['fact'], 'fact': ['then.0', 'else.0'], 'then.0': [], 'else.0': []}

@@ -1,1 +1,4 @@
-{'big': ['big', 'ten'], 'result': ['result'], 'small': ['small', 'ten'], 'ten': ['ten']}
+predecessors {'mccarthy91': [], 'big': ['mccarthy91'], 'small': ['mccarthy91'], 'main': []}
+dom: {'mccarthy91': {'mccarthy91'}, 'big': {'big', 'mccarthy91'}, 'small': {'small', 'mccarthy91'}, 'main': {'main'}}
+func_cfg: {'mccarthy91': ['big', 'small'], 'big': [], 'small': [], 'main': []}
+cfg: {'mccarthy91': ['big', 'small'], 'big': [], 'small': [], 'main': []}

@@ -1,1 +1,4 @@
-{'cond': ['cond', 'one', 'print'], 'end': ['cond', 'end', 'one', 'print'], 'even': ['cond', 'even', 'loop', 'one', 'print'], 'loop': ['cond', 'loop', 'one', 'print'], 'odd': ['cond', 'loop', 'odd', 'one', 'print'], 'one': ['one'], 'print': ['one', 'print']}
+predecessors {'main': [], 'cond': ['print'], 'loop': ['cond'], 'even': ['loop'], 'odd': ['loop'], 'print': ['main', 'even', 'odd'], 'end': ['cond']}
+dom: {'main': {'main'}, 'cond': {'print', 'main', 'cond'}, 'loop': {'print', 'main', 'cond', 'loop'}, 'even': {'loop', 'main', 'cond', 'even', 'print'}, 'odd': {'loop', 'odd', 'main', 'cond', 'print'}, 'print': {'main', 'print'}, 'end': {'main', 'end', 'cond', 'print'}}
+func_cfg: {'main': ['print'], 'cond': ['end', 'loop'], 'loop': ['even', 'odd'], 'even': ['print'], 'odd': ['print'], 'print': ['cond'], 'end': []}
+cfg: {'main': ['print'], 'cond': ['end', 'loop'], 'loop': ['even', 'odd'], 'even': ['print'], 'odd': ['print'], 'print': ['cond'], 'end': []}

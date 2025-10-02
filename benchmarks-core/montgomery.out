@@ -1,1 +1,4 @@
-{'else': ['else', 'tr'], 'q': ['q'], 'then': ['then', 'tr'], 'tr': ['tr']}
+predecessors {'main': [], 'then': ['main'], 'else': ['main'], 'mod': []}
+dom: {'main': {'main'}, 'then': {'main', 'then'}, 'else': {'main', 'else'}, 'mod': {'mod'}}
+func_cfg: {'main': ['then', 'else'], 'then': [], 'else': [], 'mod': []}
+cfg: {'main': ['then', 'else'], 'then': [], 'else': [], 'mod': []}

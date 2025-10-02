@@ -1,1 +1,4 @@
-{'for.body.2': ['for.body.2', 'for.cond.2', 'v0'], 'for.cond.2': ['for.cond.2', 'v0'], 'for.end.2': ['for.cond.2', 'for.end.2', 'v0'], 'v0': ['v0']}
+predecessors {'main': [], 'for.cond.2': ['main', 'for.body.2'], 'for.body.2': ['for.cond.2'], 'for.end.2': ['for.cond.2']}
+dom: {'main': {'main'}, 'for.cond.2': {'main', 'for.cond.2'}, 'for.body.2': {'main', 'for.body.2', 'for.cond.2'}, 'for.end.2': {'main', 'for.cond.2', 'for.end.2'}}
+func_cfg: {'main': ['for.cond.2'], 'for.cond.2': ['for.body.2', 'for.end.2'], 'for.body.2': ['for.cond.2'], 'for.end.2': []}
+cfg: {'main': ['for.cond.2'], 'for.cond.2': ['for.body.2', 'for.end.2'], 'for.body.2': ['for.cond.2'], 'for.end.2': [None]}

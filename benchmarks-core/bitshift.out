@@ -1,1 +1,4 @@
-{'else.0': ['else.0', 'v1'], 'else.12': ['else.0', 'else.12', 'v1'], 'endif.12': ['else.0', 'endif.12', 'v1'], 'then.0': ['then.0', 'v1'], 'then.12': ['else.0', 'then.12', 'v1'], 'v0': ['v0'], 'v1': ['v1'], 'v2': ['v2']}
+predecessors {'pow': [], 'then.0': ['pow'], 'else.0': ['pow'], 'then.12': ['else.0'], 'else.12': ['else.0'], 'endif.12': ['then.12', 'else.12'], 'mod': [], 'LEFTSHIFT': [], 'RIGHTSHIFT': [], 'main': []}
+dom: {'pow': {'pow'}, 'then.0': {'pow', 'then.0'}, 'else.0': {'pow', 'else.0'}, 'then.12': {'pow', 'else.0', 'then.12'}, 'else.12': {'pow', 'else.0', 'else.12'}, 'endif.12': {'pow', 'else.0', 'endif.12'}, 'mod': {'mod'}, 'LEFTSHIFT': {'LEFTSHIFT'}, 'RIGHTSHIFT': {'RIGHTSHIFT'}, 'main': {'main'}}
+func_cfg: {'pow': ['then.0', 'else.0'], 'then.0': [], 'else.0': ['then.12', 'else.12'], 'then.12': ['endif.12'], 'else.12': ['endif.12'], 'endif.12': [], 'mod': [], 'LEFTSHIFT': [], 'RIGHTSHIFT': [], 'main': []}
+cfg: {'pow': ['then.0', 'else.0'], 'then.0': [], 'else.0': ['then.12', 'else.12'], 'then.12': ['endif.12'], 'else.12': ['endif.12'], 'endif.12': [], 'mod': [], 'LEFTSHIFT': [], 'RIGHTSHIFT': [], 'main': []}

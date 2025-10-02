@@ -1,19 +1,4 @@
-{'else.0': ['else.0'], 'for.body.0': ['else.0', 'for.body.0', 'for.cond.0', 'for.end.0', 'then.0', 'v0', 'v1'], 'for.cond.0': ['else.0', 'for.body.0', 'for.cond.0', 'for.end.0', 'then.0', 'v0', 'v1'], 'for.end.0': ['else.0', 'for.body.0', 'for.cond.0', 'for.end.0', 'then.0', 'v0', 'v1'], 'then.0': ['then.0', 'v1'], 'v0': ['v0'], 'v1': ['v1']}
-No paths found to block for.cond.0
-No paths found to block for.cond.0
-No paths found to block for.cond.0
-No paths found to block for.cond.0
-No paths found to block for.cond.0
-No paths found to block for.cond.0
-No paths found to block for.body.0
-No paths found to block for.body.0
-No paths found to block for.body.0
-No paths found to block for.body.0
-No paths found to block for.body.0
-No paths found to block for.body.0
-No paths found to block for.end.0
-No paths found to block for.end.0
-No paths found to block for.end.0
-No paths found to block for.end.0
-No paths found to block for.end.0
-No paths found to block for.end.0
+predecessors {'permutation': [], 'then.0': ['permutation'], 'else.0': ['permutation'], 'factorial': [], 'for.cond.0': ['factorial', 'for.body.0'], 'for.body.0': ['for.cond.0'], 'for.end.0': ['for.cond.0'], 'main': []}
+dom: {'permutation': {'permutation'}, 'then.0': {'permutation', 'then.0'}, 'else.0': {'else.0', 'permutation'}, 'factorial': {'factorial'}, 'for.cond.0': {'factorial', 'for.cond.0'}, 'for.body.0': {'factorial', 'for.body.0', 'for.cond.0'}, 'for.end.0': {'factorial', 'for.end.0', 'for.cond.0'}, 'main': {'main'}}
+func_cfg: {'permutation': ['then.0', 'else.0'], 'then.0': [], 'else.0': [], 'factorial': ['for.cond.0'], 'for.cond.0': ['for.body.0', 'for.end.0'], 'for.body.0': ['for.cond.0'], 'for.end.0': [], 'main': []}
+cfg: {'permutation': ['then.0', 'else.0'], 'then.0': [], 'else.0': [], 'factorial': ['for.cond.0'], 'for.cond.0': ['for.body.0', 'for.end.0'], 'for.body.0': ['for.cond.0'], 'for.end.0': [], 'main': [None]}
