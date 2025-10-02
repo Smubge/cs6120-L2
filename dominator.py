@@ -66,7 +66,14 @@ def get_block_name(self,lbl):
     else:
         return lbl
 func_headers = []
+block_ref_count = {}
 is_func_header = False
+
+def name_in_blocks(name):
+    for b in blocks: 
+        if b.idx == name:
+            return True 
+    return False
 # creating basic blocks implementation
 for func in instrs["functions"]:
     if "instrs" in func:
@@ -74,7 +81,15 @@ for func in instrs["functions"]:
             if i == 0:
                 is_func_header = True
             if "label" in instr:
-                b0 = Block(get_block_name(block, ""), block, is_func_header)
+                name = get_block_name(block, "")
+                if name_in_blocks(name):
+                    if name in block_ref_count:
+                        block_ref_count[name] += 1
+                        name = name + "v" + str(block_ref_count[name])
+                    else:
+                        block_ref_count[name] = 1
+                        name = name + "v" + str(block_ref_count[name])
+                b0 = Block(name, block, is_func_header)
                 if is_func_header == True:
                     b0 = Block("f" + func["name"], block, is_func_header)
                 is_func_header = False 
@@ -84,7 +99,15 @@ for func in instrs["functions"]:
                 block.append(instr)
             elif "op" in instr:
                 if instr["op"] == "br" or instr["op"] == "jmp" or instr["op"] == "ret":
-                    b1 = Block(get_block_name(block, ""), block, is_func_header)
+                    name = get_block_name(block, "")
+                    if name_in_blocks(name):
+                        if name in block_ref_count:
+                            block_ref_count[name] += 1
+                            name = name + "v" + str(block_ref_count[name])
+                        else:
+                            block_ref_count[name] = 1
+                            name = name + "v" + str(block_ref_count[name])
+                    b1 = Block(name, block, is_func_header)
                     if is_func_header == True:
                         b1 = Block("f" + func["name"], block, is_func_header)
                     is_func_header = False
@@ -96,14 +119,22 @@ for func in instrs["functions"]:
                     selfIdx += 1
                     block.append(instr)
         if block:
-            b2 = Block(get_block_name(block, ""), block, is_func_header)
+            name = get_block_name(block, "")
+            if name_in_blocks(name):
+                if name in block_ref_count:
+                    block_ref_count[name] += 1
+                    name = name + "v" + str(block_ref_count[name])
+                else:
+                    block_ref_count[name] = 1
+                    name = name + "v" + str(block_ref_count[name])
+            b2 = Block(name, block, is_func_header)
             if is_func_header == True:
                 b2 = Block("f" + func["name"], block, is_func_header)
             is_func_header = False
             selfIdx += 1
             blocks.append(b2)
             block = []
-
+print("fmain" in blocks)
 # for (i, b) in enumerate(blocks): 
 #     print(f"block unedited {i} : {b}")
     
