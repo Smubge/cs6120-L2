@@ -10,34 +10,35 @@ from enum import Enum
 import json
 import sys
 from collections import deque
-     
+import copy 
+
 class Block:
-	def __init__(self, idx, instrs, is_func_header):
-		self.idx = idx
-		self.instrs = instrs
-		self.edges = []
-		self.is_header = is_func_header
+    def __init__(self, idx, instrs, is_func_header):
+        self.idx = idx
+        self.instrs = instrs
+        self.edges = []
+        self.is_header = is_func_header
 
-	def label(self):
-		if self.instrs and "labels" in self.instrs[0]:
-			return self.instrs[0]["labels"]
-		return None
-	
-	def last(self):
-		if self.instrs:
-			return self.instrs[-1]
-		return None
+    def label(self):
+        if self.instrs and "labels" in self.instrs[0]:
+            return self.instrs[0]["labels"]
+        return None
+    
+    def last(self):
+        if self.instrs:
+            return self.instrs[-1]
+        return None
 
-	def add_edge(self, target):
-		if target not in self.edges:
-			self.edges.append(target)
-	
-	def __str__(self):
-		return f"Block(idx={self.idx}, label={Block.label(self)}, edges = {self.edges} )"          
-	__repr__ = __str__
-with open(sys.argv[1], 'r') as file:
-	instrs = json.load(file)
-# instrs = json.load(sys.stdin)
+    def add_edge(self, target):
+        if target not in self.edges:
+            self.edges.append(target)
+    
+    def __str__(self):
+        return f"Block(idx={self.idx}, label={Block.label(self)}, edges = {self.edges} )"          
+    __repr__ = __str__
+# with open(sys.argv[1], 'r') as file:
+#     instrs = json.load(file)
+instrs = json.load(sys.stdin)
 
 blocks = []
 block = []
@@ -168,56 +169,56 @@ def name_check(name):
 cleanup_arr = []
 for (i, block) in enumerate(blocks):
     if block.idx != "":
-         cleanup_arr.append(block)
+        cleanup_arr.append(block)
 blocks = cleanup_arr
 
 def name_add():
     for name in name_list:
-         name_list[name] += 1
+        name_list[name] += 1
 
 def name_check_arr(arr):
+    out = []
     for elem in arr:
-        name_check(elem)
+        name = name_check(elem)
+        out.append(name)
+    return out
+before_cfg = copy.deepcopy(blocks)
+# print(f"Blocks before cfg {before_cfg}")
 # print(f"blocks: {blocks} \n")
 #If new func header, then ADD to all name_checks, if not, then DO NOTHING
 cfg = {}
 for b in blocks:
-	if b.is_header:
-		name_add()
-	last = b.last() # last instr in block, doesn't work if blocks empty
-	if last is not None:
-		# print(last)
-		if "op" in last:
-			if last["op"] == "jmp":
-				if "labels" in last:
-					# print("labels")
-					# print(last["labels"][0]) 
-					cfg[b.idx] = [name_check(last["labels"][0])]
-				else:
-					# print(last["dest"][0])
-					cfg[b.idx] = [name_check([last["dest"][0]])]
-			elif last["op"] == "br":
-				# print(last["labels"][0])
-				# print(last["labels"][1])
-				cfg[b.idx] = [name_check(last["labels"][0]), name_check(last["labels"][1])]    
-			elif last["op"] == "ret":
-				cfg[b.idx] = []
-			elif "dest" not in last and "labels" not in last:
-				cfg[b.idx] = []
-			else:
-				cfg[b.idx] = [name_check(probe_next(b.idx))]
-		elif "dest" not in last and "labels" not in last:
-			cfg[b.idx] = [name_check(probe_next(b.idx))]
-		else:
-			cfg[b.idx] = [name_check(probe_next(b.idx))]
-	else:
-		cfg[b.idx] = [name_check(probe_next(b.idx))]
+    if b.is_header:
+        name_add()
+    last = b.last() # last instr in block, doesn't work if blocks empty
+    if last is not None:
+        # print(last)
+        if "op" in last:
+            if last["op"] == "jmp":
+                if "labels" in last:
+                    # print("labels")
+                    # print(last["labels"][0]) 
+                    cfg[b.idx] = [name_check(last["labels"][0])]
+                else:
+                    # print(last["dest"][0])
+                    cfg[b.idx] = [name_check([last["dest"][0]])]
+            elif last["op"] == "br":
+                # print(last["labels"][0])
+                # print(last["labels"][1])
+                cfg[b.idx] = [name_check(last["labels"][0]), name_check(last["labels"][1])]    
+            elif last["op"] == "ret":
+                cfg[b.idx] = []
+            elif "dest" not in last and "labels" not in last:
+                cfg[b.idx] = []
+            else:
+                cfg[b.idx] = [name_check(probe_next(b.idx))]
+        elif "dest" not in last and "labels" not in last:
+            cfg[b.idx] = [name_check(probe_next(b.idx))]
+        else:
+            cfg[b.idx] = [name_check(probe_next(b.idx))]
+    else:
+        cfg[b.idx] = [name_check(probe_next(b.idx))]
 
-
-# for (i, b) in enumerate(blocks): #Cleaned up arr
-    # print(f"block edited {i} : {b}")
-
-# print(f"cfg: {cfg} \n")
 
 for block in blocks:
     if block.is_header:
@@ -225,39 +226,44 @@ for block in blocks:
 
 def probe_next_func_cfg(block):
     found = False
+    kept_index = 0
     for (i,b) in enumerate(blocks):
         if found: 
-            if b.idx != block and b.is_header == False:
+            if b.idx != block.idx and b.is_header == False and i == kept_index+1:
                 return [b.idx]
-        if (b.idx) == block:
+        if (b.idx) == block.idx:
+            kept_index = i
             found = True
     return []
 
-
+name_list = {}
 func_cfg = {}
 for b in blocks:
-	last = b.last() # last instr in block, doesn't work if blocks empty
-	if last is not None:
-		if "op" in last:
-			if last["op"] == "jmp":
-				if "labels" in last: 
-					func_cfg[b.idx] = last["labels"]
-				else:
-					func_cfg[b.idx] = [last["dest"]]
-			elif last["op"] == "br":
-				func_cfg[b.idx] = [last["labels"][0], last["labels"][1]]    
-			elif last["op"] == "ret":
-				func_cfg[b.idx] = []
-			elif "dest" not in last and "labels" not in last:
-				func_cfg[b.idx] = []
-			else:
-				func_cfg[b.idx] = probe_next_func_cfg(b.idx)
-		elif "dest" not in last and "labels" not in last:
-			func_cfg[b.idx] = probe_next_func_cfg(b.idx)
-		else:
-			func_cfg[b.idx] = probe_next_func_cfg(b.idx)
-	else:
-		func_cfg[b.idx] = probe_next_func_cfg(b.idx)
+    if b.is_header:
+        name_add()
+    last = b.last() # last instr in block, doesn't work if blocks empty
+    if last is not None:
+        if "op" in last:
+            if last["op"] == "jmp":
+                if "labels" in last: 
+                    func_cfg[b.idx] = name_check_arr(last["labels"])
+                else:
+                    func_cfg[b.idx] = name_check_arr([last["dest"]])
+            elif last["op"] == "br":
+                func_cfg[b.idx] = name_check_arr([last["labels"][0], last["labels"][1]])    
+            elif last["op"] == "ret":
+                func_cfg[b.idx] = []
+            elif "dest" not in last and "labels" not in last:
+                func_cfg[b.idx] = []
+            else:
+                func_cfg[b.idx] = name_check_arr(probe_next_func_cfg(b))
+        elif "dest" not in last and "labels" not in last:
+            func_cfg[b.idx] = name_check_arr(probe_next_func_cfg(b))
+        else:
+            func_cfg[b.idx] = name_check_arr(probe_next_func_cfg(b))
+    else:
+        func_cfg[b.idx] = name_check_arr(probe_next_func_cfg(b))
+
 idx_to_func = {}
 func_idx = None
 func_to_idx = {}
@@ -268,16 +274,11 @@ for (i,b) in enumerate(blocks):
         func_idx_list = []
     else:
         func_idx_list.append(b.idx)
-# print(f"func_to_idx: {func_to_idx}")
-# for (idx, func_list) in func_to_idx.items():
-#     for block in func_list:
-#         print(idx)
-
 
 dom = {}
 idx_set = []
 for b in blocks:
-     idx_set.append(b.idx)
+    idx_set.append(b.idx)
 idx_set = set(idx_set)
 
 for b in blocks:
@@ -294,7 +295,7 @@ def find_pred(b_idx, preds, dom):
     for p in preds[b_idx][1:]:
         result = result & dom[p]
     return result
-             
+            
 def build_preds(cfg): #TODO: check correctness on this? (not entirely sure)
     preds = {b: [] for b in cfg}
     for src, succs in cfg.items():
@@ -321,11 +322,11 @@ while True:
         dom[b.idx] = {b.idx}.union(find_pred(b.idx, preds, dom))
     if dom == prev_dom:
         break
-print(f"dom: {dom} \n")
+# print(f"dom: {dom} \n")
 sorted_dom = {k: sorted(list(v)) for k, v in sorted(dom.items())}
 # print(sorted_dom)
-print(f"func_cfg: {func_cfg} \n")
-print(f"cfg: {cfg} \n")
+# print(f"func_cfg: {func_cfg} \n")
+# print(f"cfg: {cfg} \n")
 def traverse_cfg(cfg, func_header, paths):
     """
     Return all paths from the source to every block in the cfg.
