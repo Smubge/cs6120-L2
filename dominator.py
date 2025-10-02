@@ -70,6 +70,8 @@ block_ref_count = {}
 is_func_header = False
 
 def name_in_blocks(name):
+    if name == "": 
+        return False
     for b in blocks: 
         if b.idx == name:
             return True 
@@ -134,7 +136,7 @@ for func in instrs["functions"]:
             selfIdx += 1
             blocks.append(b2)
             block = []
-print("fmain" in blocks)
+# print("fmain" in blocks)
 # for (i, b) in enumerate(blocks): 
 #     print(f"block unedited {i} : {b}")
     
@@ -148,42 +150,74 @@ def probe_next(block):
             found = True
 
 # building the control flow graph edge list!
-cfg = {}
-for b in blocks:
-	last = b.last() # last instr in block, doesn't work if blocks empty
-	if last is not None:
-		if "op" in last:
-			if last["op"] == "jmp":
-				if "labels" in last: 
-					cfg[b.idx] = last["labels"]
-				else:
-					cfg[b.idx] = [last["dest"]]
-			elif last["op"] == "br":
-				cfg[b.idx] = [last["labels"][0], last["labels"][1]]    
-			elif last["op"] == "ret":
-				cfg[b.idx] = []
-			elif "dest" not in last and "labels" not in last:
-				cfg[b.idx] = []
-			else:
-				cfg[b.idx] = [probe_next(b.idx)]
-		elif "dest" not in last and "labels" not in last:
-			cfg[b.idx] = [probe_next(b.idx)]
-		else:
-			cfg[b.idx] = [probe_next(b.idx)]
-	else:
-		cfg[b.idx] = [probe_next(b.idx)]
 
-print(f"cfg: {cfg} \n")
+
+name_list = {}
+def name_check(name):
+    if name == None:
+        # print("NONEEEEE")
+        return 
+    if name in name_list:
+        if name_list[name] != 0:
+            name = name + "v" + str(name_list[name])
+    else:
+        name_list[name] = 0
+        name = name
+    return name
+
 cleanup_arr = []
 for (i, block) in enumerate(blocks):
     if block.idx != "":
          cleanup_arr.append(block)
 blocks = cleanup_arr
 
+def name_add():
+    for name in name_list:
+         name_list[name] += 1
+
+def name_check_arr(arr):
+    for elem in arr:
+        name_check(elem)
+# print(f"blocks: {blocks} \n")
+#If new func header, then ADD to all name_checks, if not, then DO NOTHING
+cfg = {}
+for b in blocks:
+	if b.is_header:
+		name_add()
+	last = b.last() # last instr in block, doesn't work if blocks empty
+	if last is not None:
+		# print(last)
+		if "op" in last:
+			if last["op"] == "jmp":
+				if "labels" in last:
+					# print("labels")
+					# print(last["labels"][0]) 
+					cfg[b.idx] = [name_check(last["labels"][0])]
+				else:
+					# print(last["dest"][0])
+					cfg[b.idx] = [name_check([last["dest"][0]])]
+			elif last["op"] == "br":
+				# print(last["labels"][0])
+				# print(last["labels"][1])
+				cfg[b.idx] = [name_check(last["labels"][0]), name_check(last["labels"][1])]    
+			elif last["op"] == "ret":
+				cfg[b.idx] = []
+			elif "dest" not in last and "labels" not in last:
+				cfg[b.idx] = []
+			else:
+				cfg[b.idx] = [name_check(probe_next(b.idx))]
+		elif "dest" not in last and "labels" not in last:
+			cfg[b.idx] = [name_check(probe_next(b.idx))]
+		else:
+			cfg[b.idx] = [name_check(probe_next(b.idx))]
+	else:
+		cfg[b.idx] = [name_check(probe_next(b.idx))]
+
 
 # for (i, b) in enumerate(blocks): #Cleaned up arr
     # print(f"block edited {i} : {b}")
 
+# print(f"cfg: {cfg} \n")
 
 for block in blocks:
     if block.is_header:
@@ -264,8 +298,8 @@ def find_pred(b_idx, preds, dom):
 def build_preds(cfg): #TODO: check correctness on this? (not entirely sure)
     preds = {b: [] for b in cfg}
     for src, succs in cfg.items():
-        if (succs == "for.body"):
-             print("hi")
+        # if (succs == "for.body"):
+        #     #  print("hi")
         for s in succs:
             if s in preds:
                 preds[s].append(src)
@@ -274,7 +308,7 @@ def build_preds(cfg): #TODO: check correctness on this? (not entirely sure)
     return preds
 
 preds = build_preds(func_cfg)
-print(f"predecess: {preds} \n")
+# print(f"predecess: {preds} \n")
 while True:
     prev_dom = {}
     for k in dom:
