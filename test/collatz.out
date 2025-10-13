@@ -1,1 +1,0 @@
-{'one': ['print'], 'cond': ['end', 'loop'], 'loop': ['even', 'odd'], 'even': ['print'], 'odd': ['print'], 'print': ['cond'], 'end': []}

@@ -1,0 +1,15 @@
+benchmark,run,result
+double-pass,baseline,6
+double-pass,dce,4
+simple,baseline,5
+simple,dce,4
+diamond,baseline,6
+diamond,dce,6
+skipped,baseline,4
+skipped,dce,4
+double,baseline,6
+double,dce,4
+combo,baseline,6
+combo,dce,4
+reassign,baseline,3
+reassign,dce,2

@@ -1,0 +1,2 @@
+command = "bril2json < {filename} | python ../dce.py | bril2txt"
+output.out = "-"

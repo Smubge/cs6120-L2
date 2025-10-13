@@ -1,1 +1,0 @@
-{'zer': ['loopcheck'], 'loopcheck': ['loopbody', 'loopend'], 'loopbody': ['ifyes', 'ifno'], 'ifyes': ['loopcheck'], 'ifno': ['loopcheck'], 'loopend': []}

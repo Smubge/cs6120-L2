@@ -1,1 +1,0 @@
-{'i': ['neg', 'begin'], 'neg': ['begin'], 'begin': ['end', 'check'], 'check': ['body', 'begin'], 'body': ['begin', 'then'], 'then': ['begin'], 'end': []}
