@@ -1,0 +1,18 @@
+@main(cond: bool) {
+  jmp .entry;
+.entry:
+  a.1: int = const 47;
+  br cond .left .right;
+.left:
+  a.2: int = add a.1 a.1;
+  set a.0 a.2;
+  jmp .exit;
+.right:
+  a.3: int = mul a.1 a.1;
+  set a.0 a.3;
+  jmp .exit;
+.exit:
+  a.0: int = get;
+  print a.0;
+  ret;
+}

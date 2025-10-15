@@ -1,0 +1,7 @@
+[envs.out]
+command = "bril2json < {filename} | python ../in_ssa_set_get.py | bril2txt"
+output.out = "-"
+
+[envs.is_ssa]
+command = "bril2json < {filename} | python ../in_ssa_set_get.py | python ../is_ssa.py"
+output.is_ssa = "-"

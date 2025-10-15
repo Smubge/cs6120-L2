@@ -1,0 +1,20 @@
+@main {
+  jmp .entry;
+.entry:
+  one.0: int = const 1;
+  zero.0: int = const 0;
+  x.1: int = const 5;
+  set x.0 x.1;
+  jmp .loop;
+.loop:
+  x.0: int = get;
+  x.2: int = sub x.0 one.0;
+  done.0: bool = eq x.2 zero.0;
+  jmp .br;
+.br:
+  set x.0 x.2;
+  br done.0 .exit .loop;
+.exit:
+  print x.2;
+  ret;
+}
