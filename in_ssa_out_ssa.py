@@ -843,7 +843,7 @@ for func_name, func_blocks_list in func_blocks.items():
     
     output["functions"].append(func_obj)
 
-print(json.dumps(output, indent=2))
+# print(json.dumps(output, indent=2))
 
 def ssa_out(out):
     for func in out["functions"]:
